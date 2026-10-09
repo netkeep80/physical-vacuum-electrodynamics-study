@@ -1,0 +1,30 @@
+{
+  "schema": "repo-guard/projection-model/v0",
+  "id": "pve/sequential-audit-report",
+  "sources": [
+    {
+      "id": "research-model",
+      "kind": "repository_content",
+      "path": "audit/research-model.json",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "book-coverage",
+      "kind": "repository_content",
+      "path": "audit/book-coverage.json",
+      "algorithm": "sha256"
+    }
+  ],
+  "target": {
+    "path": "docs/generated/audit-report.pdf",
+    "ownership": "generated"
+  },
+  "generator": {
+    "contract_id": "pve/sequential-audit-pdf/v1"
+  },
+  "required_evidence": [
+    "deterministic-generator",
+    "repo-guard-projection",
+    "pdf-render-smoke"
+  ]
+}
