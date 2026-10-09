@@ -34,3 +34,37 @@ jobs:
         run: |
           echo "repo-guard result: ${{ steps.repo_guard.outputs.result }}" >> "$GITHUB_STEP_SUMMARY"
           echo "${{ steps.repo_guard.outputs.summary }}" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Check out exact repo-guard for advisory diagnostics
+        if: steps.repo_guard.outputs.result != 'passed'
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: netkeep80/repo-guard
+          ref: 5ff632264dcbf34994cdcaa186a19df6fd13f6c0
+          path: .repo-guard-tool
+          fetch-depth: 1
+
+      - name: Detailed advisory diagnostics
+        if: steps.repo_guard.outputs.result != 'passed'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm --prefix .repo-guard-tool install --omit=dev --silent
+          report="$(mktemp)"
+          set +e
+          node .repo-guard-tool/dist/repo-guard.mjs \
+            --repo-root "$GITHUB_WORKSPACE" \
+            --enforcement advisory \
+            check-pr --format json > "$report"
+          set -e
+          {
+            echo "### repo-guard advisory diagnostics"
+            echo
+            echo '~~~json'
+            jq '{result, violationCount, warnings, violations, advisoryWarnings, hints}' "$report"
+            echo '~~~'
+          } >> "$GITHUB_STEP_SUMMARY"
+          jq '{result, violationCount, warnings, violations, advisoryWarnings, hints}' "$report"
+          rm -f "$report"
