@@ -32,11 +32,14 @@
       "title": "Предисловие к книге «Непротиворечивая электродинамика»",
       "source_page": 17,
       "kind": "foreword",
-      "status": "IN_PROGRESS",
-      "disposition": "Claim inventory extracted from visually inspected pp. 17–21; source-fact provenance verified, scientific axes remain under audit.",
+      "status": "AUDITED",
+      "disposition": "Pages 17–21 visually inspected; 20 substantive claims registered. Every claim has exact source provenance and every applicable axis has an explicit disposition. Strong comparator/experimental findings are evidence-bound; unresolved derivations are retained as OPEN/GAP/CONDITIONAL debts with canonical downstream section dependencies.",
       "evidence": [
         "audit/research-model.json",
-        "PR #32 / Research integrity source-inspection run"
+        "docs/generated/verified-facts.md",
+        "issue #31",
+        "PR #32",
+        "PR #33"
       ]
     },
     {
