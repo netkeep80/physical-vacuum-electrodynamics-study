@@ -32,18 +32,19 @@ jobs:
           pdf = 'Николаев Г.В. – Электродинамика физического вакуума – 2004.pdf'
           doc = fitz.open(pdf)
           print(f'=== PDFINFO pages={doc.page_count} ===')
-          for p in range(15, 21):
+          for p in range(17, 22):
               page = doc[p - 1]
               text = page.get_text('text')
               print(f'=== PDF_PAGE_{p}_TEXT_BEGIN ===')
               print('\n'.join(text.splitlines()[:100]))
               print(f'=== PDF_PAGE_{p}_TEXT_END ===')
-          page = doc[16]
-          pix = page.get_pixmap(matrix=fitz.Matrix(1.4, 1.4), alpha=False)
-          png = pix.tobytes('png')
-          print('=== PDF_PAGE_17_PNG_BASE64_BEGIN ===')
-          print(base64.b64encode(png).decode('ascii'))
-          print('=== PDF_PAGE_17_PNG_BASE64_END ===')
+          for p in range(17, 22):
+              page = doc[p - 1]
+              pix = page.get_pixmap(matrix=fitz.Matrix(1.15, 1.15), alpha=False)
+              png = pix.tobytes('png')
+              print(f'=== PDF_PAGE_{p}_PNG_BASE64_BEGIN ===')
+              print(base64.b64encode(png).decode('ascii'))
+              print(f'=== PDF_PAGE_{p}_PNG_BASE64_END ===')
           PY
 
       - name: Check research state
