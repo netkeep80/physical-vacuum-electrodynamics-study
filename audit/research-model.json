@@ -1,0 +1,7 @@
+{
+  "schema": "pve-research-model/v1",
+  "source_manifest": "sources/nikolaev-2004/source.json",
+  "coverage_manifest": "audit/book-coverage.json",
+  "evidence": [],
+  "claims": []
+}

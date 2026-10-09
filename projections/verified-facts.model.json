@@ -1,0 +1,23 @@
+{
+  "schema": "repo-guard/projection-model/v0",
+  "id": "pve/verified-facts",
+  "sources": [
+    {
+      "id": "research-model",
+      "kind": "repository_content",
+      "path": "audit/research-model.json",
+      "algorithm": "sha256"
+    }
+  ],
+  "target": {
+    "path": "docs/generated/verified-facts.md",
+    "ownership": "generated"
+  },
+  "generator": {
+    "contract_id": "pve/verified-facts-renderer/v1"
+  },
+  "required_evidence": [
+    "deterministic-generator",
+    "repo-guard-projection"
+  ]
+}

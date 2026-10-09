@@ -12,12 +12,30 @@ permissions:
 
 jobs:
   audit-integrity:
-    name: audit coverage and claim status
+    name: audit state and verified-facts projection
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
         with:
           node-version: 20
+
       - name: Check research state
         run: node checks/audit-integrity.mjs
+
+      - name: Check generated verified-facts document
+        run: node scripts/generate-verified-facts.mjs --check
+
+      - name: Check out exact repo-guard projection API
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: netkeep80/repo-guard
+          ref: 38f8c681a9ac0a49a8c785b2dab5758d7ff79ad8
+          path: .repo-guard-tool
+          fetch-depth: 1
+
+      - name: Install exact repo-guard runtime dependencies
+        run: npm --prefix .repo-guard-tool install --omit=dev --silent
+
+      - name: Verify repo-guard ProjectionModel identities
+        run: node checks/verified-facts-projection.mjs --repo-guard-root .repo-guard-tool

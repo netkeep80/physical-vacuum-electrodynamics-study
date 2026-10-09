@@ -1,0 +1,31 @@
+{
+  "schema": "repo-guard/projection-build-record/v0",
+  "projection_id": "pve/verified-facts",
+  "model_identity": "e6f27c02f61532f5c5a156c2977ff65897fa65fd5ecea955c5da4923e2c6fafc",
+  "source_identities": [
+    {
+      "source_id": "research-model",
+      "algorithm": "sha256",
+      "digest": "d579c201e9ddab38b4a3eb0b1261d6c91cc9c999acba4d51995999c74a7909f5"
+    }
+  ],
+  "generator": {
+    "contract_id": "pve/verified-facts-renderer/v1",
+    "tool_identity": "scripts/generate-verified-facts.mjs@v1"
+  },
+  "configuration_digest": "0d13ca1cb70a264d18b7b3b54a940215c66c549a3397fe16e71180d5d43624cf",
+  "output_identity": {
+    "algorithm": "sha256",
+    "digest": "63254f4c49d3a34871160908f4f39914cfd2736b6304d63fddb10d92ce1aa5c2"
+  },
+  "evidence": [
+    {
+      "class": "deterministic-generator",
+      "ref": "scripts/generate-verified-facts.mjs"
+    },
+    {
+      "class": "repo-guard-projection",
+      "ref": "checks/verified-facts-projection.mjs"
+    }
+  ]
+}

@@ -1,35 +1,16 @@
-# Claim record format [PVE-STATE-001]
+# Research model format [PVE-STATE-001]
 
-This directory contains machine-readable records for substantive claims encountered during the sequential audit.
+Scientific claim state is stored canonically in [`audit/research-model.json`](../research-model.json).
 
-The format is intentionally small. It is **not** a physics DSL.
+This directory is retained as the historical location of the pre-audit `pve-claim/v1` sketch. No scientific claim JSON was accepted under that sketch, so the project moved to the single canonical `pve-research-model/v1` before page-17 auditing began.
 
-A claim JSON uses schema `pve-claim/v1` and contains:
+The canonical model contains:
 
-- stable `id`;
-- exact `source.page` and `source.locator`;
-- optional dependencies/references;
-- eight independent status axes:
-  - `source_fact`
-  - `math`
-  - `assumptions`
-  - `dimensional`
-  - `relation_to_comparator`
-  - `invariance`
-  - `conservation`
-  - `experiment`
+- `evidence[]` — stable `EVID-000001` style evidence objects with typed locators;
+- `claims[]` — stable `NIK-0001-C001` style claims;
+- exact `section_id`, `source.page` and `source.locator`;
+- eight independent status axes;
+- `finding` plus evidence IDs for every strong axis status;
+- explicit claim dependencies.
 
-Each axis is an object:
-
-```json
-{
-  "status": "OPEN",
-  "evidence": []
-}
-```
-
-Non-assertive states `OPEN`, `NOT_TESTED`, `GAP`, `NOT_APPLICABLE`, and `CONDITIONAL` may exist without positive evidence.
-
-Assertive states currently recognized by the structural checker — `VERIFIED`, `CONTRADICTED`, `SUPPORTED`, `REJECTED`, `EQUIVALENT`, `NOVEL`, `INCONSISTENT`, `SATISFIED`, `VIOLATED` — require at least one explicit evidence reference.
-
-This only proves structural traceability. It does not prove that cited evidence is scientifically sufficient. Human review and the relevant Lean/Julia/experimental artifacts remain the scientific layer.
+The generated publication is [`docs/generated/verified-facts.md`](../../docs/generated/verified-facts.md). It is not edited manually and is not an independent source of truth.

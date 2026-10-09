@@ -108,3 +108,23 @@ Candidate != accepted.
 Допустимые конкретные словари статусов уточняются после первых реальных audit cases; нельзя заранее кодировать лишнюю state machine.
 
 Сильное повышение статуса должно иметь воспроизводимое evidence на соответствующей оси.
+
+## Generated verified-facts projection [PVE-STATE-001]
+
+Канонический machine-readable слой научного состояния — `audit/research-model.json`.
+
+Он хранит:
+
+- устойчивый ID утверждения;
+- человекочитаемую формулировку;
+- точный `section_id`, страницу и locator источника;
+- независимые оси статуса;
+- для каждого сильного статуса — обязательный `finding`, формулирующий, **что именно установлено**;
+- ссылки на evidence через устойчивые `EVID-*` ID;
+- зависимости между утверждениями.
+
+Evidence является отдельным объектом модели. Для repository evidence фиксируются точный commit revision, path и URL; для внешнего evidence — HTTPS URL. При наличии побайтового артефакта дополнительно может фиксироваться SHA-256.
+
+`docs/generated/verified-facts.md` не является самостоятельной authority. Он генерируется детерминированно только из принятой модели и содержит все сильные результаты вместе со ссылками на свидетельства.
+
+Связь модели и Markdown контролируется через repo-guard `ProjectionModel` / `ProjectionBuildRecord`: фиксируются identity модели проекции, SHA-256 источника, contract генератора, configuration digest и SHA-256 generated output. Любое ручное изменение generated Markdown или рассинхронизация модели делает projection check красным.

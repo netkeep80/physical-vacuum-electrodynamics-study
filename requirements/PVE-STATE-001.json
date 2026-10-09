@@ -1,7 +1,7 @@
 {
   "id": "PVE-STATE-001",
   "title": "Evidence-bound multi-axis scientific status",
-  "summary": "No single global VERIFIED/REFUTED state is authoritative. Strong status promotion on an axis requires registered reproducible evidence for that axis; unresolved dependencies remain explicit.",
+  "summary": "No single global VERIFIED/REFUTED state is authoritative. Strong axis status requires an explicit finding plus registered reproducible evidence; accepted strong results are published only through a repo-guard-verified generated projection.",
   "artifacts": [
     {
       "path": "requirements/PVE-STATE-001.json",
@@ -14,6 +14,30 @@
     {
       "path": "docs/book-audit-plan.md",
       "role": "protocol"
+    },
+    {
+      "path": "audit/research-model.json",
+      "role": "model"
+    },
+    {
+      "path": "projections/verified-facts.model.json",
+      "role": "projection"
+    },
+    {
+      "path": "projections/verified-facts.build.json",
+      "role": "evidence"
+    },
+    {
+      "path": "docs/generated/verified-facts.md",
+      "role": "publication"
+    },
+    {
+      "path": "scripts/generate-verified-facts.mjs",
+      "role": "implementation"
+    },
+    {
+      "path": "checks/verified-facts-projection.mjs",
+      "role": "verification"
     }
   ]
 }
