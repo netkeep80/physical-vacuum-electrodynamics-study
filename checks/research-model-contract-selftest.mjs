@@ -46,15 +46,6 @@ const selfSectionDependency = await run((model) => {
 assert.notEqual(selfSectionDependency.status, 0);
 assert.match(selfSectionDependency.stderr, /self dependency is forbidden/);
 
-const auditedWithoutDisposition = await run((model) => {
-  const coverage = JSON.parse(coverageText);
-  const section = coverage.sections.find((item) => item.id === "NIK-0001");
-  section.status = "AUDITED";
-  section.disposition = "self-test";
-  section.evidence = ["audit/research-model.json"];
-  // The fixture writer below replaces the canonical coverage for this case.
-  model.__test_coverage = coverage;
-});
 // Run the AUDITED case in its own fixture because coverage is separate from the model.
 {
   const dir = await mkdtemp(path.join(tmpdir(), "pve-model-audited-"));
