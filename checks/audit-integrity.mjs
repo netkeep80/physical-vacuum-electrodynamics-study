@@ -146,13 +146,21 @@ const claimIds = new Set();
 const claims = model.claims ?? [];
 for (let i = 0; i < claims.length; i++) {
   const c = claims[i];
-  if (!exactKeys(c, ["id","section_id","kind","statement","source","dependencies","axes"], `claim[${i}]`)) continue;
+  if (!exactKeys(c, ["id","section_id","kind","statement","attribution","source","dependencies","axes"], `claim[${i}]`)) continue;
   if (!/^NIK-[0-9]{4}-C[0-9]{3}$/.test(c.id ?? "")) fail(`claim[${i}]: invalid id`);
   if (claimIds.has(c.id)) fail(`duplicate claim id ${c.id}`);
   claimIds.add(c.id);
   if (!sectionIds.has(c.section_id)) fail(`${c.id}: unknown section_id ${c.section_id}`);
   if (!CLAIM_KINDS.has(c.kind)) fail(`${c.id}: unknown claim kind ${c.kind}`);
   if (!nonEmptyString(c.statement)) fail(`${c.id}: statement required`);
+  if (!c.attribution || typeof c.attribution !== "object" || Array.isArray(c.attribution)) {
+    fail(`${c.id}: attribution object required`);
+  } else {
+    exactKeys(c.attribution, ["name","role","source_locator"], `${c.id}.attribution`);
+    if (!nonEmptyString(c.attribution.name)) fail(`${c.id}: attribution.name required`);
+    if (!nonEmptyString(c.attribution.role)) fail(`${c.id}: attribution.role required`);
+    if (!nonEmptyString(c.attribution.source_locator)) fail(`${c.id}: attribution.source_locator required`);
+  }
   if (!c.source || typeof c.source !== "object" || Array.isArray(c.source)) {
     fail(`${c.id}: source object required`);
   } else {

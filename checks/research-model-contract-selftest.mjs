@@ -29,6 +29,13 @@ async function run(mutator) {
   }
 }
 
+
+const missingAttribution = await run((model) => {
+  delete model.claims[0].attribution;
+});
+assert.notEqual(missingAttribution.status, 0);
+assert.match(missingAttribution.stderr, /attribution object required/);
+
 const sectionDependency = await run((model) => {
   model.claims[0].dependencies = ["NIK-0002"];
 });

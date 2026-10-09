@@ -1,22 +1,22 @@
 {
   "schema": "repo-guard/projection-build-record/v0",
   "projection_id": "pve/verified-facts",
-  "model_identity": "97c32e794cf14fad56b5491eddc9b5cf3c4ecfe1f00b4192b28549e6df913bca",
+  "model_identity": "7430b1dd178e87049662ccd4ee406504ed9d6102ea1abb3b51e309c1b6787b90",
   "source_identities": [
     {
       "source_id": "research-model",
       "algorithm": "sha256",
-      "digest": "d3a11a442c7ea7045ae54c65d33aa44fd3830dd70864a4f6299c55f7787ea593"
+      "digest": "c6c501f2d26d1aa5f234879b7a091ab8aa1d57e53134099c9ac5bcec5f343868"
     }
   ],
   "generator": {
-    "contract_id": "pve/verified-facts-renderer/v2",
-    "tool_identity": "scripts/generate-verified-facts.mjs@v2"
+    "contract_id": "pve/verified-facts-renderer/v3",
+    "tool_identity": "scripts/generate-verified-facts.mjs@v3"
   },
-  "configuration_digest": "e05bb855017278f0a7641cd3836ca7952c96130eaa31accb4eed2351f1ab6352",
+  "configuration_digest": "223b612df99d588db663665aafdee3238b8b2312acf806174edfff2a50556dad",
   "output_identity": {
     "algorithm": "sha256",
-    "digest": "da6ef1f5e742d98e0f9d02fcf7f1993db351349a88b380d84271f75d4dfa700a"
+    "digest": "f6e6f3cbfa5519439216ebbdcf6c6f7268c01e0e10a675a9f5e8f0201266423a"
   },
   "evidence": [
     {
