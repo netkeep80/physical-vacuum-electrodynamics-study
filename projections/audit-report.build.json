@@ -1,0 +1,40 @@
+{
+  "schema": "repo-guard/projection-build-record/v0",
+  "projection_id": "pve/sequential-audit-report",
+  "model_identity": "bf2966d0ff4be53a18599e865370d46d0c3c7d02cf7f4cdd74b278ec36de6dc7",
+  "source_identities": [
+    {
+      "source_id": "book-coverage",
+      "algorithm": "sha256",
+      "digest": "595d1fba9b236a6a08170a7da9faf6e7bc471178f39dac9e8c28741aa5f90b67"
+    },
+    {
+      "source_id": "research-model",
+      "algorithm": "sha256",
+      "digest": "6d1a3e90cc7b04a012a096e41246364eb29e50d499344a064d53e0bc8d47b5a1"
+    }
+  ],
+  "generator": {
+    "contract_id": "pve/sequential-audit-pdf/v1",
+    "tool_identity": "scripts/generate-audit-report.py@v1"
+  },
+  "configuration_digest": "3e4470aaf19f1280fcc262250f3056014560a8286dda9154a870bda912f0c7df",
+  "output_identity": {
+    "algorithm": "sha256",
+    "digest": "315dcbf36bf27e584c96b2cc6a716aa6cb8bf758285387379f9d94ca61a9d6be"
+  },
+  "evidence": [
+    {
+      "class": "deterministic-generator",
+      "ref": "scripts/generate-audit-report.py"
+    },
+    {
+      "class": "repo-guard-projection",
+      "ref": "checks/audit-report-projection.mjs"
+    },
+    {
+      "class": "pdf-render-smoke",
+      "ref": ".github/workflows/audit-report.yml"
+    }
+  ]
+}
