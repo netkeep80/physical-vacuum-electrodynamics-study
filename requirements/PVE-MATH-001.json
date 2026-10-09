@@ -1,7 +1,7 @@
 {
   "id": "PVE-MATH-001",
-  "title": "Reproducible mathematical verification",
-  "summary": "A strong mathematical status requires explicit assumptions, unit system, dimensional/type consistency, applicability conditions and reproducible derivation/proof evidence. Symbolic calculation and formal proof are distinguished.",
+  "title": "Theory-first reproducible mathematical verification",
+  "summary": "The primary audit asks whether the problem formulation, definitions, assumptions, inference chain, algebra/calculus, boundary and initial conditions, dimensions, approximations and numerical calculations are internally correct and reproducible. A theory is not mathematically wrong merely because it extends or differs from Maxwell–Lorentz.",
   "artifacts": [
     {
       "path": "requirements/PVE-MATH-001.json",

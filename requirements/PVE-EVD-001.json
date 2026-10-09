@@ -1,7 +1,7 @@
 {
   "id": "PVE-EVD-001",
   "title": "Discriminating experimental evidence",
-  "summary": "External empirical claims use primary sources when reasonably available. Compatibility alone does not favor Nikolaev over a comparator; support requires a quantitatively discriminating prediction and uncertainty-aware evidence.",
+  "summary": "Experiment is downstream of theory reconstruction. Before a decisive replication is designed, the relevant mathematical chain must be explicit and internally checked and must yield a quantitative prediction that can be compared with another model on the same setup with an uncertainty-aware discriminator.",
   "artifacts": [
     {
       "path": "requirements/PVE-EVD-001.json",
