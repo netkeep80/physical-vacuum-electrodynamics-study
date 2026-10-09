@@ -14,18 +14,6 @@
     {
       "path": "docs/book-audit-plan.md",
       "role": "protocol"
-    },
-    {
-      "path": "audit/claims/FORMAT.md",
-      "role": "protocol"
-    },
-    {
-      "path": "checks/audit-integrity.mjs",
-      "role": "verification"
-    },
-    {
-      "path": ".github/workflows/research-integrity.yml",
-      "role": "verification"
     }
   ]
 }
