@@ -86,4 +86,25 @@ mg_calc_lo, mg_calc_hi = mg_calculated - mg_calculated_error, mg_calculated + mg
 println("NIK0008_C012_OBS_INTERVAL=", (mg_obs_lo, mg_obs_hi))
 println("NIK0008_C012_CALC_INTERVAL=", (mg_calc_lo, mg_calc_hi))
 
+
+# C016: SU661656A1 uses sample motion relative to a fixed magnet.
+# This is a deliberately minimal 1D Lorentz/Hall kinematic witness,
+# NOT a quantitative derivation of any claimed Earth-specific anomaly.
+relative_hall_signal(gain, drift, sample_speed, magnet_speed) =
+    gain * (drift + sample_speed - magnet_speed)
+
+for (gain, drift, sample_speed, magnet_speed, shift) in (
+    (2.0, 0.3, 4.0, -1.0, 7.0),
+    (-3.0, -0.4, 0.2, 1.5, -11.0),
+    (0.75, 1e-5, -5e-4, 3e-4, 100.0),
+    (0.0, 2.0, -4.0, 3.0, 8.0),
+)
+    baseline = relative_hall_signal(gain, drift, sample_speed, magnet_speed)
+    shifted = relative_hall_signal(gain, drift, sample_speed + shift, magnet_speed + shift)
+    assert_close(shifted, baseline; rtol=1e-9)
+    assert_close(relative_hall_signal(gain, drift, magnet_speed - drift, magnet_speed), 0.0)
+    assert_close(gain * (-drift), -(gain * drift))
+end
+println("NIK0008_C016_HALL_RELATIVE_FRAME_WITNESS=PASS")
+
 println("NIK0008_JULIA_PASS")
