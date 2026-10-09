@@ -60,4 +60,30 @@ assert_close(m_total, (Q * omega / 3) * (a^2 - b^2))
 @assert capacitor_moment(Q, omega, a, a) == 0.0
 
 println("NIK0008_C014_CAPACITOR_MOMENT=", m_total)
+
+# C007: finite witness for non-unique model identification.
+function uniquely_identifies(predictions, target, observation)
+    matching = [model for (model, observations) in predictions if observation in observations]
+    length(matching) == 1 && only(matching) == target
+end
+
+sagnac_predictions = Dict(
+    :nikolaev_preferred_frame => Set([:sagnac_shift]),
+    :special_relativity => Set([:sagnac_shift]),
+)
+@assert !uniquely_identifies(sagnac_predictions, :nikolaev_preferred_frame, :sagnac_shift)
+println("NIK0008_C007_NONUNIQUE_LOGIC=PASS")
+
+# C012: published Michelson–Gale fringe values.
+mg_observed = 0.230
+mg_observed_error = 0.005
+mg_calculated = 0.236
+mg_calculated_error = 0.002
+mg_obs_lo, mg_obs_hi = mg_observed - mg_observed_error, mg_observed + mg_observed_error
+mg_calc_lo, mg_calc_hi = mg_calculated - mg_calculated_error, mg_calculated + mg_calculated_error
+@assert mg_obs_lo > 0
+@assert max(mg_obs_lo, mg_calc_lo) <= min(mg_obs_hi, mg_calc_hi)
+println("NIK0008_C012_OBS_INTERVAL=", (mg_obs_lo, mg_obs_hi))
+println("NIK0008_C012_CALC_INTERVAL=", (mg_calc_lo, mg_calc_hi))
+
 println("NIK0008_JULIA_PASS")

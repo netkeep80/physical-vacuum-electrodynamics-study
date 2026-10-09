@@ -78,4 +78,46 @@ theorem c014_zero_field_remains_zero
     T 0 = 0 := by
   exact map_zero T
 
+
+/--
+NIK-0008-C007: an observation cannot uniquely identify a target model if a
+different model predicts the same observation. This is a purely logical
+identifiability lemma; the physical premise that an alternative model predicts
+the Sagnac effect is supplied separately by literature evidence.
+-/
+def uniquelyIdentifies {Model Observation : Type}
+    (predicts : Model → Observation → Prop) (target : Model) (obs : Observation) : Prop :=
+  ∀ model, predicts model obs → model = target
+
+theorem c007_not_unique_if_alternative_predicts
+    {Model Observation : Type}
+    (predicts : Model → Observation → Prop)
+    (target alternative : Model)
+    (obs : Observation)
+    (hDifferent : alternative ≠ target)
+    (hAlternative : predicts alternative obs) :
+    ¬ uniquelyIdentifies predicts target obs := by
+  intro hUnique
+  exact hDifferent (hUnique alternative hAlternative)
+
+/--
+NIK-0008-C012: Michelson–Gale's published central shift 0.230 with ±0.005
+uncertainty is strictly nonzero.
+-/
+theorem c012_michelson_gale_observed_interval_nonzero :
+    (0 : ℝ) < (230 : ℝ) / 1000 - (5 : ℝ) / 1000 := by
+  norm_num
+
+/--
+The published observed interval 0.230±0.005 overlaps the calculated
+0.236±0.002 interval. This checks only the reported arithmetic, not the
+physical interpretation of the experiment.
+-/
+theorem c012_michelson_gale_intervals_overlap :
+    ((236 : ℝ) / 1000 - (2 : ℝ) / 1000 ≤
+      (230 : ℝ) / 1000 + (5 : ℝ) / 1000) ∧
+    ((230 : ℝ) / 1000 - (5 : ℝ) / 1000 ≤
+      (236 : ℝ) / 1000 + (2 : ℝ) / 1000) := by
+  norm_num
+
 end PVE.NIK0008
