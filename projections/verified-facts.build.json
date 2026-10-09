@@ -1,7 +1,7 @@
 {
   "schema": "repo-guard/projection-build-record/v0",
   "projection_id": "pve/verified-facts",
-  "model_identity": "e6f27c02f61532f5c5a156c2977ff65897fa65fd5ecea955c5da4923e2c6fafc",
+  "model_identity": "97c32e794cf14fad56b5491eddc9b5cf3c4ecfe1f00b4192b28549e6df913bca",
   "source_identities": [
     {
       "source_id": "research-model",
@@ -10,13 +10,13 @@
     }
   ],
   "generator": {
-    "contract_id": "pve/verified-facts-renderer/v1",
-    "tool_identity": "scripts/generate-verified-facts.mjs@v1"
+    "contract_id": "pve/verified-facts-renderer/v2",
+    "tool_identity": "scripts/generate-verified-facts.mjs@v2"
   },
-  "configuration_digest": "0d13ca1cb70a264d18b7b3b54a940215c66c549a3397fe16e71180d5d43624cf",
+  "configuration_digest": "e05bb855017278f0a7641cd3836ca7952c96130eaa31accb4eed2351f1ab6352",
   "output_identity": {
     "algorithm": "sha256",
-    "digest": "1f16a292f9ac51a501c4116f80033868c8d422208ee4e943ed0fb34529f57feb"
+    "digest": "afbbe3f3c4b56f6d90a07b4d18ea29e50d6239cf309e252da4ffb6dbb261e352"
   },
   "evidence": [
     {
