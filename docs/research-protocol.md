@@ -84,9 +84,9 @@ Candidate != accepted.
 
 Собственный эксперимент проектируется только после нахождения количественного discriminator:
 
-\[
+[
 \Delta O = O_N - O_C
-\]
+]
 
 который должен быть сопоставлен с реальной неопределённостью измерения.
 
@@ -108,12 +108,3 @@ Candidate != accepted.
 Допустимые конкретные словари статусов уточняются после первых реальных audit cases; нельзя заранее кодировать лишнюю state machine.
 
 Сильное повышение статуса должно иметь воспроизводимое evidence на соответствующей оси.
-
-
-## Executable research state [PVE-STATE-001]
-
-The canonical coverage state is `audit/book-coverage.json`. It mirrors the source table of contents and begins with every entry `NOT_STARTED`.
-
-Substantive claims are recorded under `audit/claims/*.json` using the deliberately small `pve-claim/v1` record. Strong/assertive status on any scientific axis requires at least one explicit evidence reference. The structural checker only enforces traceability; it does not decide whether the evidence is scientifically sufficient.
-
-`checks/audit-integrity.mjs` and the Research integrity workflow enforce these structural rules before acceptance.
