@@ -105,4 +105,30 @@ console.log("NIK0008_C007_NONUNIQUE_LOGIC=PASS");
 console.log("NIK0008_C012_OBS_INTERVAL=" + mgObsLo + "," + mgObsHi);
 console.log("NIK0008_C012_CALC_INTERVAL=" + mgCalcLo + "," + mgCalcHi);
 
+
+// C016: conditional 1D kinematic witness for patent SU661656A1.
+// It does NOT establish the physical validity of a privileged Earth frame.
+function relativeHallSignal(
+  gain: number, drift: number, sampleSpeed: number, magnetSpeed: number,
+): number {
+  return gain * (drift + sampleSpeed - magnetSpeed);
+}
+
+const hallCases = [
+  [2, 0.3, 4, -1, 7],
+  [-3, -0.4, 0.2, 1.5, -11],
+  [0.75, 1e-5, -5e-4, 3e-4, 100],
+  [0, 2, -4, 3, 8],
+] as const;
+
+for (const [gain, drift, sampleSpeed, magnetSpeed, shift] of hallCases) {
+  const before = relativeHallSignal(gain, drift, sampleSpeed, magnetSpeed);
+  const after = relativeHallSignal(gain, drift, sampleSpeed + shift, magnetSpeed + shift);
+  assertNear(after, before, "Hall same-reference-frame shift", 1e-9);
+  assertNear(relativeHallSignal(gain, drift, magnetSpeed - drift, magnetSpeed), 0,
+    "Hall relative-speed cancellation", 1e-9);
+  assertNear(gain * -drift, -(gain * drift), "Hall relative-speed reversal");
+}
+console.log("NIK0008_C016_HALL_RELATIVE_FRAME_WITNESS=PASS");
+
 console.log("NIK0008_TYPESCRIPT_PASS");
