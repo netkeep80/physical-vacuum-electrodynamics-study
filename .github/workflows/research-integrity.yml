@@ -24,19 +24,27 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          pdf='Николаев Г.В. – Электродинамика физического вакуума – 2004.pdf'
-          echo '=== PDFINFO ==='
-          pdfinfo "$pdf" | grep -E '^(Pages|Page size|File size):' || true
-          for p in 15 16 17 18 19 20; do
-            echo "=== PDF_PAGE_${p}_TEXT_BEGIN ==="
-            pdftotext -f "$p" -l "$p" -layout "$pdf" - | head -n 80
-            echo "=== PDF_PAGE_${p}_TEXT_END ==="
-          done
-          pdftoppm -f 17 -l 17 -singlefile -png -r 110 "$pdf" /tmp/nik-page-17 >/dev/null 2>&1
-          echo '=== PDF_PAGE_17_PNG_BASE64_BEGIN ==='
-          base64 -w0 /tmp/nik-page-17.png
-          echo
-          echo '=== PDF_PAGE_17_PNG_BASE64_END ==='
+          python -m pip install --quiet pymupdf
+          python - <<'PY'
+          import base64
+          import fitz
+
+          pdf = 'Николаев Г.В. – Электродинамика физического вакуума – 2004.pdf'
+          doc = fitz.open(pdf)
+          print(f'=== PDFINFO pages={doc.page_count} ===')
+          for p in range(15, 21):
+              page = doc[p - 1]
+              text = page.get_text('text')
+              print(f'=== PDF_PAGE_{p}_TEXT_BEGIN ===')
+              print('\n'.join(text.splitlines()[:100]))
+              print(f'=== PDF_PAGE_{p}_TEXT_END ===')
+          page = doc[16]
+          pix = page.get_pixmap(matrix=fitz.Matrix(1.4, 1.4), alpha=False)
+          png = pix.tobytes('png')
+          print('=== PDF_PAGE_17_PNG_BASE64_BEGIN ===')
+          print(base64.b64encode(png).decode('ascii'))
+          print('=== PDF_PAGE_17_PNG_BASE64_END ===')
+          PY
 
       - name: Check research state
         run: node checks/audit-integrity.mjs
