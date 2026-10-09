@@ -1,7 +1,7 @@
 {
   "id": "PVE-PHY-001",
   "title": "Separate mathematical validity from physical validity",
-  "summary": "Mathematical correctness, physical interpretation and relation to comparator theories are independent. Comparisons use the same setup/assumptions and conservation analysis includes all relevant matter and field contributions.",
+  "summary": "Mathematical validity, physical interpretation and relation to comparator theories are independent. Disagreement with Maxwell–Lorentz or another accepted comparator is not by itself a negative verdict; it identifies a divergence that must be traced to explicit assumptions, equations and predictions.",
   "artifacts": [
     {
       "path": "requirements/PVE-PHY-001.json",
