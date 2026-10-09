@@ -308,6 +308,57 @@
         "revision": "cd29ae5fd84fb6d542b2a5beb19a55d36cd58224",
         "url": "https://github.com/netkeep80/physical-vacuum-electrodynamics-study/blob/cd29ae5fd84fb6d542b2a5beb19a55d36cd58224/compute/ts/nik0008.ts"
       }
+    },
+    {
+      "id": "EVID-000032",
+      "kind": "literature",
+      "title": "Anandan, Phys. Rev. D 24, 338 (1981) — специальнорелятивистский вывод эффекта Саньяка",
+      "locator": {
+        "kind": "url",
+        "url": "https://doi.org/10.1103/PhysRevD.24.338"
+      }
+    },
+    {
+      "id": "EVID-000033",
+      "kind": "experiment",
+      "title": "Michelson & Gale, Astrophysical Journal 61, 140–145 (1925) — первичная статья; observed 0.230±0.005, calculated 0.236±0.002",
+      "locator": {
+        "kind": "url",
+        "url": "https://articles.adsabs.harvard.edu/pdf/1925ApJ....61..140M"
+      }
+    },
+    {
+      "id": "EVID-000034",
+      "kind": "formal_proof",
+      "title": "Lean 4 — NIK-0008 C007 identifiability and C012 Michelson–Gale interval checks",
+      "locator": {
+        "kind": "repository",
+        "path": "formal/PVE/NIK0008.lean",
+        "revision": "88c508256281233515416ed5796f1e78273e0679",
+        "url": "https://github.com/netkeep80/physical-vacuum-electrodynamics-study/blob/88c508256281233515416ed5796f1e78273e0679/formal/PVE/NIK0008.lean"
+      }
+    },
+    {
+      "id": "EVID-000035",
+      "kind": "computation",
+      "title": "Julia — NIK-0008 C007 finite non-uniqueness witness and C012 interval reproduction",
+      "locator": {
+        "kind": "repository",
+        "path": "compute/nik0008.jl",
+        "revision": "88c508256281233515416ed5796f1e78273e0679",
+        "url": "https://github.com/netkeep80/physical-vacuum-electrodynamics-study/blob/88c508256281233515416ed5796f1e78273e0679/compute/nik0008.jl"
+      }
+    },
+    {
+      "id": "EVID-000036",
+      "kind": "computation",
+      "title": "TypeScript — NIK-0008 C007 finite non-uniqueness witness and C012 interval regression",
+      "locator": {
+        "kind": "repository",
+        "path": "compute/ts/nik0008.ts",
+        "revision": "88c508256281233515416ed5796f1e78273e0679",
+        "url": "https://github.com/netkeep80/physical-vacuum-electrodynamics-study/blob/88c508256281233515416ed5796f1e78273e0679/compute/ts/nik0008.ts"
+      }
     }
   ],
   "claims": [
@@ -6512,14 +6563,20 @@
           ]
         },
         "math": {
-          "status": "NOT_APPLICABLE",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Формально доказано общее условие неидентифицируемости: если отличная альтернативная модель предсказывает то же наблюдение, одно наблюдение не может однозначно идентифицировать целевую модель. Применение к Саньяку зависит от внешней физической предпосылки существования альтернативного вывода эффекта.",
+          "evidence": [
+            "EVID-000032",
+            "EVID-000034"
+          ]
         },
         "assumptions": {
-          "status": "OPEN",
-          "finding": "Утверждение зарегистрировано на первом проходе; его предпосылки и внутренняя выводимость будут проверяться отдельно.",
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Слово «однозначное» требует исключения всех отличных моделей, предсказывающих тот же наблюдаемый эффект. Anandan даёт специальнорелятивистский вывод эффекта Саньяка, поэтому эта предпосылка уникальности не выполнена.",
+          "evidence": [
+            "EVID-000032",
+            "EVID-000034"
+          ]
         },
         "dimensional": {
           "status": "NOT_APPLICABLE",
@@ -6527,9 +6584,12 @@
           "evidence": []
         },
         "relation_to_comparator": {
-          "status": "NOT_APPLICABLE",
-          "finding": null,
-          "evidence": []
+          "status": "INCONSISTENT",
+          "finding": "Положительный эффект Саньяка не является уникальным discriminator земной преимущественной системы: существует специальнорелятивистский вывод того же эффекта. Поэтому именно вывод Николаева об «однозначном доказательстве» не следует из одного наблюдаемого эффекта; это не отрицает реальность самого эффекта Саньяка.",
+          "evidence": [
+            "EVID-000032",
+            "EVID-000034"
+          ]
         },
         "invariance": {
           "status": "NOT_APPLICABLE",
@@ -6542,26 +6602,34 @@
           "evidence": []
         },
         "experiment": {
-          "status": "NOT_TESTED",
-          "finding": "Первичный протокол/геометрия опыта Саньяка и логическая достаточность именно такой интерпретации на этом проходе ещё не проверены.",
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Наблюдаемый эффект Саньяка принимается как реальный, но текущая проверка не реконструирует первичный протокол Саньяка. Проверено более узкое утверждение: наличие эффекта само по себе не выбирает единственную интерпретацию.",
+          "evidence": [
+            "EVID-000032"
+          ]
         }
       },
       "verification": {
         "lean": {
-          "status": "N_A",
-          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
-          "evidence": []
+          "status": "PASS",
+          "finding": "На exact revision 88c50825… Lean доказал общую теорему: при наличии отличной альтернативной модели, предсказывающей то же наблюдение, наблюдение не uniquely identifies целевую модель.",
+          "evidence": [
+            "EVID-000034"
+          ]
         },
         "julia": {
-          "status": "N_A",
-          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
-          "evidence": []
+          "status": "PASS",
+          "finding": "На exact revision 88c50825… Julia воспроизвела finite-model witness: два различных model labels предсказывают один Sagnac observation, поэтому target не идентифицируется уникально.",
+          "evidence": [
+            "EVID-000035"
+          ]
         },
         "typescript": {
-          "status": "N_A",
-          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
-          "evidence": []
+          "status": "PASS",
+          "finding": "На exact revision 88c50825… TypeScript независимо воспроизвёл finite-model witness неуникальности.",
+          "evidence": [
+            "EVID-000036"
+          ]
         }
       }
     },
@@ -6922,14 +6990,22 @@
           ]
         },
         "math": {
-          "status": "NOT_APPLICABLE",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Для первичных чисел Michelson–Gale проверено: интервал 0.230±0.005 строго ненулевой и пересекается с расчётным 0.236±0.002. Это проверка опубликованной арифметики, а не доказательство конкретной физической интерпретации.",
+          "evidence": [
+            "EVID-000033",
+            "EVID-000034",
+            "EVID-000035",
+            "EVID-000036"
+          ]
         },
         "assumptions": {
-          "status": "OPEN",
-          "finding": "Утверждение зарегистрировано на первом проходе; его предпосылки и внутренняя выводимость будут проверяться отдельно.",
-          "evidence": []
+          "status": "GAP",
+          "finding": "Переход от положительного ненулевого fringe shift Michelson–Gale к выводу об «отсутствии суточного отставания света» не является прямым наблюдением эксперимента; сам Николаев сразу отмечает неоднозначность интерпретации. Необходимый discriminator между конкурирующими интерпретациями в §2 не задан.",
+          "evidence": [
+            "EVID-000028",
+            "EVID-000033"
+          ]
         },
         "dimensional": {
           "status": "NOT_APPLICABLE",
@@ -6937,9 +7013,11 @@
           "evidence": []
         },
         "relation_to_comparator": {
-          "status": "NOT_APPLICABLE",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Первичная статья сообщает ненулевой fringe shift 0.230±0.005, согласующийся с рассчитанным 0.236±0.002 для эффекта вращения Земли. Это совместимо с rotation/Sagnac description, но само по себе не разрешает предложенную Николаевым альтернативную интерпретацию.",
+          "evidence": [
+            "EVID-000033"
+          ]
         },
         "invariance": {
           "status": "NOT_APPLICABLE",
@@ -6952,26 +7030,35 @@
           "evidence": []
         },
         "experiment": {
-          "status": "NOT_TESTED",
-          "finding": "Точные методики, неопределённости и выводы работ [29–34] ещё не восстановлены; особенно требует проверки заявленная точность до сантиметров в секунду.",
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Первичный Michelson–Gale восстановлен частично: наблюдался ненулевой сдвиг 0.230±0.005 при расчётном 0.236±0.002. Поэтому это не null experiment. Заявления §2 о совокупности более поздних работ [30–34], особенно о точности до сантиметров в секунду, требуют отдельной поработной реконструкции и пока не принимаются как проверенный факт.",
+          "evidence": [
+            "EVID-000033",
+            "EVID-000028"
+          ]
         }
       },
       "verification": {
         "lean": {
-          "status": "N_A",
-          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
-          "evidence": []
+          "status": "PASS",
+          "finding": "На exact revision 88c50825… Lean доказал, что нижняя граница observed 0.230±0.005 положительна, а observed/calculated интервалы пересекаются.",
+          "evidence": [
+            "EVID-000034"
+          ]
         },
         "julia": {
-          "status": "N_A",
-          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
-          "evidence": []
+          "status": "PASS",
+          "finding": "На exact revision 88c50825… Julia воспроизвела observed/calculated интервалы и проверила их ненулевость/пересечение.",
+          "evidence": [
+            "EVID-000035"
+          ]
         },
         "typescript": {
-          "status": "N_A",
-          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
-          "evidence": []
+          "status": "PASS",
+          "finding": "На exact revision 88c50825… TypeScript независимо воспроизвёл ненулевой observed interval и его пересечение с calculated interval.",
+          "evidence": [
+            "EVID-000036"
+          ]
         }
       }
     },
