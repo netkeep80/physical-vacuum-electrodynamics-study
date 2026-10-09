@@ -75,11 +75,12 @@
       "source_page": 27,
       "kind": "foreword",
       "status": "IN_PROGRESS",
-      "disposition": "Exact rendered source span pp. 27–32 above the NIK-0004 heading visually inspected. Twenty-two substantive quotation/source claims are registered with per-claim historical attribution. Strong source_fact status proves only what this book quotes/attributes; original-quotation authenticity and physical comparator questions remain open for later waves.",
+      "disposition": "Exact quotation inventory accepted. Wave 2 externally checks Dirac 1951, moving-muon lifetime and Sagnac context: the Dirac quote is substantially authentic but miscited as Nature vol.166 instead of 168 and is not anti-relativistic in its primary context; CERN muon lifetime data support relativistic time dilation; Sagnac rotation effects are real but do not uniquely establish an ether wind. Remaining quotation-authenticity and comparator debts stay open.",
       "evidence": [
         "audit/research-model.json",
         "docs/generated/verified-facts.md",
-        "issue #49"
+        "issue #49",
+        "issue #51"
       ]
     },
     {
