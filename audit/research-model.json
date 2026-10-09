@@ -4931,11 +4931,11 @@
       "attribution": {
         "name": "Николаев Г. В.",
         "role": "book_author",
-        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+        "source_locator": "Часть I, гл. 1, §1, заголовок на стр. 81"
       },
       "source": {
         "page": 81,
-        "locator": "p.81, абз. 1"
+        "locator": "стр. 81, абз. 1"
       },
       "dependencies": [],
       "axes": {
@@ -5008,11 +5008,11 @@
       "attribution": {
         "name": "Николаев Г. В.",
         "role": "book_author",
-        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+        "source_locator": "Часть I, гл. 1, §1, заголовок на стр. 81"
       },
       "source": {
         "page": 81,
-        "locator": "p.81, середина–конец"
+        "locator": "стр. 81, середина–конец"
       },
       "dependencies": [],
       "axes": {
@@ -5085,11 +5085,11 @@
       "attribution": {
         "name": "Николаев Г. В.",
         "role": "book_author",
-        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+        "source_locator": "Часть I, гл. 1, §1, заголовок на стр. 81"
       },
       "source": {
         "page": 82,
-        "locator": "p.82, абз. 1"
+        "locator": "стр. 82, абз. 1"
       },
       "dependencies": [],
       "axes": {
@@ -5132,7 +5132,7 @@
         },
         "experiment": {
           "status": "NOT_TESTED",
-          "finding": "Конкретный набор экспериментов и их discriminating power в §1 не разобраны; проверка переносится на последующие разделы.",
+          "finding": "Конкретный набор экспериментов и их различающая способность в §1 не разобраны; проверка переносится на последующие разделы.",
           "evidence": []
         }
       },
@@ -5162,11 +5162,11 @@
       "attribution": {
         "name": "Николаев Г. В.",
         "role": "book_author",
-        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+        "source_locator": "Часть I, гл. 1, §1, заголовок на стр. 81"
       },
       "source": {
         "page": 82,
-        "locator": "p.82, абз. 2"
+        "locator": "стр. 82, абз. 2"
       },
       "dependencies": [],
       "axes": {
@@ -5239,13 +5239,15 @@
       "attribution": {
         "name": "Николаев Г. В.",
         "role": "book_author",
-        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+        "source_locator": "Часть I, гл. 1, §1, заголовок на стр. 81"
       },
       "source": {
         "page": 82,
-        "locator": "p.82, абз. 2"
+        "locator": "стр. 82, абз. 2"
       },
-      "dependencies": [],
+      "dependencies": [
+        "NIK-0007-C004"
+      ],
       "axes": {
         "source_fact": {
           "status": "VERIFIED",
@@ -5329,13 +5331,15 @@
       "attribution": {
         "name": "Николаев Г. В.",
         "role": "book_author",
-        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+        "source_locator": "Часть I, гл. 1, §1, заголовок на стр. 81"
       },
       "source": {
         "page": 82,
-        "locator": "p.82 bottom – p.83 top"
+        "locator": "стр. 82, нижняя часть – стр. 83, верхняя часть"
       },
-      "dependencies": [],
+      "dependencies": [
+        "NIK-0007-C005"
+      ],
       "axes": {
         "source_fact": {
           "status": "VERIFIED",
@@ -5406,11 +5410,11 @@
       "attribution": {
         "name": "Николаев Г. В.",
         "role": "book_author",
-        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+        "source_locator": "Часть I, гл. 1, §1, заголовок на стр. 81"
       },
       "source": {
         "page": 83,
-        "locator": "p.83, абз. 1"
+        "locator": "стр. 83, абз. 1"
       },
       "dependencies": [],
       "axes": {
@@ -5483,13 +5487,15 @@
       "attribution": {
         "name": "Николаев Г. В.",
         "role": "book_author",
-        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+        "source_locator": "Часть I, гл. 1, §1, заголовок на стр. 81"
       },
       "source": {
         "page": 83,
-        "locator": "p.83, середина"
+        "locator": "стр. 83, середина"
       },
-      "dependencies": [],
+      "dependencies": [
+        "NIK-0007-C007"
+      ],
       "axes": {
         "source_fact": {
           "status": "VERIFIED",
@@ -5560,13 +5566,17 @@
       "attribution": {
         "name": "Николаев Г. В.",
         "role": "book_author",
-        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+        "source_locator": "Часть I, гл. 1, §1, заголовок на стр. 81"
       },
       "source": {
         "page": 83,
-        "locator": "p.83, абз. 2"
+        "locator": "стр. 83, абз. 2"
       },
-      "dependencies": [],
+      "dependencies": [
+        "NIK-0007-C004",
+        "NIK-0007-C005",
+        "NIK-0007-C007"
+      ],
       "axes": {
         "source_fact": {
           "status": "VERIFIED",
@@ -5637,13 +5647,15 @@
       "attribution": {
         "name": "Николаев Г. В.",
         "role": "book_author",
-        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+        "source_locator": "Часть I, гл. 1, §1, заголовок на стр. 81"
       },
       "source": {
         "page": 83,
-        "locator": "p.83 bottom – p.84 top"
+        "locator": "стр. 83, нижняя часть – стр. 84, верхняя часть"
       },
-      "dependencies": [],
+      "dependencies": [
+        "NIK-0007-C009"
+      ],
       "axes": {
         "source_fact": {
           "status": "VERIFIED",
@@ -5718,11 +5730,11 @@
       "attribution": {
         "name": "Николаев Г. В.",
         "role": "book_author",
-        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+        "source_locator": "Часть I, гл. 1, §1, заголовок на стр. 81"
       },
       "source": {
         "page": 84,
-        "locator": "p.84, абз. 1"
+        "locator": "стр. 84, абз. 1"
       },
       "dependencies": [
         "NIK-0007-C010"
@@ -5803,13 +5815,14 @@
       "attribution": {
         "name": "Николаев Г. В.",
         "role": "book_author",
-        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+        "source_locator": "Часть I, гл. 1, §1, заголовок на стр. 81"
       },
       "source": {
         "page": 84,
-        "locator": "p.84, абз. 2–3 – p.85"
+        "locator": "стр. 84, абз. 2–3 – стр. 85"
       },
       "dependencies": [
+        "NIK-0007-C007",
         "NIK-0007-C008"
       ],
       "axes": {
@@ -5882,11 +5895,11 @@
       "attribution": {
         "name": "Николаев Г. В.",
         "role": "book_author",
-        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+        "source_locator": "Часть I, гл. 1, §1, заголовок на стр. 81"
       },
       "source": {
         "page": 85,
-        "locator": "p.85 bottom – p.86 before §2 heading"
+        "locator": "стр. 85, нижняя часть – стр. 86, до заголовка §2"
       },
       "dependencies": [
         "NIK-0007-C004",

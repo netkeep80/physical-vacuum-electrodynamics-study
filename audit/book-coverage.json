@@ -136,10 +136,13 @@
       "title": "Эволюция представлений об окружающем пространстве",
       "source_page": 81,
       "kind": "section",
-      "status": "IN_PROGRESS",
-      "disposition": "Exact rendered source span pp.81–86 before the §2 heading visually inspected. Thirteen theory-first claims registered. This first pass reconstructs Nikolaev's premises, analogies and inference obligations without treating divergence from comparator theories as an error. No internal mathematical defect is promoted strongly yet; unresolved derivation obligations remain OPEN/GAP.",
+      "status": "AUDITED",
+      "disposition": "§1 проверен как вводный раздел, формирующий предпосылки и исследовательскую программу, а не как завершённый математический аппарат. Явная алгебра E=m·c² проверена: преобразование при c≠0 корректно и размерностно согласовано, но физический смысл m в аргументе автора остаётся GAP. Акустическая аналогия корректно показывает, что перенос энергии/импульса сам по себе не доказывает отсутствие носителя; формальный Lean-контрпример одновременно показывает, что эта аналогия сама по себе не выводит существование электромагнитного носителя. Тезисы о свойствах «реального пространства», области применимости принципа относительности и итоговая материальная среда физического вакуума остаются явно отмеченными предпосылками/рабочим постулатом, которые последующие разделы должны математически конкретизировать. Исторические и экспериментальные тезисы, не проверенные в §1 по первичным источникам, сохранены как OPEN/NOT_TESTED. Доказанной внутренней алгебраической ошибки в §1 не обнаружено; недостающие логические мосты и семантические определения зафиксированы явно.",
       "evidence": [
         "audit/research-model.json",
+        "formal/PVE/NIK0007.lean",
+        "compute/nik0007.jl",
+        "compute/ts/nik0007.ts",
         "docs/generated/verified-facts.md",
         "issue #55"
       ]
