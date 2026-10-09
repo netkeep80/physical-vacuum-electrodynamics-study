@@ -263,6 +263,18 @@
         "revision": "b75254366db45f35b4b6f3c058218714592d6460",
         "url": "https://github.com/netkeep80/physical-vacuum-electrodynamics-study/blob/b75254366db45f35b4b6f3c058218714592d6460/compute/ts/nik0007.ts"
       }
+    },
+    {
+      "id": "EVID-000028",
+      "kind": "source",
+      "title": "Николаев Г. В. «Электродинамика физического вакуума» (2004), точный PDF репозитория; NIK-0008 визуально проверен на стр. 86–90 до заголовка §3",
+      "locator": {
+        "kind": "repository",
+        "path": "Николаев Г.В. – Электродинамика физического вакуума – 2004.pdf",
+        "revision": "40aa51518946a74e1c2eb397fb9435729f674e40",
+        "url": "https://github.com/netkeep80/physical-vacuum-electrodynamics-study/blob/40aa51518946a74e1c2eb397fb9435729f674e40/%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B5%D0%B2%20%D0%93.%D0%92.%20%E2%80%93%20%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D0%BA%D0%B0%20%D1%84%D0%B8%D0%B7%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B2%D0%B0%D0%BA%D1%83%D1%83%D0%BC%D0%B0%20%E2%80%93%202004.pdf"
+      },
+      "sha256": "370944dcc059f23e4a99a96326c44db93ee5d715c7798f9e2fccb76cca234749"
     }
   ],
   "claims": [
@@ -5967,6 +5979,1349 @@
         "typescript": {
           "status": "N_A",
           "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0008-C001",
+      "section_id": "NIK-0008",
+      "kind": "interpretation",
+      "statement": "Николаев утверждает, что многие спорные вопросы оптики и электродинамики остаются нерешёнными из-за игнорирования определяющей роли среды физического вакуума и взаимодействующих с ней массивных гравитирующих тел.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Часть I, гл. 1, §2, заголовок на стр. 86"
+      },
+      "source": {
+        "page": 86,
+        "locator": "стр. 86, §2, первый абзац"
+      },
+      "dependencies": [
+        "NIK-0007-C013"
+      ],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 86 §2 открывается именно этим причинным тезисом о среде физического вакуума и массивных гравитирующих телах.",
+          "evidence": [
+            "EVID-000028"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Утверждение зарегистрировано на первом проходе; его предпосылки и внутренняя выводимость будут проверяться отдельно.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0008-C002",
+      "section_id": "NIK-0008",
+      "kind": "interpretation",
+      "statement": "По Николаеву, большое число экспериментальных фактов в различных областях не получает удовлетворительного непротиворечивого объяснения, что привело к множеству альтернативных моделей материального реального пространства.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Часть I, гл. 1, §2, заголовок на стр. 86"
+      },
+      "source": {
+        "page": 86,
+        "locator": "стр. 86, конец – стр. 87, начало"
+      },
+      "dependencies": [
+        "NIK-0008-C001"
+      ],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На границе стр. 86–87 автор связывает заявленные противоречия с поиском материальных моделей реального пространства.",
+          "evidence": [
+            "EVID-000028"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Утверждение зарегистрировано на первом проходе; его предпосылки и внутренняя выводимость будут проверяться отдельно.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0008-C003",
+      "section_id": "NIK-0008",
+      "kind": "interpretation",
+      "statement": "Чисто механические дискретные модели мировой среды, в которых разные движения среды порождают физические поля, рассматриваются как повторение старых моделей механического эфира с сохраняющимися нерешёнными проблемами.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Часть I, гл. 1, §2, заголовок на стр. 86"
+      },
+      "source": {
+        "page": 87,
+        "locator": "стр. 87, верхняя половина"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 87 Николаев описывает механистические модели среды и прямо указывает, что они наследуют нерешённые проблемы механического эфира.",
+          "evidence": [
+            "EVID-000028"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Утверждение зарегистрировано на первом проходе; его предпосылки и внутренняя выводимость будут проверяться отдельно.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0008-C004",
+      "section_id": "NIK-0008",
+      "kind": "physical_claim",
+      "statement": "В качестве распространённой модели физического вакуума Николаев приводит среду из виртуальных электронно-позитронных пар и сообщает о моделях дискретной среды с размерами частиц от 10³⁰ до 10⁸⁰ см.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Часть I, гл. 1, §2, заголовок на стр. 86"
+      },
+      "source": {
+        "page": 87,
+        "locator": "стр. 87, середина"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 87 в печатном тексте действительно указаны положительные показатели степени: размеры частиц «от 10³⁰ до 10⁸⁰ см»; на первом проходе это фиксируется буквально, без исправления как предполагаемой опечатки.",
+          "evidence": [
+            "EVID-000028"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "GAP",
+          "finding": "Буквальная запись 10³⁰–10⁸⁰ см требует восстановления первичных ссылок/контекста: она может быть авторским утверждением либо типографской ошибкой. Самовольно заменять показатели на отрицательные нельзя.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Это источниковый численный диапазон без приведённого в §2 расчёта; сначала требуется восстановить, что именно цитируется и не является ли запись опечаткой.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Это источниковый численный диапазон без приведённого в §2 расчёта; сначала требуется восстановить, что именно цитируется и не является ли запись опечаткой.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Это источниковый численный диапазон без приведённого в §2 расчёта; сначала требуется восстановить, что именно цитируется и не является ли запись опечаткой.",
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0008-C005",
+      "section_id": "NIK-0008",
+      "kind": "physical_claim",
+      "statement": "Основным свойством среды физического вакуума Николаев объявляет роль преимущественной системы отсчёта для оптических и электродинамических явлений вблизи поверхности Земли и в околоземном пространстве.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Часть I, гл. 1, §2, заголовок на стр. 86"
+      },
+      "source": {
+        "page": 87,
+        "locator": "стр. 87, нижняя часть – стр. 88, начало"
+      },
+      "dependencies": [
+        "NIK-0007-C013"
+      ],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На границе стр. 87–88 автор прямо формулирует преимущественную систему отсчёта как основное свойство среды физического вакуума.",
+          "evidence": [
+            "EVID-000028"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Утверждение зарегистрировано на первом проходе; его предпосылки и внутренняя выводимость будут проверяться отдельно.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0008-C006",
+      "section_id": "NIK-0008",
+      "kind": "physical_claim",
+      "statement": "Преимущественность околоземной системы отсчёта Николаев связывает с воздействием массивного гравитирующего тела Земли на физический вакуум.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Часть I, гл. 1, §2, заголовок на стр. 86"
+      },
+      "source": {
+        "page": 88,
+        "locator": "стр. 88, абз. 1"
+      },
+      "dependencies": [
+        "NIK-0008-C005"
+      ],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 88 преимущественная система отсчёта причинно связывается с взаимодействием физического вакуума и Земли.",
+          "evidence": [
+            "EVID-000028"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Утверждение зарегистрировано на первом проходе; его предпосылки и внутренняя выводимость будут проверяться отдельно.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0008-C007",
+      "section_id": "NIK-0008",
+      "kind": "experimental_claim",
+      "statement": "Положительный результат опыта Саньяка трактуется Николаевым как однозначное доказательство того, что скорость света остаётся постоянной только относительно поверхности Земли независимо от покоя или вращения маломассивной платформы.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Часть I, гл. 1, §2, заголовок на стр. 86"
+      },
+      "source": {
+        "page": 88,
+        "locator": "стр. 88, абз. 1"
+      },
+      "dependencies": [
+        "NIK-0008-C005"
+      ],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 88 Николаев именно так интерпретирует опыт Саньяка.",
+          "evidence": [
+            "EVID-000028"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Утверждение зарегистрировано на первом проходе; его предпосылки и внутренняя выводимость будут проверяться отдельно.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": "Первичный протокол/геометрия опыта Саньяка и логическая достаточность именно такой интерпретации на этом проходе ещё не проверены.",
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0008-C008",
+      "section_id": "NIK-0008",
+      "kind": "physical_claim",
+      "statement": "Николаев предполагает, что оптические свойства околоземного физического вакуума определяются внутренними упругими электромагнитными свойствами среды и её взаимодействием с Землёй; среда вблизи поверхности Земли практически полностью увлекается Землёй.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Часть I, гл. 1, §2, заголовок на стр. 86"
+      },
+      "source": {
+        "page": 88,
+        "locator": "стр. 88, абз. 1"
+      },
+      "dependencies": [
+        "NIK-0008-C006",
+        "NIK-0008-C007"
+      ],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 88 автор связывает свойства света с внутренними свойствами среды и почти полным увлечением среды Землёй.",
+          "evidence": [
+            "EVID-000028"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Утверждение зарегистрировано на первом проходе; его предпосылки и внутренняя выводимость будут проверяться отдельно.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0008-C009",
+      "section_id": "NIK-0008",
+      "kind": "physical_claim",
+      "statement": "Массы Луны и Солнца, по Николаеву, создают в околоземном пространстве медленно меняющийся градиент скоростей среды; скорость света вблизи Земли почти постоянна относительно поверхности и медленно изменяется с высотой.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Часть I, гл. 1, §2, заголовок на стр. 86"
+      },
+      "source": {
+        "page": 88,
+        "locator": "стр. 88, середина"
+      },
+      "dependencies": [
+        "NIK-0008-C008"
+      ],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 88 сформулирован тезис о градиенте скоростей среды из-за Луны/Солнца и медленном изменении скорости света с высотой.",
+          "evidence": [
+            "EVID-000028"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Утверждение зарегистрировано на первом проходе; его предпосылки и внутренняя выводимость будут проверяться отдельно.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0008-C010",
+      "section_id": "NIK-0008",
+      "kind": "interpretation",
+      "statement": "Асимметрия скорости света между покоящейся и вращающейся относительно Земли системами отсчёта связывается Николаевым с практической работой оптических гироскопов.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Часть I, гл. 1, §2, заголовок на стр. 86"
+      },
+      "source": {
+        "page": 88,
+        "locator": "стр. 88, середина"
+      },
+      "dependencies": [
+        "NIK-0008-C007"
+      ],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 88 оптические гироскопы приведены как практическое применение заявленной асимметрии.",
+          "evidence": [
+            "EVID-000028"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Утверждение зарегистрировано на первом проходе; его предпосылки и внутренняя выводимость будут проверяться отдельно.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0008-C011",
+      "section_id": "NIK-0008",
+      "kind": "mathematical_claim",
+      "statement": "Николаев утверждает, что в любой вращающейся системе отсчёта расчёт в рамках ОТО даёт неодинаковый ход времени по и против вращения, эквивалентный полному отставанию света от вращения системы; применительно к вращению Земли это, по его рассуждению, должно давать отставание до 300 м/с на экваторе.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Часть I, гл. 1, §2, заголовок на стр. 86"
+      },
+      "source": {
+        "page": 88,
+        "locator": "стр. 88, нижняя часть – стр. 89, начало"
+      },
+      "dependencies": [
+        "NIK-0008-C007"
+      ],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На границе стр. 88–89 автор формулирует расчётный тезис об ОТО и численное следствие «до 300 м/с на экваторе».",
+          "evidence": [
+            "EVID-000028"
+          ]
+        },
+        "math": {
+          "status": "GAP",
+          "finding": "В §2 приведён итог «до 300 м/с», но сама формула и цепочка расчёта отсутствуют. Для математического статуса необходимо восстановить постановку вращающейся системы, метрику/преобразование и вычисление численного результата.",
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Утверждение зарегистрировано на первом проходе; его предпосылки и внутренняя выводимость будут проверяться отдельно.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "OPEN",
+          "finding": "Число 300 м/с имеет размерность скорости, но происхождение коэффициента и используемая скорость вращения в §2 не показаны.",
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "OPEN",
+          "finding": "Требуется формализовать и численно воспроизвести заявленное следствие «до 300 м/с» из точной постановки автора; текущего текста §2 для PASS недостаточно.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "OPEN",
+          "finding": "Требуется формализовать и численно воспроизвести заявленное следствие «до 300 м/с» из точной постановки автора; текущего текста §2 для PASS недостаточно.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "OPEN",
+          "finding": "Требуется формализовать и численно воспроизвести заявленное следствие «до 300 м/с» из точной постановки автора; текущего текста §2 для PASS недостаточно.",
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0008-C012",
+      "section_id": "NIK-0008",
+      "kind": "experimental_claim",
+      "statement": "Опыт Майкельсона–Гейла трактуется Николаевым как отсутствие суточного отставания света от вращения Земли; первоначальная интерпретация объявляется неоднозначной из-за широтного градиента скорости света, а более поздним опытам приписывается полное отсутствие отставания с точностью до метров и сантиметров в секунду.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Часть I, гл. 1, §2, заголовок на стр. 86"
+      },
+      "source": {
+        "page": 89,
+        "locator": "стр. 89, верхняя часть"
+      },
+      "dependencies": [
+        "NIK-0008-C011"
+      ],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 89 автор именно так описывает Майкельсона–Гейла и более поздние опыты [30–34].",
+          "evidence": [
+            "EVID-000028"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Утверждение зарегистрировано на первом проходе; его предпосылки и внутренняя выводимость будут проверяться отдельно.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": "Точные методики, неопределённости и выводы работ [29–34] ещё не восстановлены; особенно требует проверки заявленная точность до сантиметров в секунду.",
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0008-C013",
+      "section_id": "NIK-0008",
+      "kind": "mathematical_claim",
+      "statement": "Для электрических и магнитных явлений в покоящейся и вращающейся относительно Земли системах Николаев заявляет аналогичную асимметрию в приближении V/C.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Часть I, гл. 1, §2, заголовок на стр. 86"
+      },
+      "source": {
+        "page": 89,
+        "locator": "стр. 89, середина"
+      },
+      "dependencies": [
+        "NIK-0008-C005"
+      ],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 89 явно заявлена электромагнитная асимметрия «в приближении V/C».",
+          "evidence": [
+            "EVID-000028"
+          ]
+        },
+        "math": {
+          "status": "OPEN",
+          "finding": "В §2 не приведён вывод члена порядка V/C; требуется восстановить конкретную модель, переменные V и C, наблюдаемую величину и порядок отброшенных членов.",
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Утверждение зарегистрировано на первом проходе; его предпосылки и внутренняя выводимость будут проверяться отдельно.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "OPEN",
+          "finding": "Отношение V/C будет безразмерным, если обе величины являются скоростями в одной системе единиц; точные определения V и C и исходное разложение в §2 ещё не восстановлены.",
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "OPEN",
+          "finding": "Необходимо формализовать разложение/приближение порядка V/C и воспроизвести его в Julia и TypeScript после восстановления исходных уравнений.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "OPEN",
+          "finding": "Необходимо формализовать разложение/приближение порядка V/C и воспроизвести его в Julia и TypeScript после восстановления исходных уравнений.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "OPEN",
+          "finding": "Необходимо формализовать разложение/приближение порядка V/C и воспроизвести его в Julia и TypeScript после восстановления исходных уравнений.",
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0008-C014",
+      "section_id": "NIK-0008",
+      "kind": "physical_claim",
+      "statement": "В мысленном эксперименте с заряженным сферическим конденсатором Николаев утверждает: если снаружи E тождественно равно нулю, движение магнитного датчика снаружи не создаёт регистрируемого H; если же датчик покоится, а заряженный конденсатор вращается, регистрируется соленоидальное магнитное поле от конвекционных токов вращающихся сфер.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Часть I, гл. 1, §2, заголовок на стр. 86"
+      },
+      "source": {
+        "page": 89,
+        "locator": "стр. 89, середина"
+      },
+      "dependencies": [
+        "NIK-0008-C013"
+      ],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 89 приведён именно такой контраст движения прибора и вращения заряженного сферического конденсатора.",
+          "evidence": [
+            "EVID-000028"
+          ]
+        },
+        "math": {
+          "status": "OPEN",
+          "finding": "Это уже конкретная электродинамическая задача. Требуется явно задать распределение зарядов, геометрию, скорости, систему единиц, поля внутри/снаружи и проверить оба сценария из одних и тех же уравнений.",
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Утверждение зарегистрировано на первом проходе; его предпосылки и внутренняя выводимость будут проверяться отдельно.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "OPEN",
+          "finding": "Задача сферического конденсатора требует отдельной Lean-модели предпосылок/симметрий, Julia-расчёта поля и TypeScript численных тестов для обоих сценариев.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "OPEN",
+          "finding": "Задача сферического конденсатора требует отдельной Lean-модели предпосылок/симметрий, Julia-расчёта поля и TypeScript численных тестов для обоих сценариев.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "OPEN",
+          "finding": "Задача сферического конденсатора требует отдельной Lean-модели предпосылок/симметрий, Julia-расчёта поля и TypeScript численных тестов для обоих сценариев.",
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0008-C015",
+      "section_id": "NIK-0008",
+      "kind": "experimental_claim",
+      "statement": "На основе заявленной электромагнитной асимметрии Николаев сообщает о создании электродинамического аналога оптического гироскопа и авторском свидетельстве на устройство.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Часть I, гл. 1, §2, заголовок на стр. 86"
+      },
+      "source": {
+        "page": 89,
+        "locator": "стр. 89, нижняя половина"
+      },
+      "dependencies": [
+        "NIK-0008-C013",
+        "NIK-0008-C014"
+      ],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 89 автор сообщает об устройстве и авторском свидетельстве [39].",
+          "evidence": [
+            "EVID-000028"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Утверждение зарегистрировано на первом проходе; его предпосылки и внутренняя выводимость будут проверяться отдельно.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": "Содержание авторского свидетельства [39], схема устройства и экспериментальная характеристика пока не восстановлены.",
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0008-C016",
+      "section_id": "NIK-0008",
+      "kind": "experimental_claim",
+      "statement": "Николаев сообщает, что обнаружил отличие эффекта Холла в покоящихся и движущихся относительно Земли проводниках, использовал его в устройстве для определения параметров носителей тока и ссылается на аналогичные результаты А. И. Шелых.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Часть I, гл. 1, §2, заголовок на стр. 86"
+      },
+      "source": {
+        "page": 89,
+        "locator": "стр. 89, нижняя часть"
+      },
+      "dependencies": [
+        "NIK-0008-C013"
+      ],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 89 содержатся эти заявления об эффекте Холла, устройстве [40] и работе А. И. Шелых [41].",
+          "evidence": [
+            "EVID-000028"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Утверждение зарегистрировано на первом проходе; его предпосылки и внутренняя выводимость будут проверяться отдельно.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": "Постановки, исходные данные, величина эффекта, неопределённости и независимое воспроизведение работ [8], [40], [41] ещё не проверены.",
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи; оно требует источниковой/экспериментальной либо концептуальной проверки.",
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0008-C017",
+      "section_id": "NIK-0008",
+      "kind": "physical_claim",
+      "statement": "В итоговой картине §2 поле около заряда определяется движением самого заряда относительно Земли и среды физического вакуума, а не движением маломассивного наблюдателя: покоящийся относительно Земли заряд создаёт только электрическое поле, движущийся относительно Земли заряд — также магнитное поле; эта асимметрия распространяется автором и на другие физические явления.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Часть I, гл. 1, §2, заголовок на стр. 86"
+      },
+      "source": {
+        "page": 90,
+        "locator": "стр. 90, до заголовка §3"
+      },
+      "dependencies": [
+        "NIK-0008-C005",
+        "NIK-0008-C013",
+        "NIK-0008-C014"
+      ],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 90 до заголовка §3 Николаев формулирует именно эту итоговую асимметрию и расширяет её на другие явления.",
+          "evidence": [
+            "EVID-000028"
+          ]
+        },
+        "math": {
+          "status": "OPEN",
+          "finding": "Тезис требует единой математической постановки преобразования полей/источников для движения заряда, прибора и среды; в §2 такой полный вывод не приведён.",
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Утверждение зарегистрировано на первом проходе; его предпосылки и внутренняя выводимость будут проверяться отдельно.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "OPEN",
+          "finding": "Именно здесь возникает ключевое обязательство задать закон преобразования полей относительно предпочительной среды; без него утверждение остаётся программным.",
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "OPEN",
+          "finding": "После задания исходных уравнений требуется формально и численно сравнить случаи движения заряда и движения наблюдателя в одной согласованной модели.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "OPEN",
+          "finding": "После задания исходных уравнений требуется формально и численно сравнить случаи движения заряда и движения наблюдателя в одной согласованной модели.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "OPEN",
+          "finding": "После задания исходных уравнений требуется формально и численно сравнить случаи движения заряда и движения наблюдателя в одной согласованной модели.",
           "evidence": []
         }
       }
