@@ -1,0 +1,70 @@
+export {};
+
+// NIK-0008 mathematical wave 1.
+
+const EARTH_OMEGA = 7.2921159e-5;
+const EARTH_RADIUS = 6_378_137;
+const LIGHT_SPEED = 299_792_458;
+
+function surfaceSpeed(omega: number, radius: number): number {
+  return omega * radius;
+}
+function vcRatio(v: number, c: number): number {
+  if (c === 0) throw new Error("C must be nonzero");
+  return v / c;
+}
+function shellMoment(Q: number, omega: number, R: number): number {
+  return Q * omega * R * R / 3;
+}
+function capacitorMoment(Q: number, omega: number, a: number, b: number): number {
+  return shellMoment(Q, omega, a) + shellMoment(-Q, omega, b);
+}
+function assertNear(actual: number, expected: number, label: string, rtol = 1e-10, atol = 1e-12): void {
+  const err = Math.abs(actual - expected);
+  const lim = atol + rtol * Math.abs(expected);
+  if (!Number.isFinite(actual) || err > lim) {
+    throw new Error(`${label}: expected ${expected}, got ${actual}, err=${err}, lim=${lim}`);
+  }
+}
+
+// C011 fixture.
+const vEq = surfaceSpeed(EARTH_OMEGA, EARTH_RADIUS);
+if (!(vEq > 465 && vEq < 466)) throw new Error(`unexpected fixture Earth speed: ${vEq}`);
+if (!(Math.abs(vEq - 300) > 160)) throw new Error("300 m/s unexpectedly close to the literal fixture");
+
+// C013 V/C.
+const epsilon = vcRatio(vEq, LIGHT_SPEED);
+if (!(epsilon > 1.5e-6 && epsilon < 1.6e-6)) throw new Error(`unexpected V/C: ${epsilon}`);
+let zeroCRejected = false;
+try { vcRatio(1, 0); } catch { zeroCRejected = true; }
+if (!zeroCRejected) throw new Error("C=0 must be rejected");
+
+// C014 independent midpoint integration of the rotating shell magnetic moment.
+function shellMomentNumeric(Q: number, omega: number, R: number, nTheta = 20000): number {
+  const sigma = Q / (4 * Math.PI * R * R);
+  const dTheta = Math.PI / nTheta;
+  let total = 0;
+  for (let i = 0; i < nTheta; i += 1) {
+    const theta = (i + 0.5) * dTheta;
+    const integrand = sigma * omega * R * R * Math.sin(theta) ** 2;
+    const dAThetaIntegratedOverPhi = R * R * Math.sin(theta) * dTheta * 2 * Math.PI;
+    total += 0.5 * integrand * dAThetaIntegratedOverPhi;
+  }
+  return total;
+}
+
+for (const [Q, omega, R] of [[1,1,1],[3,4,2],[-2.5,0.7,1.3]] as const) {
+  assertNear(shellMomentNumeric(Q, omega, R), shellMoment(Q, omega, R), "shell moment quadrature", 2e-8);
+}
+
+const Q = 3, omega = 4, a = 1, b = 2;
+const totalMoment = capacitorMoment(Q, omega, a, b);
+assertNear(totalMoment, (Q * omega / 3) * (a * a - b * b), "capacitor moment");
+if (totalMoment === 0) throw new Error("nondegenerate rotating capacitor moment must be nonzero");
+if (capacitorMoment(Q, 0, a, b) !== 0) throw new Error("zero rotation must give zero moment");
+if (capacitorMoment(Q, omega, a, a) !== 0) throw new Error("equal radii must cancel the ideal shell moments");
+
+console.log("NIK0008_C011_FIXTURE_SPEED=" + vEq);
+console.log("NIK0008_C013_V_OVER_C=" + epsilon);
+console.log("NIK0008_C014_CAPACITOR_MOMENT=" + totalMoment);
+console.log("NIK0008_TYPESCRIPT_PASS");
