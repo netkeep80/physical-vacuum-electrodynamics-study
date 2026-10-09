@@ -1,0 +1,51 @@
+{
+  "id": "PVE-STATE-002",
+  "title": "Generated Russian sequential audit PDF",
+  "summary": "The primary human-readable scientific deliverable is a generated Russian PDF built directly from the accepted research model and book coverage, beginning at NIK-0007 / page 81 and preserving every core section, unresolved state, dependency and verification record in canonical source order.",
+  "artifacts": [
+    {
+      "path": "requirements/PVE-STATE-002.json",
+      "role": "requirement"
+    },
+    {
+      "path": "docs/research-protocol.md",
+      "role": "protocol"
+    },
+    {
+      "path": "docs/book-audit-plan.md",
+      "role": "protocol"
+    },
+    {
+      "path": "audit/research-model.json",
+      "role": "model"
+    },
+    {
+      "path": "audit/book-coverage.json",
+      "role": "model"
+    },
+    {
+      "path": "projections/audit-report.model.json",
+      "role": "projection"
+    },
+    {
+      "path": "projections/audit-report.build.json",
+      "role": "evidence"
+    },
+    {
+      "path": "docs/generated/audit-report.pdf",
+      "role": "publication"
+    },
+    {
+      "path": "scripts/generate-audit-report.py",
+      "role": "implementation"
+    },
+    {
+      "path": "checks/audit-report-projection.mjs",
+      "role": "verification"
+    },
+    {
+      "path": ".github/workflows/audit-report.yml",
+      "role": "verification"
+    }
+  ]
+}

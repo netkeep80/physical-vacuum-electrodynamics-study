@@ -23,3 +23,6 @@ Scientific status is multi-axis and cannot be promoted strongly without register
 
 ## Repository hygiene [PVE-HYG-001]
 Branches, pull requests and issues stay traceable and clean; ambiguous unique work is preserved rather than automatically deleted.
+
+## Русский последовательный PDF-отчёт [PVE-STATE-002]
+Основной человекочитаемый результат генерируется из канонической модели и coverage в виде русского PDF, начиная с NIK-0007 / стр. 81 и сохраняя все открытые, условные и отрицательные результаты.

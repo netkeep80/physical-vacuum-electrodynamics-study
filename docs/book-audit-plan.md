@@ -145,3 +145,16 @@ Deep-dive по (H_{\parallel}=-\operatorname{div}A) активируется т�
 Основной научный аудит считается завершённым, когда **каждый substantive section Parts I–IV** имеет coverage `AUDITED` и все вынесенные deep-dive dependencies имеют явный конечный или OPEN/GAP status.
 
 `FRONT` остаётся отдельным contextual track: его coverage сохраняется, но полная аудированность pp. 17–75 не является условием завершения core scientific audit.
+
+
+## Publication output [PVE-STATE-002]
+
+По мере прохождения core-маршрута accepted state публикуется в русском последовательном PDF:
+
+`docs/generated/audit-report.pdf`
+
+PDF обязан отражать каждый core-раздел в порядке книги и для уже начатых разделов показывать утверждения, предпосылки, математические статусы, зависимости, verification matrix Lean 4 / Julia / TypeScript и evidence.
+
+Наличие незакрытого `OPEN/GAP/CONDITIONAL` не скрывается из отчёта. Это часть результата исследования.
+
+Финальный PDF считается актуальным только при совпадении ProjectionModel / ProjectionBuildRecord с текущими `audit/research-model.json` и `audit/book-coverage.json`.
