@@ -58,7 +58,22 @@ assert.match(selfSectionDependency.stderr, /self dependency is forbidden/);
     section.disposition = "self-test";
     section.evidence = ["audit/research-model.json"];
     await writeFile(path.join(dir, "audit", "book-coverage.json"), JSON.stringify(coverage, null, 2) + "\n", "utf8");
-    await writeFile(path.join(dir, "audit", "research-model.json"), modelText, "utf8");
+    const model = JSON.parse(modelText);
+    const weakStatuses = new Set(["OPEN", "NOT_TESTED", "GAP", "CONDITIONAL"]);
+    let erased = false;
+    for (const claim of model.claims) {
+      if (claim.section_id !== "NIK-0001") continue;
+      for (const state of Object.values(claim.axes)) {
+        if (weakStatuses.has(state.status) && typeof state.finding === "string" && state.finding.trim()) {
+          state.finding = null;
+          erased = true;
+          break;
+        }
+      }
+      if (erased) break;
+    }
+    assert.equal(erased, true, "fixture must contain an explicit weak finding to erase");
+    await writeFile(path.join(dir, "audit", "research-model.json"), JSON.stringify(model, null, 2) + "\n", "utf8");
     await cp(checker, path.join(dir, "checks", "audit-integrity.mjs"));
     const result = spawnSync(process.execPath, ["checks/audit-integrity.mjs"], { cwd: dir, encoding: "utf8" });
     assert.notEqual(result.status, 0);
