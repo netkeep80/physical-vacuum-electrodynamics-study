@@ -32,7 +32,9 @@ const STRONG_STATUSES = new Set([
   "VIOLATED",
 ]);
 const ALL_AXIS_STATUSES = new Set([...WEAK_STATUSES, ...STRONG_STATUSES]);
-const AUDITED_EXPLICIT_STATUSES = new Set(["OPEN","NOT_TESTED","GAP","CONDITIONAL"]);\nconst VERIFICATION_TRACKS = ["lean","julia","typescript"];\nconst VERIFICATION_STATUSES = new Set(["OPEN","PASS","FAIL","N_A"]);
+const AUDITED_EXPLICIT_STATUSES = new Set(["OPEN","NOT_TESTED","GAP","CONDITIONAL"]);
+const VERIFICATION_TRACKS = ["lean","julia","typescript"];
+const VERIFICATION_STATUSES = new Set(["OPEN","PASS","FAIL","N_A"]);
 const CLAIM_KINDS = new Set([
   "definition",
   "historical_fact",
