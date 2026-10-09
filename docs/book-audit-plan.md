@@ -80,7 +80,7 @@
 - Chapter 4: заявленное обоснование его физической реальности;
 - Chapter 5: система уравнений двух типов магнитного поля.
 
-Deep-dive по (H_{\parallel}=-\operatorname{div}A) активируется только здесь.
+Deep-dive по \(H_{\parallel}=-\operatorname{div}A\) активируется только здесь.
 
 ## Stage 5 — Part III chapters 6–9, pp. 417–527 [PVE-AUD-001]
 
@@ -130,3 +130,12 @@ Deep-dive по (H_{\parallel}=-\operatorname{div}A) активируется т�
 ## Completion condition [PVE-STATE-001]
 
 Книга считается полностью аудированной только когда **каждый substantive section** имеет coverage `AUDITED` и все вынесенные deep-dive dependencies имеют явный конечный или OPEN/GAP status.
+
+
+## Machine-readable coverage [PVE-AUD-001]
+
+The exact traversal is represented in `audit/book-coverage.json`, derived from the book table of contents (source TOC pages 5–10). It contains 139 ordered entries, including conclusions and bibliography sections, all initially `NOT_STARTED`.
+
+The integrity checker requires unique stable IDs, canonical order, non-decreasing source-page metadata and valid coverage states. `AUDITED` additionally requires a non-empty disposition and evidence references.
+
+The manifest is navigation/coverage metadata. If a title or mathematical symbol is ambiguous in extracted text, the rendered source PDF remains authoritative.
