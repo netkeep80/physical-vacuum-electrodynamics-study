@@ -1,0 +1,35 @@
+{
+  "id": "PVE-HYG-001",
+  "title": "Branch, pull-request and issue hygiene",
+  "summary": "Side branches remain visible through PRs, merged branches are removed only under safe proofs, PRs stay traceable to issues, and issue topology remains structured. Ambiguous or unique work is preserved rather than auto-deleted.",
+  "artifacts": [
+    {
+      "path": "requirements/PVE-HYG-001.json",
+      "role": "requirement"
+    },
+    {
+      "path": "docs/repository-hygiene.md",
+      "role": "protocol"
+    },
+    {
+      "path": ".github/workflows/branch-hygiene.yml",
+      "role": "verification"
+    },
+    {
+      "path": ".github/workflows/collaboration-hygiene.yml",
+      "role": "verification"
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE.md",
+      "role": "template"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/task.yml",
+      "role": "template"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/config.yml",
+      "role": "template"
+    }
+  ]
+}

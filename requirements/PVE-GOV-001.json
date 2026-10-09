@@ -1,0 +1,27 @@
+{
+  "id": "PVE-GOV-001",
+  "title": "Accepted GitHub authority and bounded state transitions",
+  "summary": "Accepted GitHub main is project authority; candidate changes, chat and ANet memory do not override accepted requirements/evidence. Governance criteria cannot be silently relaxed by the candidate they judge.",
+  "artifacts": [
+    {
+      "path": "README.md",
+      "role": "publication"
+    },
+    {
+      "path": "docs/research-protocol.md",
+      "role": "protocol"
+    },
+    {
+      "path": "requirements/PVE-GOV-001.json",
+      "role": "requirement"
+    },
+    {
+      "path": "repo-policy.json",
+      "role": "policy"
+    },
+    {
+      "path": ".github/workflows/repo-guard.yml",
+      "role": "verification"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "PVE-STATE-001",
+  "title": "Evidence-bound multi-axis scientific status",
+  "summary": "No single global VERIFIED/REFUTED state is authoritative. Strong status promotion on an axis requires registered reproducible evidence for that axis; unresolved dependencies remain explicit.",
+  "artifacts": [
+    {
+      "path": "requirements/PVE-STATE-001.json",
+      "role": "requirement"
+    },
+    {
+      "path": "docs/research-protocol.md",
+      "role": "protocol"
+    },
+    {
+      "path": "docs/book-audit-plan.md",
+      "role": "protocol"
+    }
+  ]
+}

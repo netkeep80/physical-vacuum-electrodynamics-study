@@ -1,0 +1,15 @@
+{
+  "id": "PVE-MATH-001",
+  "title": "Reproducible mathematical verification",
+  "summary": "A strong mathematical status requires explicit assumptions, unit system, dimensional/type consistency, applicability conditions and reproducible derivation/proof evidence. Symbolic calculation and formal proof are distinguished.",
+  "artifacts": [
+    {
+      "path": "requirements/PVE-MATH-001.json",
+      "role": "requirement"
+    },
+    {
+      "path": "docs/research-protocol.md",
+      "role": "protocol"
+    }
+  ]
+}

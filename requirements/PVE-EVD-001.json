@@ -1,0 +1,15 @@
+{
+  "id": "PVE-EVD-001",
+  "title": "Discriminating experimental evidence",
+  "summary": "External empirical claims use primary sources when reasonably available. Compatibility alone does not favor Nikolaev over a comparator; support requires a quantitatively discriminating prediction and uncertainty-aware evidence.",
+  "artifacts": [
+    {
+      "path": "requirements/PVE-EVD-001.json",
+      "role": "requirement"
+    },
+    {
+      "path": "docs/research-protocol.md",
+      "role": "protocol"
+    }
+  ]
+}

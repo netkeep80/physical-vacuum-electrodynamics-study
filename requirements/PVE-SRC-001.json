@@ -1,0 +1,19 @@
+{
+  "id": "PVE-SRC-001",
+  "title": "Exact source provenance",
+  "summary": "Every substantive audited claim is bound to exact source provenance. Ambiguous OCR/transcription never overrides the rendered primary source. The original Nikolaev PDF is protected from PR mutation.",
+  "artifacts": [
+    {
+      "path": "requirements/PVE-SRC-001.json",
+      "role": "requirement"
+    },
+    {
+      "path": "docs/research-protocol.md",
+      "role": "protocol"
+    },
+    {
+      "path": "Николаев Г.В. – Электродинамика физического вакуума – 2004.pdf",
+      "role": "primary-source"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "PVE-PHY-001",
+  "title": "Separate mathematical validity from physical validity",
+  "summary": "Mathematical correctness, physical interpretation and relation to comparator theories are independent. Comparisons use the same setup/assumptions and conservation analysis includes all relevant matter and field contributions.",
+  "artifacts": [
+    {
+      "path": "requirements/PVE-PHY-001.json",
+      "role": "requirement"
+    },
+    {
+      "path": "docs/research-protocol.md",
+      "role": "protocol"
+    },
+    {
+      "path": "docs/book-audit-plan.md",
+      "role": "protocol"
+    }
+  ]
+}
