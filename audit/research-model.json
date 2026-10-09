@@ -179,6 +179,18 @@
         "kind": "url",
         "url": "https://ieeexplore.ieee.org/document/6592033/"
       }
+    },
+    {
+      "id": "EVID-000020",
+      "kind": "source",
+      "title": "Николаев Г. В. «Электродинамика физического вакуума» (2004), exact repository PDF; NIK-0003 visually inspected on pp. 27–32 above the NIK-0004 heading",
+      "locator": {
+        "kind": "repository",
+        "path": "Николаев Г.В. – Электродинамика физического вакуума – 2004.pdf",
+        "revision": "c95d01254dc8e2bbaeded63cecde47b4628a3bf8",
+        "url": "https://github.com/netkeep80/physical-vacuum-electrodynamics-study/blob/c95d01254dc8e2bbaeded63cecde47b4628a3bf8/%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B5%D0%B2%20%D0%93.%D0%92.%20%E2%80%93%20%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D0%BA%D0%B0%20%D1%84%D0%B8%D0%B7%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B2%D0%B0%D0%BA%D1%83%D1%83%D0%BC%D0%B0%20%E2%80%93%202004.pdf"
+      },
+      "sha256": "370944dcc059f23e4a99a96326c44db93ee5d715c7798f9e2fccb76cca234749"
     }
   ],
   "claims": [
@@ -2482,6 +2494,1326 @@
         "assumptions": {
           "status": "GAP",
           "finding": "В предисловии не приведены библиометрические данные или иной независимый критерий сравнения известности на Западе и в России.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0003-C001",
+      "section_id": "NIK-0003",
+      "kind": "interpretation",
+      "statement": "В разделе приводится приписанная П. Дираку позиция, что после пересмотра вопроса можно выдвинуть серьёзные аргументы в пользу постулирования эфира.",
+      "attribution": {
+        "name": "Дирак П.",
+        "role": "quoted_author",
+        "source_locator": "p.27, citation: Nature, vol.166, 1951"
+      },
+      "source": {
+        "page": 27,
+        "locator": "p.27, quote 1"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 27 книга действительно приводит эту цитату и атрибутирует её П. Дираку.",
+          "evidence": [
+            "EVID-000020"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0003-C002",
+      "section_id": "NIK-0003",
+      "kind": "physical_claim",
+      "statement": "В разделе Блохинцеву приписывается утверждение, что физическая «пустота» в действительности является некоторой средой, которую можно называть эфиром или вакуумом.",
+      "attribution": {
+        "name": "Блохинцев Д. И.",
+        "role": "quoted_author",
+        "source_locator": "p.27, citation to «Философские вопросы современной физики», 1952, p.393"
+      },
+      "source": {
+        "page": 27,
+        "locator": "p.27, quote 2"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 27 книга приводит это утверждение и атрибутирует его Д. И. Блохинцеву.",
+          "evidence": [
+            "EVID-000020"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0003-C003",
+      "section_id": "NIK-0003",
+      "kind": "interpretation",
+      "statement": "Юкаве и Гейзенбергу приписывается заявление 1956 года, что теория относительности Эйнштейна уже не объясняет всех проблем элементарных частиц и необходимо искать дальнейшие пути.",
+      "attribution": {
+        "name": "Юкава Х., Гейзенберг В.",
+        "role": "quoted_authors",
+        "source_locator": "p.27, citation: Geneva international conference, 1956"
+      },
+      "source": {
+        "page": 27,
+        "locator": "p.27, quote 3"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 27 книга приводит это заявление с атрибуцией Юкаве и Гейзенбергу.",
+          "evidence": [
+            "EVID-000020"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0003-C004",
+      "section_id": "NIK-0003",
+      "kind": "interpretation",
+      "statement": "Источник «Вопросы советской науки» цитируется с тезисом, что пороки тогдашней теории элементарных частиц глубоки и требуют фундаментально иной новой теории.",
+      "attribution": {
+        "name": "«Вопросы советской науки»",
+        "role": "quoted_source",
+        "source_locator": "p.27, citation: АН СССР, 1957, p.6"
+      },
+      "source": {
+        "page": 27,
+        "locator": "p.27, quote 4"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 27 книга приводит такой тезис со ссылкой на «Вопросы советской науки».",
+          "evidence": [
+            "EVID-000020"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0003-C005",
+      "section_id": "NIK-0003",
+      "kind": "interpretation",
+      "statement": "Л. Д. Ландау приписываются высказывания, что основы существующей теории нуждаются в решительном пересмотре и современная релятивистская квантовая механика существенно недостаточна.",
+      "attribution": {
+        "name": "Ландау Л. Д.",
+        "role": "quoted_author",
+        "source_locator": "p.27, citations: «Природа» 10/1958 and «Вопросы философии» 12/1959"
+      },
+      "source": {
+        "page": 27,
+        "locator": "p.27, quote 5"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 27 книга действительно приводит две такие фразы с атрибуцией Л. Д. Ландау.",
+          "evidence": [
+            "EVID-000020"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0003-C006",
+      "section_id": "NIK-0003",
+      "kind": "interpretation",
+      "statement": "А. К. Манееву приписывается тезис, что принципиальные трудности современной теоретической физики связаны с опорой на теорию относительности наряду с квантовой механикой.",
+      "attribution": {
+        "name": "Манеев А. К.",
+        "role": "quoted_author",
+        "source_locator": "p.27, citation: «К критике теории относительности», 1960"
+      },
+      "source": {
+        "page": 27,
+        "locator": "p.27, quote 6"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 27 книга приводит этот тезис и атрибутирует его А. К. Манееву.",
+          "evidence": [
+            "EVID-000020"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0003-C007",
+      "section_id": "NIK-0003",
+      "kind": "interpretation",
+      "statement": "Т. А. Лебедеву приписывается объяснение кризиса физики отказом от эфира, который якобы вынудил теорию уйти в чрезмерные математические абстракции и накопление нерешённых проблем.",
+      "attribution": {
+        "name": "Лебедев Т. А.",
+        "role": "quoted_author",
+        "source_locator": "p.28, citation: «О некоторых дискуссионных вопросах современной физики», 1956"
+      },
+      "source": {
+        "page": 28,
+        "locator": "p.28, quote 1"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 28 книга приводит это объяснение и атрибутирует его Т. А. Лебедеву.",
+          "evidence": [
+            "EVID-000020"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0003-C008",
+      "section_id": "NIK-0003",
+      "kind": "interpretation",
+      "statement": "И. В. Кузнецову приписывается утверждение, что эйнштейновская трактовка быстрых движений содержит серьёзные ошибки, мешает развитию теории и должна быть подвергнута глубокой критике.",
+      "attribution": {
+        "name": "Кузнецов И. В.",
+        "role": "quoted_author",
+        "source_locator": "p.28, citation: «Философские вопросы современной физики», 1952, p.46"
+      },
+      "source": {
+        "page": 28,
+        "locator": "p.28, quote 2"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 28 книга приводит этот анти-релятивистский тезис с атрибуцией И. В. Кузнецову.",
+          "evidence": [
+            "EVID-000020"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0003-C009",
+      "section_id": "NIK-0003",
+      "kind": "interpretation",
+      "statement": "Э. Кольману приписывается позиция, что теория относительности является научной, но ограниченной теорией и в будущем может стать предельным случаем более общей теории.",
+      "attribution": {
+        "name": "Кольман Э.",
+        "role": "quoted_author",
+        "source_locator": "p.28, citation: «Ленин и новейшая физика», 1961, p.55"
+      },
+      "source": {
+        "page": 28,
+        "locator": "p.28, quote 3"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 28 книга приводит эту позицию и атрибутирует её Э. Кольману.",
+          "evidence": [
+            "EVID-000020"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0003-C010",
+      "section_id": "NIK-0003",
+      "kind": "interpretation",
+      "statement": "Дж. Берналу приписывается призыв к радикальному пересмотру логической и философской базы теории относительности и квантовой теории, а не к их частичному приспособлению.",
+      "attribution": {
+        "name": "Бернал Дж.",
+        "role": "quoted_author",
+        "source_locator": "pp.28–29, citation: «Наука в истории общества», 1956"
+      },
+      "source": {
+        "page": 28,
+        "locator": "p.28 bottom – p.29 top, quote"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 28–29 книга приводит этот призыв и атрибутирует его Дж. Берналу.",
+          "evidence": [
+            "EVID-000020"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0003-C011",
+      "section_id": "NIK-0003",
+      "kind": "physical_claim",
+      "statement": "Кузнецову и Терлецкому приписывается альтернативное объяснение увеличения времени жизни движущегося мезона через изменение физических условий и связей движущегося мезона, а не через эйнштейновскую координатную интерпретацию.",
+      "attribution": {
+        "name": "Кузнецов И. В., Терлецкий Я. П.",
+        "role": "quoted_authors",
+        "source_locator": "p.29, citation: «Философские вопросы современной физики», 1952, p.71"
+      },
+      "source": {
+        "page": 29,
+        "locator": "p.29, quote 1"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 29 книга приводит именно такую альтернативную интерпретацию времени распада мезона.",
+          "evidence": [
+            "EVID-000020"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0003-C012",
+      "section_id": "NIK-0003",
+      "kind": "experimental_claim",
+      "statement": "С. И. Вавилову приписывается оценка, что опыт Саньяка мог бы выглядеть сильным доказательством эфира, но сам по себе не решает вопрос об увлечении эфира Землёй и требует дополнительного опыта первого порядка.",
+      "attribution": {
+        "name": "Вавилов С. И.",
+        "role": "quoted_author",
+        "source_locator": "p.29, citation: Собрание сочинений, vol.IV, 1954, p.60"
+      },
+      "source": {
+        "page": 29,
+        "locator": "p.29, quote 2"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 29 книга приводит эту оценку опыта Саньяка с атрибуцией С. И. Вавилову.",
+          "evidence": [
+            "EVID-000020"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0003-C013",
+      "section_id": "NIK-0003",
+      "kind": "experimental_claim",
+      "statement": "С. И. Вавилову приписывается описание другого оптического опыта как положительного эффекта, с высокой точностью подтверждающего предположение о неувлекаемом эфире, отстающем при суточном вращении Земли.",
+      "attribution": {
+        "name": "Вавилов С. И.",
+        "role": "quoted_author",
+        "source_locator": "p.29, citation: Собрание сочинений, vol.IV, 1954, p.60"
+      },
+      "source": {
+        "page": 29,
+        "locator": "p.29, quote 3"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 29 книга приводит это утверждение о положительном оптическом эффекте с атрибуцией С. И. Вавилову.",
+          "evidence": [
+            "EVID-000020"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0003-C014",
+      "section_id": "NIK-0003",
+      "kind": "experimental_claim",
+      "statement": "Вавилову приписывается тезис, что существование мировой среды уже доказано, а опыты Саньяка, Погани и Майкельсона–Геля, указывающие на «эфирный ветер», были недооценены; экспериментальные основания относительности следует излагать без предвзятости к гипотезе эфира.",
+      "attribution": {
+        "name": "Вавилов С. И.",
+        "role": "quoted_author",
+        "source_locator": "pp.29–30, citation: Собрание сочинений, vol.IV, 1954, p.60"
+      },
+      "source": {
+        "page": 29,
+        "locator": "p.29 bottom – p.30 upper half, extended quote"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 29–30 книга приводит этот расширенный фрагмент и завершает его ссылкой на С. И. Вавилова.",
+          "evidence": [
+            "EVID-000020"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0003-C015",
+      "section_id": "NIK-0003",
+      "kind": "experimental_claim",
+      "statement": "Т. А. Лебедеву приписывается утверждение, что опыт Лэмба установил объективную реальность мировой среды, из-за чего опыты Майкельсона–Морли потеряли определяющее значение и оставили загадку ненаблюдаемого «эфирного ветра».",
+      "attribution": {
+        "name": "Лебедев Т. А.",
+        "role": "quoted_author",
+        "source_locator": "p.30, citation via A. Maneev, 1960"
+      },
+      "source": {
+        "page": 30,
+        "locator": "p.30, quote 2"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 30 книга приводит этот тезис и атрибутирует его Т. А. Лебедеву.",
+          "evidence": [
+            "EVID-000020"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0003-C016",
+      "section_id": "NIK-0003",
+      "kind": "interpretation",
+      "statement": "Т. А. Лебедеву приписывается призыв восстановить мировую среду как физически реальный элемент теории и тезис, что основной анти-эфирный тезис Эйнштейна ошибочен.",
+      "attribution": {
+        "name": "Лебедев Т. А.",
+        "role": "quoted_author",
+        "source_locator": "p.30, citation via A. Maneev, 1960"
+      },
+      "source": {
+        "page": 30,
+        "locator": "p.30, quote 3"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 30 книга приводит эту позицию с атрибуцией Т. А. Лебедеву.",
+          "evidence": [
+            "EVID-000020"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0003-C017",
+      "section_id": "NIK-0003",
+      "kind": "interpretation",
+      "statement": "Т. А. Лебедеву приписывается наблюдение, что противники мировой среды опасаются потери положительных выводов и предсказаний теории Эйнштейна при перестройке теории микроявлений.",
+      "attribution": {
+        "name": "Лебедев Т. А.",
+        "role": "quoted_author",
+        "source_locator": "p.30, citation via A. Maneev, 1960"
+      },
+      "source": {
+        "page": 30,
+        "locator": "p.30, quote 4"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 30 книга приводит это описание предполагаемой мотивации противников мировой среды.",
+          "evidence": [
+            "EVID-000020"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0003-C018",
+      "section_id": "NIK-0003",
+      "kind": "physical_claim",
+      "statement": "Т. А. Лебедеву приписывается ожидание, что учёт мировой среды устранит трудности вроде дуализма «частица–волна», модели «электрон–точка» и предельности скорости света, а также позволит физически объяснить зависимость массы от скорости, связь энергии и массы и классификацию частиц.",
+      "attribution": {
+        "name": "Лебедев Т. А.",
+        "role": "quoted_author",
+        "source_locator": "pp.30–31, citation via A. Maneev, 1960"
+      },
+      "source": {
+        "page": 30,
+        "locator": "p.30 bottom – p.31 upper half, extended quote"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 30–31 книга приводит этот набор ожидаемых следствий мировой среды с атрибуцией Т. А. Лебедеву.",
+          "evidence": [
+            "EVID-000020"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0003-C019",
+      "section_id": "NIK-0003",
+      "kind": "physical_claim",
+      "statement": "А. Д. Александрову приписывается образ электромагнитного излучения как универсальной среды или фона, связывающего тела и заполняющего мир.",
+      "attribution": {
+        "name": "Александров А. Д.",
+        "role": "quoted_author",
+        "source_locator": "p.31, citation: «Философское содержание и значение теории относительности», 1959, p.20"
+      },
+      "source": {
+        "page": 31,
+        "locator": "p.31, quote 2"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 31 книга приводит эту формулировку и атрибутирует её А. Д. Александрову.",
+          "evidence": [
+            "EVID-000020"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0003-C020",
+      "section_id": "NIK-0003",
+      "kind": "physical_claim",
+      "statement": "В передаче Вл. Львова Ф. Хойлу приписывается отказ от «творения из ничего» и предположение о неизвестном материальном поле межзвёздного пространства, из которого возникают протоны.",
+      "attribution": {
+        "name": "Хойл Ф. (в передаче Львова Вл.)",
+        "role": "quoted_via_secondary_source",
+        "source_locator": "p.31, citation: Львов Вл., «Нева», 1/1963"
+      },
+      "source": {
+        "page": 31,
+        "locator": "p.31, quote 3"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 31 книга приводит этот пересказ позиции Ф. Хойла через публикацию Вл. Львова.",
+          "evidence": [
+            "EVID-000020"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0003-C021",
+      "section_id": "NIK-0003",
+      "kind": "interpretation",
+      "statement": "Кузнецову и Терлецкому приписывается тезис, что материалистическое истолкование быстрых движений означает отказ от физической теории относительности Эйнштейна; попытки «латать» её мешают созданию принципиально иной теории движения больших скоростей.",
+      "attribution": {
+        "name": "Кузнецов И. В., Терлецкий Я. П.",
+        "role": "quoted_authors",
+        "source_locator": "pp.31–32, citation: «Философские вопросы современной физики», 1952, p.71"
+      },
+      "source": {
+        "page": 31,
+        "locator": "p.31 bottom – p.32 top, extended quote"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 31–32 книга приводит этот фрагмент и завершает его ссылкой на Кузнецова и Терлецкого.",
+          "evidence": [
+            "EVID-000020"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0003-C022",
+      "section_id": "NIK-0003",
+      "kind": "historical_fact",
+      "statement": "Источник «Вопросы философии» 1959 года цитируется со списком зарубежных авторов, которые якобы выступали против теории относительности полностью или частично и публиковались в австрийском сборнике 1958 года.",
+      "attribution": {
+        "name": "«Вопросы философии», т. II, 1959",
+        "role": "quoted_source",
+        "source_locator": "p.32, citation immediately above NIK-0004 heading"
+      },
+      "source": {
+        "page": 32,
+        "locator": "p.32, final pre-heading quote"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На граничной стр. 32 выше заголовка NIK-0004 книга действительно приводит такой список и такую библиографическую атрибуцию.",
+          "evidence": [
+            "EVID-000020"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
           "evidence": []
         },
         "dimensional": {

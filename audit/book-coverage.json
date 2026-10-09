@@ -74,9 +74,13 @@
       "title": "Вместо предисловия к книге «Электродинамика физического вакуума»",
       "source_page": 27,
       "kind": "foreword",
-      "status": "NOT_STARTED",
-      "disposition": null,
-      "evidence": []
+      "status": "IN_PROGRESS",
+      "disposition": "Exact rendered source span pp. 27–32 above the NIK-0004 heading visually inspected. Twenty-two substantive quotation/source claims are registered with per-claim historical attribution. Strong source_fact status proves only what this book quotes/attributes; original-quotation authenticity and physical comparator questions remain open for later waves.",
+      "evidence": [
+        "audit/research-model.json",
+        "docs/generated/verified-facts.md",
+        "issue #49"
+      ]
     },
     {
       "id": "NIK-0004",
