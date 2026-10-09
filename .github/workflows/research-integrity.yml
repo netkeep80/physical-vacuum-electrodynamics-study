@@ -23,20 +23,6 @@ jobs:
       - name: Check research-model dependency contract
         run: node checks/research-model-contract-selftest.mjs
 
-      - name: Temporary regenerate dependency-aware verified-facts projection
-        shell: bash
-        run: |
-          set -euo pipefail
-          node scripts/generate-verified-facts.mjs
-          echo '=== VERIFIED_FACTS_MD_BASE64_BEGIN ==='
-          base64 -w0 docs/generated/verified-facts.md
-          echo
-          echo '=== VERIFIED_FACTS_MD_BASE64_END ==='
-          echo '=== VERIFIED_FACTS_BUILD_BASE64_BEGIN ==='
-          base64 -w0 projections/verified-facts.build.json
-          echo
-          echo '=== VERIFIED_FACTS_BUILD_BASE64_END ==='
-
       - name: Check research state
         run: node checks/audit-integrity.mjs
 
