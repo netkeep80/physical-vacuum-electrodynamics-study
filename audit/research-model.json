@@ -59,6 +59,51 @@
         "kind": "url",
         "url": "https://asd.gsfc.nasa.gov/archive/arcade/cmb_spectrum.html"
       }
+    },
+    {
+      "id": "EVID-000007",
+      "kind": "literature",
+      "title": "OpenStax University Physics Volume 1 §5.1 — contact forces are fundamentally electromagnetic",
+      "locator": {
+        "kind": "url",
+        "url": "https://openstax.org/books/university-physics-volume-1/pages/5-1-forces"
+      }
+    },
+    {
+      "id": "EVID-000008",
+      "kind": "literature",
+      "title": "OpenStax University Physics Volume 2 §12.3 — opposite parallel currents repel in standard electromagnetism",
+      "locator": {
+        "kind": "url",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/12-3-magnetic-force-between-two-parallel-currents"
+      }
+    },
+    {
+      "id": "EVID-000009",
+      "kind": "literature",
+      "title": "MIT OpenCourseWare 8.033 — electromagnetic potentials, B=curl A, gauge freedom and Lorentz invariance",
+      "locator": {
+        "kind": "url",
+        "url": "https://ocw.mit.edu/courses/8-033-relativity-fall-2006/b7b6f7d71a2d40af5791fdbbf71d1442_electromagnetism.pdf"
+      }
+    },
+    {
+      "id": "EVID-000010",
+      "kind": "literature",
+      "title": "Einstein Online — speed of light as the causal upper speed limit",
+      "locator": {
+        "kind": "url",
+        "url": "https://www.einstein-online.info/en/speed_of_light/"
+      }
+    },
+    {
+      "id": "EVID-000011",
+      "kind": "literature",
+      "title": "Einstein Online — gravity in general relativity as spacetime geometry/curvature",
+      "locator": {
+        "kind": "url",
+        "url": "https://www.einstein-online.info/en/spotlight/geometry_force/"
+      }
     }
   ],
   "claims": [
@@ -153,9 +198,11 @@
           "evidence": []
         },
         "relation_to_comparator": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "SUPPORTED",
+          "finding": "Утверждение о микроскопической электромагнитной природе обычных контактных механических сил согласуется со стандартным изложением: нормальная сила, трение и другие контактные силы возникают из электромагнитных взаимодействий атомных зарядов. Это не распространяется на гравитацию и не означает, что вообще все макроскопические силы электромагнитны.",
+          "evidence": [
+            "EVID-000007"
+          ]
         },
         "invariance": {
           "status": "NOT_APPLICABLE",
@@ -543,9 +590,11 @@
           "evidence": []
         },
         "invariance": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Специальная относительность ограничивает перенос информации или физического влияния скоростью света. Поэтому заявленные «сдвиги, распространяющиеся практически с бесконечной скоростью» совместимы с релятивистской причинностью только если они не переносят наблюдаемую информацию, энергию или причинное влияние; в предисловии это операционально не определено.",
+          "evidence": [
+            "EVID-000010"
+          ]
         },
         "conservation": {
           "status": "NOT_APPLICABLE",
@@ -763,9 +812,11 @@
           "evidence": []
         },
         "relation_to_comparator": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "EQUIVALENT",
+          "finding": "Подтезис о взаимном отталкивании параллельных проводников с противоположно направленными токами является стандартным следствием магнитной силы в Maxwell–Lorentz электродинамике. Сам факт такого отталкивания поэтому не является отличительным свидетельством скрытого или нового магнитного поля.",
+          "evidence": [
+            "EVID-000008"
+          ]
         },
         "invariance": {
           "status": "NOT_APPLICABLE",
@@ -873,9 +924,11 @@
           "evidence": []
         },
         "relation_to_comparator": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Стандартная электродинамика действительно использует B = curl A и допускает gauge freedom: разные scalar/vector potentials могут задавать те же E и B. Однако это подтверждает лишь математическую часть про потенциалы и не подтверждает предложенную физическую интерпретацию потенциала как плотности энергии, множитель V/C или вывод полного магнитного поля через градиент.",
+          "evidence": [
+            "EVID-000009"
+          ]
         },
         "invariance": {
           "status": "OPEN",
@@ -928,9 +981,11 @@
           "evidence": []
         },
         "relation_to_comparator": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Maxwell электродинамика эквивалентно допускает описание через потенциалы, но общее нестационарное поле выражается через совместную пару scalar potential φ и vector potential A; формулировка только через векторный потенциал без дополнительных условий была бы неполной.",
+          "evidence": [
+            "EVID-000009"
+          ]
         },
         "invariance": {
           "status": "OPEN",
@@ -983,9 +1038,11 @@
           "evidence": []
         },
         "relation_to_comparator": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "INCONSISTENT",
+          "finding": "Accepted general relativity связывает гравитацию с геометрией и кривизной пространства-времени. Механизм предисловия — обмен отрицательно-массовыми гравитонами с уходом положительных гравитонов в «сопряженный мир античастиц» — не является механизмом accepted GR и требует отдельного независимого evidence.",
+          "evidence": [
+            "EVID-000011"
+          ]
         },
         "invariance": {
           "status": "OPEN",
