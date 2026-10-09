@@ -65,8 +65,8 @@ jobs:
       - name: Russian text smoke test
         run: |
           pdftotext docs/generated/audit-report.pdf /tmp/audit-report.txt
-          grep -F "Независимый аудит теоретических построений" /tmp/audit-report.txt
-          grep -F "Последовательный аудит" /tmp/audit-report.txt
+          grep -F "Независимый аудит" /tmp/audit-report.txt
+          grep -F "Методика проверки" /tmp/audit-report.txt
           grep -F "NIK-0007" /tmp/audit-report.txt
 
       - name: Check out exact repo-guard projection API
