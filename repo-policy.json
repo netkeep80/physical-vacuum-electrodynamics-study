@@ -86,7 +86,6 @@
       ".github/ISSUE_TEMPLATE/**",
       ".anet/memory.json"
     ],
-    "pr_immutable": [],
     "operational_paths": []
   },
   "diff_rules": {
