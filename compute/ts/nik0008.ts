@@ -67,4 +67,42 @@ if (capacitorMoment(Q, omega, a, a) !== 0) throw new Error("equal radii must can
 console.log("NIK0008_C011_FIXTURE_SPEED=" + vEq);
 console.log("NIK0008_C013_V_OVER_C=" + epsilon);
 console.log("NIK0008_C014_CAPACITOR_MOMENT=" + totalMoment);
+
+// C007: finite witness for non-unique model identification.
+function uniquelyIdentifies(
+  predictions: Map<string, Set<string>>,
+  target: string,
+  observation: string,
+): boolean {
+  const matching = [...predictions.entries()]
+    .filter(([, observations]) => observations.has(observation))
+    .map(([model]) => model);
+  return matching.length === 1 && matching[0] === target;
+}
+
+const sagnacPredictions = new Map<string, Set<string>>([
+  ["nikolaev_preferred_frame", new Set(["sagnac_shift"])],
+  ["special_relativity", new Set(["sagnac_shift"])],
+]);
+if (uniquelyIdentifies(sagnacPredictions, "nikolaev_preferred_frame", "sagnac_shift")) {
+  throw new Error("Sagnac observation was incorrectly treated as uniquely identifying one model");
+}
+
+// C012: published Michelson–Gale fringe values.
+const mgObserved = 0.230;
+const mgObservedError = 0.005;
+const mgCalculated = 0.236;
+const mgCalculatedError = 0.002;
+const mgObsLo = mgObserved - mgObservedError;
+const mgObsHi = mgObserved + mgObservedError;
+const mgCalcLo = mgCalculated - mgCalculatedError;
+const mgCalcHi = mgCalculated + mgCalculatedError;
+if (!(mgObsLo > 0)) throw new Error("Michelson–Gale observed interval unexpectedly includes zero");
+if (!(Math.max(mgObsLo, mgCalcLo) <= Math.min(mgObsHi, mgCalcHi))) {
+  throw new Error("Michelson–Gale observed/calculated intervals unexpectedly do not overlap");
+}
+console.log("NIK0008_C007_NONUNIQUE_LOGIC=PASS");
+console.log("NIK0008_C012_OBS_INTERVAL=" + mgObsLo + "," + mgObsHi);
+console.log("NIK0008_C012_CALC_INTERVAL=" + mgCalcLo + "," + mgCalcHi);
+
 console.log("NIK0008_TYPESCRIPT_PASS");
