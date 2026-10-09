@@ -14,7 +14,7 @@
     "ownership": "generated"
   },
   "generator": {
-    "contract_id": "pve/verified-facts-renderer/v2"
+    "contract_id": "pve/verified-facts-renderer/v3"
   },
   "required_evidence": [
     "deterministic-generator",

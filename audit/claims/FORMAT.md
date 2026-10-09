@@ -9,6 +9,7 @@ The canonical model contains:
 - `evidence[]` — stable `EVID-000001` style evidence objects with typed locators;
 - `claims[]` — stable `NIK-0001-C001` style claims;
 - exact `section_id`, `source.page` and `source.locator`;
+- explicit `attribution.name`, `attribution.role` and attribution `source_locator` for every claim;
 - eight independent status axes;
 - `finding` plus evidence IDs for every strong axis status;
 - explicit claim dependencies.
