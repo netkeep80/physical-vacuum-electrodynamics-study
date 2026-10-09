@@ -52,9 +52,14 @@
       "title": "Предисловие к книге «Современная электродинамика и причины ее парадоксальности»",
       "source_page": 22,
       "kind": "foreword",
-      "status": "NOT_STARTED",
-      "disposition": null,
-      "evidence": []
+      "status": "IN_PROGRESS",
+      "disposition": "Exact source span pp. 22–26 visually inspected; 16 substantive claims registered with explicit Stefan Marinov attribution. Only source-fact provenance is strongly promoted in this first pass; mathematical, comparator, conservation and experimental evaluation remains open.",
+      "evidence": [
+        "audit/research-model.json",
+        "docs/generated/verified-facts.md",
+        "issue #37",
+        "PR #38"
+      ]
     },
     {
       "id": "NIK-0003",
