@@ -41,6 +41,27 @@ const sectionDependency = await run((model) => {
 });
 assert.equal(sectionDependency.status, 0, sectionDependency.stderr || sectionDependency.stdout);
 
+const samePageBoundary = await run((model) => {
+  const fixture = structuredClone(model.claims[0]);
+  fixture.id = "NIK-0003-C999";
+  fixture.section_id = "NIK-0003";
+  fixture.source = { page: 32, locator: "p.32, pre-NIK-0004 heading boundary fixture" };
+  fixture.dependencies = [];
+  model.claims.push(fixture);
+});
+assert.equal(samePageBoundary.status, 0, samePageBoundary.stderr || samePageBoundary.stdout);
+
+const beyondBoundaryPage = await run((model) => {
+  const fixture = structuredClone(model.claims[0]);
+  fixture.id = "NIK-0003-C998";
+  fixture.section_id = "NIK-0003";
+  fixture.source = { page: 33, locator: "p.33 boundary falsifier" };
+  fixture.dependencies = [];
+  model.claims.push(fixture);
+});
+assert.notEqual(beyondBoundaryPage.status, 0);
+assert.match(beyondBoundaryPage.stderr, /crosses beyond boundary page/);
+
 const unknownDependency = await run((model) => {
   model.claims[0].dependencies = ["NIK-9999"];
 });

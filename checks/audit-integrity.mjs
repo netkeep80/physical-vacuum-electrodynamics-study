@@ -173,8 +173,11 @@ for (let i = 0; i < claims.length; i++) {
       fail(`${c.id}: source page precedes section start page ${section.source_page}`);
     }
     const next = section ? coverage.sections[section.index + 1] : null;
-    if (section && next && next.source_page > section.source_page && c.source.page >= next.source_page) {
-      fail(`${c.id}: source page crosses into next canonical section ${next.id}`);
+    // A canonical section boundary may occur within one rendered PDF page.
+    // The next section start page is admissible for the preceding section;
+    // exact source.locator disambiguates material around the heading.
+    if (section && next && next.source_page > section.source_page && c.source.page > next.source_page) {
+      fail(`${c.id}: source page crosses beyond boundary page of next canonical section ${next.id}`);
     }
   }
   if (!stringArray(c.dependencies ?? [])) fail(`${c.id}: dependencies must be string array`);
