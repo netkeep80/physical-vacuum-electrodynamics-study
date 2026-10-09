@@ -218,6 +218,18 @@
         "kind": "url",
         "url": "https://www.sciencedirect.com/science/article/pii/S1631070517300907"
       }
+    },
+    {
+      "id": "EVID-000024",
+      "kind": "source",
+      "title": "Николаев Г. В. «Электродинамика физического вакуума» (2004), exact repository PDF; NIK-0007 visually inspected on pp. 81–86 before §2 heading",
+      "locator": {
+        "kind": "repository",
+        "path": "Николаев Г.В. – Электродинамика физического вакуума – 2004.pdf",
+        "revision": "eaf81ba4f0579878c5d04a3288256fd448fd1ebd",
+        "url": "https://github.com/netkeep80/physical-vacuum-electrodynamics-study/blob/eaf81ba4f0579878c5d04a3288256fd448fd1ebd/%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B5%D0%B2%20%D0%93.%D0%92.%20%E2%80%93%20%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D0%BA%D0%B0%20%D1%84%D0%B8%D0%B7%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B2%D0%B0%D0%BA%D1%83%D1%83%D0%BC%D0%B0%20%E2%80%93%202004.pdf"
+      },
+      "sha256": "370944dcc059f23e4a99a96326c44db93ee5d715c7798f9e2fccb76cca234749"
     }
   ],
   "claims": [
@@ -3863,6 +3875,788 @@
         "assumptions": {
           "status": "OPEN",
           "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0007-C001",
+      "section_id": "NIK-0007",
+      "kind": "historical_fact",
+      "statement": "До появления специальной теории относительности в физике широко использовалась концепция материальной эфирной среды как носителя электромагнитных волн и полей; электромагнитная волна трактовалась как колебательный процесс среды без ее поступательного переноса.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+      },
+      "source": {
+        "page": 81,
+        "locator": "p.81, абз. 1"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 81 Николаев вводит именно эту историческую реконструкцию роли эфира и волнового движения.",
+          "evidence": [
+            "EVID-000024"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Историческая реконструкция используется как исходный контекст; её полнота и точность пока не проверены по первичным источникам.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0007-C002",
+      "section_id": "NIK-0007",
+      "kind": "interpretation",
+      "statement": "Механическая модель эфира, по Николаеву, столкнулась с трудностью совместить поперечность световых волн и высокую скорость их распространения с отсутствием заметного сопротивления движению небесных тел; это привело к отказу от механических моделей эфира.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+      },
+      "source": {
+        "page": 81,
+        "locator": "p.81, середина–конец"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 81 сформулирована эта причинная цепочка от предполагаемых механических свойств эфира к трудностям модели и историческому отказу от механических моделей.",
+          "evidence": [
+            "EVID-000024"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Переход от перечисленных трудностей к историческому выводу об отказе от любых механических моделей является тезисом раздела и требует отдельной историко-теоретической проверки.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0007-C003",
+      "section_id": "NIK-0007",
+      "kind": "historical_fact",
+      "statement": "К концу XIX века существовали три конкурирующие схемы поведения эфира — абсолютно покоящийся, полностью увлекаемый и частично увлекаемый; Николаев утверждает, что ни одна из них не получила полного экспериментального подтверждения.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+      },
+      "source": {
+        "page": 82,
+        "locator": "p.82, абз. 1"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 82 перечислены три схемы увлечения эфира и утверждается отсутствие полного экспериментального подтверждения каждой из них.",
+          "evidence": [
+            "EVID-000024"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Фраза «не нашли полного подтверждения» пока зарегистрирована как историко-экспериментальный тезис; критерий «полного подтверждения» в §1 не определён.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": "Конкретный набор экспериментов и их discriminating power в §1 не разобраны; проверка переносится на последующие разделы.",
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0007-C004",
+      "section_id": "NIK-0007",
+      "kind": "physical_claim",
+      "statement": "Материальная эфирная среда рассматривается как возможная материальная основа электромагнитных полей; давление света связывается с пондеромоторным взаимодействием волны с атомами, а не с самостоятельной «массой движения» света.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+      },
+      "source": {
+        "page": 82,
+        "locator": "p.82, абз. 2"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 82 Николаев явно противопоставляет средовую интерпретацию электромагнитного поля и давления света интерпретации через «массу движения».",
+          "evidence": [
+            "EVID-000024"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "В §1 материальный носитель принимается как объяснительная гипотеза; здесь ещё не выведено, что такой носитель необходим именно математически.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0007-C005",
+      "section_id": "NIK-0007",
+      "kind": "physical_claim",
+      "statement": "Использование выражения E=mc² для введения инерционной «массы движения» фотона объявляется проблематичным: Николаев связывает массу с количеством материи и ставит вопрос о гравитационных свойствах такой массы.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+      },
+      "source": {
+        "page": 82,
+        "locator": "p.82, абз. 2"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 82 выражение E=mc² используется именно в аргументе против трактовки фотонной энергии как «массы движения» в принятом автором смысле массы.",
+          "evidence": [
+            "EVID-000024"
+          ]
+        },
+        "math": {
+          "status": "GAP",
+          "finding": "В §1 не задаётся точное определение переменной m в применённом к фотону выражении E=mc² и не выводится переход от энергии фотона к инерционной/гравитационной массе; математический смысл этого шага пока недостаточно определён для сильного verdict.",
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Критика опирается на собственное исходное определение массы как меры количества материи; это определение является предпосылкой дальнейшего аргумента и должно отслеживаться отдельно.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0007-C006",
+      "section_id": "NIK-0007",
+      "kind": "interpretation",
+      "statement": "Понятия количества материи и количества энергии объявляются неэквивалентными, но тесно взаимосвязанными; энергия без материи рассматривается как бессмысленное понятие.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+      },
+      "source": {
+        "page": 82,
+        "locator": "p.82 bottom – p.83 top"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На границе стр. 82–83 Николаев явно формулирует неэквивалентность количества материи и энергии и их обязательную взаимосвязь.",
+          "evidence": [
+            "EVID-000024"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Это фундаментальная онтологическая предпосылка раздела; в §1 она постулируется, а не выводится из математической конструкции.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0007-C007",
+      "section_id": "NIK-0007",
+      "kind": "interpretation",
+      "statement": "Специальная теория относительности характеризуется как переход к формально-математическому описанию, в котором отказ от материального эфира и использование принципа относительности и релятивистских преобразований заменили поиск механизма мировой среды.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+      },
+      "source": {
+        "page": 83,
+        "locator": "p.83, абз. 1"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 83 Николаев строит именно такую реконструкцию перехода от эфирной картины к СТО.",
+          "evidence": [
+            "EVID-000024"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Связка «отказ от эфира → замена физического механизма формально-математическими допущениями» является аргументом автора; в §1 она не доказывается как логически необходимая.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0007-C008",
+      "section_id": "NIK-0007",
+      "kind": "physical_claim",
+      "statement": "Применимость принципа относительности допускается Николаевым для абсолютно пустого пространства, но перенос этой применимости на реальное пространство с физическими явлениями ставится под сомнение.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+      },
+      "source": {
+        "page": 83,
+        "locator": "p.83, середина"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 83 явно проводится различие между гипотетическим пустым пространством и реальным пространством как областью применимости принципа относительности.",
+          "evidence": [
+            "EVID-000024"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Ключевая предпосылка — реальное пространство должно обладать дополнительной средой/структурой, способной ограничить область применимости принципа относительности. В §1 это ещё не выведено.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "OPEN",
+          "finding": "Точный математический закон преобразований для предполагаемой реальной среды здесь ещё не задан; вопрос инвариантности остаётся постановкой задачи.",
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0007-C009",
+      "section_id": "NIK-0007",
+      "kind": "physical_claim",
+      "statement": "Отказ от материального носителя электромагнитных полей, по Николаеву, приводит к трактовке поля как самостоятельной формы материи и к приписыванию свету «массы движения» для объяснения переноса импульса и энергии.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+      },
+      "source": {
+        "page": 83,
+        "locator": "p.83, абз. 2"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 83 содержится именно эта причинная реконструкция изменения физической интерпретации поля и света.",
+          "evidence": [
+            "EVID-000024"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Причинная необходимость такого перехода пока не доказана; фиксируется как элемент аргументации автора.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0007-C010",
+      "section_id": "NIK-0007",
+      "kind": "interpretation",
+      "statement": "В качестве аналогии Николаев рассматривает звуковую волну: она переносит импульс и энергию при наличии материального носителя, поэтому формальное введение «массы движения» волны само по себе не доказывает отсутствия носителя.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+      },
+      "source": {
+        "page": 83,
+        "locator": "p.83 bottom – p.84 top"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 83–84 Николаев использует звуковую волну как явную аналогию для отделения переносимых волной величин от вопроса о существовании среды-носителя.",
+          "evidence": [
+            "EVID-000024"
+          ]
+        },
+        "math": {
+          "status": "CONDITIONAL",
+          "finding": "Логическая форма аналогии корректна только как демонстрация неединственности интерпретации: из переноса импульса/энергии само по себе не следует отсутствие носителя. Аналогия ещё не выводит существование электромагнитного носителя.",
+          "evidence": [
+            "EVID-000024"
+          ]
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Переход от акустической аналогии к электромагнитной среде требует отдельной модели соответствия, которой в §1 пока нет.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0007-C011",
+      "section_id": "NIK-0007",
+      "kind": "interpretation",
+      "statement": "Николаев утверждает, что распространение аналогичной формально-волновой интерпретации на жидкости, твёрдые тела и газы скрыло бы очевидное существование их материальных носителей; это используется как аргумент в пользу возможного скрытого носителя электромагнитных волн.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+      },
+      "source": {
+        "page": 84,
+        "locator": "p.84, абз. 1"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 84 автор развивает акустическую аналогию до общего аргумента о том, что формальное описание волны не должно подменять вопрос о носителе.",
+          "evidence": [
+            "EVID-000024"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "GAP",
+          "finding": "Из существования носителей у механических волн логически не следует существование носителя у любого другого типа волны. В §1 этот шаг является эвристической аналогией, а не доказательством; для дальнейшей теории потребуется независимое определение/вывод среды.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0007-C012",
+      "section_id": "NIK-0007",
+      "kind": "interpretation",
+      "statement": "СТО признаётся Николаевым исторически полезной переходной теорией, но объявляется ограниченной моделью, построенной для абсолютно пустого пространства; перенос её выводов на реальное пространство без ограничений связывается с появлением парадоксов.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+      },
+      "source": {
+        "page": 84,
+        "locator": "p.84, абз. 2–3 – p.85"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 84–85 Николаев формулирует эту оценку области применимости СТО и причинную связь с последующими парадоксами.",
+          "evidence": [
+            "EVID-000024"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Критическая зависимость раздела — тезис о том, что математический аппарат СТО был построен именно для «абсолютно пустого» пространства и затем неправомерно перенесён. В §1 это заявлено, но не доказано внутри рассматриваемой теории.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0007-C013",
+      "section_id": "NIK-0007",
+      "kind": "physical_claim",
+      "statement": "Итог §1 состоит в гипотезе о реальной материальной среде физического вакуума как носителе электрических, магнитных, электромагнитных, гравитационных и ядерных полей; Николаев считает такую среду плодотворной основой для дальнейшего построения непротиворечивой физической теории.",
+      "attribution": {
+        "name": "Николаев Г. В.",
+        "role": "book_author",
+        "source_locator": "Part I, Ch.1, §1 heading on p.81"
+      },
+      "source": {
+        "page": 85,
+        "locator": "p.85 bottom – p.86 before §2 heading"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На завершении §1, продолженном на стр. 86 до заголовка §2, Николаев явно формулирует переход к материальной среде физического вакуума как программе дальнейшего построения теории.",
+          "evidence": [
+            "EVID-000024"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": "Это основной рабочий постулат, к которому подводит §1. Его математические свойства и необходимость ещё не заданы; последующие разделы должны конкретизировать структуру среды и проверяемые следствия.",
           "evidence": []
         },
         "dimensional": {

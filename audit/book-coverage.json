@@ -136,9 +136,13 @@
       "title": "Эволюция представлений об окружающем пространстве",
       "source_page": 81,
       "kind": "section",
-      "status": "NOT_STARTED",
-      "disposition": null,
-      "evidence": []
+      "status": "IN_PROGRESS",
+      "disposition": "Exact rendered source span pp.81–86 before the §2 heading visually inspected. Thirteen theory-first claims registered. This first pass reconstructs Nikolaev's premises, analogies and inference obligations without treating divergence from comparator theories as an error. No internal mathematical defect is promoted strongly yet; unresolved derivation obligations remain OPEN/GAP.",
+      "evidence": [
+        "audit/research-model.json",
+        "docs/generated/verified-facts.md",
+        "issue #55"
+      ]
     },
     {
       "id": "NIK-0008",
