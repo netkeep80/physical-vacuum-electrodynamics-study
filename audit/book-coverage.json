@@ -53,13 +53,14 @@
       "source_page": 22,
       "kind": "foreword",
       "status": "IN_PROGRESS",
-      "disposition": "Exact source span pp. 22–26 visually inspected; 16 substantive claims registered with explicit Stefan Marinov attribution. Wave 2 adds bounded comparator/conservation findings for the longitudinal scalar-force and anti-Lenz core while preserving experimental claims as NOT_TESTED/conditional where apparatus-level evidence has not yet been reconstructed.",
+      "disposition": "Exact source span pp. 22–26 visually inspected; 16 substantive claims registered with explicit Stefan Marinov attribution. Comparator/conservation wave is accepted, and experimental-provenance wave distinguishes author self-reports and historical paper existence from independent replication. Modern Lorentz/equivalence precision tests contradict the foreword’s broad rejection claim; apparatus-specific experimental verdicts remain GAP/NOT_TESTED where primary datasets are not yet reconstructed.",
       "evidence": [
         "audit/research-model.json",
         "docs/generated/verified-facts.md",
         "issue #37",
         "PR #38",
-        "issue #41"
+        "issue #41",
+        "issue #43"
       ]
     },
     {
