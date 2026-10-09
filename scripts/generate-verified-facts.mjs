@@ -34,8 +34,8 @@ const PROJECTION_PATH = path.join(ROOT, "projections", "verified-facts.model.jso
 const BUILD_PATH = path.join(ROOT, "projections", "verified-facts.build.json");
 const TARGET_PATH = path.join(ROOT, "docs", "generated", "verified-facts.md");
 
-export const GENERATOR_CONTRACT = "pve/verified-facts-renderer/v1";
-export const GENERATOR_TOOL_IDENTITY = "scripts/generate-verified-facts.mjs@v1";
+export const GENERATOR_CONTRACT = "pve/verified-facts-renderer/v2";
+export const GENERATOR_TOOL_IDENTITY = "scripts/generate-verified-facts.mjs@v2";
 
 function sha256(text) {
   return createHash("sha256").update(text, "utf8").digest("hex");
@@ -148,15 +148,16 @@ export function renderVerifiedFacts(model) {
     "",
     "## Проверенные результаты",
     "",
-    "| Утверждение | Проверенный результат | Раздел / источник | Ось | Статус | Свидетельства |",
-    "| --- | --- | --- | --- | --- | --- |",
+    "| Утверждение | Проверенный результат | Раздел / источник | Зависимости | Ось | Статус | Свидетельства |",
+    "| --- | --- | --- | --- | --- | --- | --- |",
   );
   for (const result of results) {
     const claim = result.claim;
     const source = `${claim.section_id}; стр. ${claim.source.page}; ${claim.source.locator}`;
     const ev = result.evidence.map(evidenceLink).join("<br>") || "—";
+    const dependencies = (claim.dependencies ?? []).map((id) => `\`${escapeCell(id)}\``).join("<br>") || "—";
     lines.push(
-      `| \`${escapeCell(claim.id)}\` — ${escapeCell(claim.statement)} | ${escapeCell(result.finding)} | ${escapeCell(source)} | \`${result.axis}\` | **${result.status}** | ${ev} |`,
+      `| \`${escapeCell(claim.id)}\` — ${escapeCell(claim.statement)} | ${escapeCell(result.finding)} | ${escapeCell(source)} | ${dependencies} | \`${result.axis}\` | **${result.status}** | ${ev} |`,
     );
   }
 
