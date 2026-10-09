@@ -1,5 +1,5 @@
-// Requirements: PVE-AUD-001, PVE-STATE-001
 #!/usr/bin/env node
+// Requirements: PVE-AUD-001, PVE-STATE-001
 import { readFile, readdir, stat } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
