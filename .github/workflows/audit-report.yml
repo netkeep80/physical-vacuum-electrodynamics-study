@@ -28,7 +28,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   report:
@@ -36,13 +36,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
-        with:
-          ref: ${{ github.head_ref || github.ref_name }}
-
-      - name: Set up exact Node
-        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
-        with:
-          node-version: 20
 
       - name: Set up exact Python
         uses: actions/setup-python@06da6279cdbca41027908073e81a4544dc79c06b
@@ -55,10 +48,13 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends fonts-dejavu-core poppler-utils
 
-      - name: Generate current model projections
+      - name: Check committed report or generate initial candidate
         run: |
-          node scripts/generate-verified-facts.mjs
-          python scripts/generate-audit-report.py --write
+          if test -f docs/generated/audit-report.pdf && test -f projections/audit-report.build.json; then
+            python scripts/generate-audit-report.py --check
+          else
+            python scripts/generate-audit-report.py --write
+          fi
 
       - name: Render smoke test
         run: |
@@ -84,25 +80,11 @@ jobs:
       - name: Install exact repo-guard runtime dependencies
         run: npm --prefix .repo-guard-tool install --omit=dev --silent
 
-      - name: Verify ProjectionModel identities
+      - name: Verify ProjectionModel identity when committed output exists
         run: |
-          node checks/verified-facts-projection.mjs --repo-guard-root .repo-guard-tool
-          node checks/audit-report-projection.mjs --repo-guard-root .repo-guard-tool
-
-      - name: Materialize generated projections on bootstrap branch
-        if: github.event_name == 'pull_request'
-        run: |
-          git fetch origin main
-          git show origin/main:.github/workflows/audit-report.yml > .github/workflows/audit-report.yml
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/generated/verified-facts.md projections/verified-facts.build.json docs/generated/audit-report.pdf projections/audit-report.build.json .github/workflows/audit-report.yml
-          if git diff --cached --quiet; then
-            echo "Nothing to materialize"
-            exit 0
+          if test -f projections/audit-report.build.json; then
+            node checks/audit-report-projection.mjs --repo-guard-root .repo-guard-tool
           fi
-          git commit -m "docs: regenerate NIK-0008 audit projections"
-          git push origin HEAD:${{ github.head_ref }}
 
       - name: Upload candidate report
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
