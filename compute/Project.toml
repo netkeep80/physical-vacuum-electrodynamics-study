@@ -1,0 +1,7 @@
+name = "PVECompute"
+uuid = "d6319848-6676-4c64-8f60-26eaef490857"
+authors = ["physical-vacuum-electrodynamics-study"]
+version = "0.1.0"
+
+[compat]
+julia = "1.13.1"

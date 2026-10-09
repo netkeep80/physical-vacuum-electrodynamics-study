@@ -1,0 +1,42 @@
+name: Verification kernel
+
+on:
+  pull_request:
+    branches: ["**"]
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lean:
+    name: Lean + Physlib proof kernel
+    runs-on: ubuntu-latest
+    env:
+      LEAN_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+      - name: Build pinned Lean project
+        uses: leanprover/lean-action@a1e4f67744f24ab80ec3c7ab1bd37d7d419207d5
+        with:
+          lake-package-directory: formal
+          build: "true"
+          test: "false"
+          lint: "false"
+          axiom-audit: "true"
+          axiom-audit-root: PVE
+
+  julia:
+    name: Julia computational workbench
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+      - name: Set up exact Julia
+        uses: julia-actions/setup-julia@ea6d69adb9096626f5a102ce966e8ed7fb5f5b9d
+        with:
+          version: "1.13.1"
+          show-versioninfo: "true"
+      - name: Run deterministic smoke
+        run: julia --project=compute compute/smoke.jl
