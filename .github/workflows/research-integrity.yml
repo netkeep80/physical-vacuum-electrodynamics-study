@@ -34,5 +34,8 @@ jobs:
           path: .repo-guard-tool
           fetch-depth: 1
 
+      - name: Install exact repo-guard runtime dependencies
+        run: npm --prefix .repo-guard-tool install --omit=dev --silent
+
       - name: Verify repo-guard ProjectionModel identities
         run: node checks/verified-facts-projection.mjs --repo-guard-root .repo-guard-tool
