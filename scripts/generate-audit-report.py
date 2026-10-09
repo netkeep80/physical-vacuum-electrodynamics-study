@@ -6,6 +6,7 @@ import hashlib
 import io
 import json
 import os
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -185,7 +186,14 @@ def configuration_digest() -> str:
 def clean_text(value: Any) -> str:
     if value is None:
         return ""
-    return str(value).replace("—", "-").replace("–", "-")
+    text = str(value).replace("—", "-").replace("–", "-")
+    text = text.replace("discriminating power", "различающая способность")
+    text = text.replace("verdict", "заключение")
+    text = re.sub(r"\\bp\\.(\\d+)\\b", r"стр. \\1", text)
+    text = text.replace(" bottom", ", нижняя часть")
+    text = text.replace(" top", ", верхняя часть")
+    text = text.replace(" before §2 heading", ", до заголовка §2")
+    return text
 
 
 def ptext(value: Any) -> str:
