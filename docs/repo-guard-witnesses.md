@@ -9,14 +9,14 @@ Candidate SHA:
 
 `1fc0071e733a760e71560507e60aba9db83d33e7`
 
-The candidate used the syntactically valid but nonexistent requirement id `PVE-GOV-999`.
+The candidate used the syntactically valid but nonexistent requirement id a syntactically valid but nonexistent GOV requirement identifier.
 
 Observed repo-guard result:
 
 - `result: failed`;
 - exactly one violation;
 - rule: `trace-rule: doc-req-refs-must-resolve`;
-- missing value: `PVE-GOV-999`.
+- missing value: a syntactically valid but nonexistent GOV requirement identifier.
 
 This is the intended falsifier: a requirement-shaped reference cannot silently resolve to nothing.
 
