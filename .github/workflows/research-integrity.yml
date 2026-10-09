@@ -20,6 +20,24 @@ jobs:
         with:
           node-version: 20
 
+      - name: Temporary NIK-0001 source inspection
+        shell: bash
+        run: |
+          set -euo pipefail
+          pdf='Николаев Г.В. – Электродинамика физического вакуума – 2004.pdf'
+          echo '=== PDFINFO ==='
+          pdfinfo "$pdf" | grep -E '^(Pages|Page size|File size):' || true
+          for p in 15 16 17 18 19 20; do
+            echo "=== PDF_PAGE_${p}_TEXT_BEGIN ==="
+            pdftotext -f "$p" -l "$p" -layout "$pdf" - | head -n 80
+            echo "=== PDF_PAGE_${p}_TEXT_END ==="
+          done
+          pdftoppm -f 17 -l 17 -singlefile -png -r 110 "$pdf" /tmp/nik-page-17 >/dev/null 2>&1
+          echo '=== PDF_PAGE_17_PNG_BASE64_BEGIN ==='
+          base64 -w0 /tmp/nik-page-17.png
+          echo
+          echo '=== PDF_PAGE_17_PNG_BASE64_END ==='
+
       - name: Check research state
         run: node checks/audit-integrity.mjs
 
