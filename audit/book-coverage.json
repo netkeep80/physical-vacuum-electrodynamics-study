@@ -74,13 +74,14 @@
       "title": "Вместо предисловия к книге «Электродинамика физического вакуума»",
       "source_page": 27,
       "kind": "foreword",
-      "status": "IN_PROGRESS",
-      "disposition": "Exact quotation inventory accepted. Wave 2 externally checks Dirac 1951, moving-muon lifetime and Sagnac context: the Dirac quote is substantially authentic but miscited as Nature vol.166 instead of 168 and is not anti-relativistic in its primary context; CERN muon lifetime data support relativistic time dilation; Sagnac rotation effects are real but do not uniquely establish an ether wind. Remaining quotation-authenticity and comparator debts stay open.",
+      "status": "PARTIAL",
+      "disposition": "Context-track checkpoint intentionally paused after source inventory and bounded Dirac/muon/Sagnac checks. Accepted findings and evidence are preserved, but remaining quotation-authenticity/comparator debts are non-blocking for the core scientific audit, which now starts at NIK-0007 / p.81.",
       "evidence": [
         "audit/research-model.json",
         "docs/generated/verified-facts.md",
         "issue #49",
-        "issue #51"
+        "issue #51",
+        "issue #53"
       ]
     },
     {
