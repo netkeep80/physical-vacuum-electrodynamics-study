@@ -1,4 +1,4 @@
-// NIK-0007-C005
+export {};\n\n// NIK-0007-C005
 // Numerical regression/property checks for the purely algebraic relation
 // E = m*c^2 <-> m = E/c^2 for c != 0.
 // No physical interpretation of m is asserted here.
