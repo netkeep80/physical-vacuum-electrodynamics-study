@@ -1,7 +1,7 @@
 {
   "id": "PVE-AUD-001",
-  "title": "Sequential complete-book audit",
-  "summary": "The canonical research flow follows the book from beginning to end. Every substantive section receives explicit disposition of its reasoning, material claims, formulas, examples, numerical results, evidence and conclusions.",
+  "title": "Sequential core scientific audit",
+  "summary": "The mandatory scientific audit starts at Part I / NIK-0007 / page 81 and then follows Parts I–IV in source order. Front matter on pp. 17–75 remains a preserved, contextual, non-blocking corpus that may be audited selectively. Every substantive core section receives explicit disposition of its reasoning, material claims, formulas, examples, numerical results, evidence and conclusions.",
   "artifacts": [
     {
       "path": "requirements/PVE-AUD-001.json",
