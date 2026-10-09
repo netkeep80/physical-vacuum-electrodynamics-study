@@ -48,6 +48,8 @@ jobs:
           show-versioninfo: "true"
       - name: Run deterministic smoke
         run: julia --project=compute compute/smoke.jl
+      - name: Run NIK-0007 computational checks
+        run: julia --project=compute compute/nik0007.jl
 
   typescript:
     name: TypeScript numerical regression
@@ -62,3 +64,5 @@ jobs:
         run: npx --yes --package typescript@5.9.3 tsc -p compute/ts/tsconfig.json
       - name: Run deterministic numeric regression smoke
         run: node compute/ts/dist/smoke.js
+      - name: Run NIK-0007 numerical regression
+        run: node compute/ts/dist/nik0007.js
