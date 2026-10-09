@@ -91,13 +91,13 @@ jobs:
             root=false
             if [ "$number" = "1" ] || [ "$number" = "12" ]; then root=true; fi
 
-            if [ "$root" = "false" ] && ! grep -Eiq 'Parent:[[:space:]]*#[0-9]+' <<< "$body"; then
+            if [ "$root" = "false" ] && ! grep -Eiq '(Parent:|###?[[:space:]]+Parent issue)[[:space:]]*#[0-9]+' <<< "$body"; then
               echo "::warning::Issue #$number has no explicit Parent: #N relation."
               echo "- ISSUE_NO_PARENT: #$number — $title" >> "$report"
               findings=$((findings + 1))
             fi
 
-            if [ "$root" = "false" ] && ! grep -Eiq '^##[[:space:]]+(Acceptance|При[её]мка)' <<< "$body"; then
+            if [ "$root" = "false" ] && ! grep -Eiq '#{2,3}[[:space:]]+(Acceptance|При[её]мка)' <<< "$body"; then
               echo "::warning::Issue #$number has no Acceptance section."
               echo "- ISSUE_NO_ACCEPTANCE: #$number — $title" >> "$report"
               findings=$((findings + 1))
