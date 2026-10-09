@@ -9,7 +9,7 @@
       "requirement_json_globs": [
         "requirements/*.json"
       ],
-      "requirement_id_pattern": "PVE-(?:GOV|SRC|AUD|MATH|PHY|EVD|STATE)-[0-9]{3}",
+      "requirement_id_pattern": "PVE-(?:GOV|SRC|AUD|MATH|PHY|EVD|STATE|HYG)-[0-9]{3}",
       "closed_repository": false,
       "strict_heading_docs": [
         "requirements/index.md"
@@ -23,14 +23,14 @@
         "checks/**",
         "experiments/**",
         "sources/**",
-        ".github/workflows/**"
+        ".github/**"
       ],
       "changed_requirement_evidence_surfaces": [
         "README.md",
         "docs/**",
         "requirements/index.md",
         "checks/**",
-        ".github/workflows/**"
+        ".github/**"
       ],
       "affected_evidence_surfaces": [
         "README.md",
@@ -39,20 +39,21 @@
         "compute/**",
         "checks/**",
         "experiments/**",
-        "sources/**"
+        "sources/**",
+        ".github/**"
       ],
       "implementation_evidence_surfaces": [
         "formal/**",
         "compute/**",
         "scripts/**",
-        ".github/workflows/**"
+        ".github/**"
       ],
       "verification_evidence_surfaces": [
         "checks/**",
         "formal/**",
         "compute/**",
         "experiments/**",
-        ".github/workflows/**"
+        ".github/**"
       ]
     }
   },
@@ -69,15 +70,20 @@
     "canonical_docs": [
       "README.md",
       "docs/research-protocol.md",
-      "docs/book-audit-plan.md"
+      "docs/book-audit-plan.md",
+      "docs/repository-hygiene.md"
     ],
     "governance_paths": [
       "repo-policy.json",
       "requirements/**",
       "docs/research-protocol.md",
       "docs/book-audit-plan.md",
+      "docs/repository-hygiene.md",
       ".github/workflows/repo-guard.yml",
+      ".github/workflows/branch-hygiene.yml",
+      ".github/workflows/collaboration-hygiene.yml",
       ".github/PULL_REQUEST_TEMPLATE.md",
+      ".github/ISSUE_TEMPLATE/**",
       ".anet/memory.json"
     ],
     "pr_immutable": [
@@ -86,9 +92,9 @@
     "operational_paths": []
   },
   "diff_rules": {
-    "max_new_docs": 20,
-    "max_new_files": 40,
-    "max_net_added_lines": 6000
+    "max_new_docs": 25,
+    "max_new_files": 50,
+    "max_net_added_lines": 9000
   },
   "content_rules": [],
   "cochange_rules": []

@@ -1,0 +1,131 @@
+name: PR and issue hygiene
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened, ready_for_review, converted_to_draft]
+  issues:
+    types: [opened, edited, reopened, closed]
+  schedule:
+    - cron: "41 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+
+jobs:
+  audit:
+    name: Audit PR and issue topology
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report hygiene findings
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          findings=0
+          report="$(mktemp)"
+          {
+            echo "### PR and issue hygiene [PVE-HYG-001]"
+            echo
+          } > "$report"
+
+          prs="$(gh api "repos/$REPO/pulls?state=open&per_page=100")"
+          issues="$(gh api "repos/$REPO/issues?state=open&per_page=100")"
+
+          duplicate_heads="$(
+            jq -r '
+              sort_by(.head.label)
+              | group_by(.head.label)[]
+              | select(length > 1)
+              | "\(.[0].head.label): " + (map("#" + (.number|tostring)) | join(", "))
+            ' <<< "$prs"
+          )"
+          if [ -n "$duplicate_heads" ]; then
+            while IFS= read -r line; do
+              echo "::warning::Duplicate open PR head: $line"
+              echo "- DUPLICATE_PR_HEAD: $line" >> "$report"
+              findings=$((findings + 1))
+            done <<< "$duplicate_heads"
+          fi
+
+          while IFS=$'\t' read -r number draft title body updated; do
+            [ -n "$number" ] || continue
+            if ! grep -Eq '#[0-9]+' <<< "$body"; then
+              echo "::warning::PR #$number has no issue reference."
+              echo "- PR_NO_ISSUE_REF: #$number — $title" >> "$report"
+              findings=$((findings + 1))
+            fi
+
+            if [ "$draft" = "false" ]; then
+              if [[ "$title" == draft:* ]] || grep -Fq "Automatically opened by repository branch-hygiene policy" <<< "$body"; then
+                echo "::warning::Ready PR #$number still has branch-hygiene placeholder metadata."
+                echo "- READY_PR_PLACEHOLDER: #$number — $title" >> "$report"
+                findings=$((findings + 1))
+              fi
+            fi
+
+            updated_epoch="$(date -u -d "$updated" +%s)"
+            now_epoch="$(date -u +%s)"
+            age_days=$(( (now_epoch - updated_epoch) / 86400 ))
+            if [ "$age_days" -ge 30 ]; then
+              echo "::warning::Open PR #$number has been inactive for $age_days days."
+              echo "- STALE_PR_REPORT_ONLY: #$number — ${age_days}d — $title" >> "$report"
+              findings=$((findings + 1))
+            fi
+          done < <(jq -r '.[] | [.number, .draft, .title, (.body // "" | gsub("\n"; " ")), .updated_at] | @tsv' <<< "$prs")
+
+          while IFS=$'\t' read -r number title body updated; do
+            [ -n "$number" ] || continue
+
+            if [ -z "$(tr -d '[:space:]' <<< "$body")" ]; then
+              echo "::warning::Issue #$number has an empty body."
+              echo "- EMPTY_ISSUE: #$number — $title" >> "$report"
+              findings=$((findings + 1))
+            fi
+
+            root=false
+            if [ "$number" = "1" ] || [ "$number" = "12" ]; then root=true; fi
+
+            if [ "$root" = "false" ] && ! grep -Eiq 'Parent:[[:space:]]*#[0-9]+' <<< "$body"; then
+              echo "::warning::Issue #$number has no explicit Parent: #N relation."
+              echo "- ISSUE_NO_PARENT: #$number — $title" >> "$report"
+              findings=$((findings + 1))
+            fi
+
+            if [ "$root" = "false" ] && ! grep -Eiq '^##[[:space:]]+(Acceptance|При[её]мка)' <<< "$body"; then
+              echo "::warning::Issue #$number has no Acceptance section."
+              echo "- ISSUE_NO_ACCEPTANCE: #$number — $title" >> "$report"
+              findings=$((findings + 1))
+            fi
+
+            updated_epoch="$(date -u -d "$updated" +%s)"
+            now_epoch="$(date -u +%s)"
+            age_days=$(( (now_epoch - updated_epoch) / 86400 ))
+            if [ "$age_days" -ge 45 ]; then
+              echo "::warning::Open issue #$number has been inactive for $age_days days; report only."
+              echo "- STALE_ISSUE_REPORT_ONLY: #$number — ${age_days}d — $title" >> "$report"
+              findings=$((findings + 1))
+            fi
+          done < <(
+            jq -r '.[] | select(has("pull_request") | not) | [.number, .title, (.body // "" | gsub("\n"; " ")), .updated_at] | @tsv' <<< "$issues"
+          )
+
+          if [ "$findings" -eq 0 ]; then
+            echo "- No hygiene findings." >> "$report"
+          fi
+
+          {
+            echo
+            echo "Findings: **$findings**"
+            echo
+            echo "This workflow is advisory/report-only. It never auto-closes PRs or research issues."
+          } >> "$report"
+
+          cat "$report" >> "$GITHUB_STEP_SUMMARY"
+          cat "$report"
+          rm -f "$report"

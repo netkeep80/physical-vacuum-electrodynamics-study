@@ -20,3 +20,6 @@ Empirical support is evaluated against quantitative comparator predictions and u
 
 ## Status promotion [PVE-STATE-001]
 Scientific status is multi-axis and cannot be promoted strongly without registered evidence on the relevant axis.
+
+## Repository hygiene [PVE-HYG-001]
+Branches, pull requests and issues stay traceable and clean; ambiguous unique work is preserved rather than automatically deleted.

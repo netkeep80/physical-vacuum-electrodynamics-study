@@ -1,0 +1,58 @@
+name: Research / infrastructure task
+description: Structured work item for the Nikolaev audit project
+title: "[Task] "
+body:
+  - type: dropdown
+    id: class
+    attributes:
+      label: Work class
+      options:
+        - Infrastructure
+        - Sequential book audit
+        - Scientific deep dive
+        - Evidence / literature
+        - Verification tooling
+        - Memory / operations
+    validations:
+      required: true
+
+  - type: input
+    id: parent
+    attributes:
+      label: Parent issue
+      description: "Use an explicit parent such as #1 or a stage owner."
+      placeholder: "#1"
+    validations:
+      required: true
+
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What observable result should this issue produce?
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and boundaries
+      description: Include source pages/chapters where applicable and what must not be changed or concluded.
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: Upstream issues, claims, tools or evidence. Write "none" if there are none.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance
+      description: Concrete criteria for closing the issue.
+    validations:
+      required: true

@@ -1,6 +1,14 @@
+## Owning / related issue(s)
+
+Refs #
+
 ## Summary
 
-<!-- What changes and why? Link the owning issue. -->
+<!-- What changes and why? -->
+
+## Evidence / acceptance
+
+<!-- What demonstrates that the intended effect is present? What remains OPEN/GAP? -->
 
 ## ChangeIntent
 
@@ -19,9 +27,7 @@ must_not_touch:
   - requirements/**
   - .github/workflows/repo-guard.yml
 expected_effects:
-  - Describe the observable research or infrastructure effect
+  - Describe the observable effect
 ```
-
-Use canonical requirement IDs such as `PVE-AUD-001` in `anchors.affects/implements/verifies` when applicable.
 
 If a PR intentionally changes governance paths, link the issue that explicitly authorizes that governance change.

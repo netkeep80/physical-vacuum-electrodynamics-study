@@ -1,0 +1,240 @@
+name: Branch hygiene
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    types: [closed]
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  ensure-pr:
+    name: Ensure draft PR for side branch
+    if: github.event_name == 'push' && github.ref_type == 'branch' && github.ref_name != github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ensure open draft PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          OWNER: ${{ github.repository_owner }}
+          BRANCH: ${{ github.ref_name }}
+          BASE: ${{ github.event.repository.default_branch }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          existing="$(gh api --method GET "repos/$REPO/pulls" -f state=open -f head="$OWNER:$BRANCH" -f base="$BASE" --jq 'length')"
+          if [ "$existing" -gt 0 ]; then
+            echo "Open PR already exists for $BRANCH."
+            exit 0
+          fi
+
+          base_uri="$(jq -nr --arg v "$BASE" '$v|@uri')"
+          branch_uri="$(jq -nr --arg v "$BRANCH" '$v|@uri')"
+          if ! compare="$(gh api "repos/$REPO/compare/$base_uri...$branch_uri" 2>/dev/null)"; then
+            echo "::warning::Could not compare $BRANCH with $BASE; PR creation deferred."
+            exit 0
+          fi
+
+          ahead_by="$(jq -r '.ahead_by' <<< "$compare")"
+          if [ "$ahead_by" = "0" ]; then
+            echo "Branch $BRANCH has no unique commits; no PR needed yet."
+            exit 0
+          fi
+
+          title="draft: ${BRANCH//\// }"
+          body="$(printf '%s\n'             "Automatically opened by repository branch-hygiene policy [PVE-HYG-001]."             ""             "- head: $BRANCH"             "- base: $BASE"             "- hygiene owner: #14"             ""             "Replace this placeholder title/body with the task-specific PR description before marking the PR ready.")"
+
+          error_file="$(mktemp)"
+          if gh api --method POST "repos/$REPO/pulls"             -f title="$title" -f head="$BRANCH" -f base="$BASE" -f body="$body" -F draft=true             --silent 2>"$error_file"
+          then
+            rm -f "$error_file"
+            echo "Created draft PR for $BRANCH -> $BASE."
+            exit 0
+          else
+            status=$?
+          fi
+
+          error_text="$(cat "$error_file")"
+          rm -f "$error_file"
+
+          if grep -Fq "GitHub Actions is not permitted to create or approve pull requests" <<< "$error_text"; then
+            echo "::warning::Enable Settings -> Actions -> General -> Workflow permissions -> Allow GitHub Actions to create and approve pull requests."
+            exit 0
+          fi
+          if grep -Fq "No commits between" <<< "$error_text"; then
+            echo "::notice::No PR-eligible commits; creation deferred."
+            exit 0
+          fi
+          printf '%s\n' "$error_text" >&2
+          exit "$status"
+
+  delete-merged-head:
+    name: Delete merged PR head branch
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.action == 'closed' &&
+      github.event.pull_request.merged == true &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.head.ref != github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete same-repository merged head
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          BRANCH: ${{ github.event.pull_request.head.ref }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh api --method DELETE "repos/$REPO/git/refs/heads/$BRANCH" --silent 2>/dev/null; then
+            echo "Deleted merged branch $BRANCH."
+          else
+            echo "Branch already absent or cannot be safely deleted."
+          fi
+
+  sweep-fully-merged:
+    name: Sweep fully merged stale branches
+    if: >-
+      (github.event_name == 'push' && github.ref_name == github.event.repository.default_branch) ||
+      github.event_name == 'schedule' ||
+      github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out full repository history
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          fetch-depth: 0
+
+      - name: Delete only branches with a safe proof
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          BASE: ${{ github.event.repository.default_branch }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          open_heads="$(gh api --paginate "repos/$REPO/pulls?state=open&per_page=100" --jq '.[].head.ref' | sort -u)"
+
+          declare -A merged_pr_snapshots=()
+          while IFS=$'\t' read -r ref sha; do
+            if [ -n "$ref" ] && [ -n "$sha" ]; then merged_pr_snapshots["$ref|$sha"]=1; fi
+          done < <(
+            gh api --paginate "repos/$REPO/pulls?state=closed&per_page=100&sort=updated&direction=desc"               --jq '.[] | select(.merged_at != null and .head.repo.full_name == .base.repo.full_name) | [.head.ref, .head.sha] | @tsv'
+          )
+
+          declare -A closed_pr_refs=()
+          while IFS= read -r ref; do
+            if [ -n "$ref" ]; then closed_pr_refs["$ref"]=1; fi
+          done < <(
+            gh api --paginate "repos/$REPO/pulls?state=closed&per_page=100&sort=updated&direction=desc"               --jq '.[] | select(.head.repo.full_name == .base.repo.full_name) | .head.ref'
+          )
+
+          declare -A main_patch_ids=()
+          while read -r patch_id commit_id; do
+            if [ -n "$patch_id" ] && [ -n "$commit_id" ]; then main_patch_ids["$patch_id"]="$commit_id"; fi
+          done < <(git log --no-merges --patch --pretty=format:%H "origin/$BASE" | git patch-id --stable)
+
+          mapfile -t branches < <(
+            gh api --paginate "repos/$REPO/branches?per_page=100"               --jq '.[] | select(.protected == false) | [.name, .commit.sha] | @tsv'
+          )
+
+          candidates=()
+          deleted=0
+          kept=0
+
+          for row in "${branches[@]}"; do
+            branch="${row%%$'\t'*}"
+            sha="${row#*$'\t'}"
+
+            if [ "$branch" = "$BASE" ]; then continue; fi
+            if grep -Fxq "$branch" <<< "$open_heads"; then
+              echo "KEEP open-PR branch: $branch"
+              kept=$((kept + 1))
+              continue
+            fi
+
+            if [ -n "${merged_pr_snapshots["$branch|$sha"]+x}" ]; then
+              if gh api --method DELETE "repos/$REPO/git/refs/heads/$branch" --silent 2>/dev/null; then
+                echo "DELETE exact merged-PR head: $branch"
+                deleted=$((deleted + 1))
+              else
+                echo "KEEP delete failed: $branch"; kept=$((kept + 1))
+              fi
+              continue
+            fi
+
+            base_uri="$(jq -nr --arg v "$BASE" '$v|@uri')"
+            branch_uri="$(jq -nr --arg v "$branch" '$v|@uri')"
+            if ! compare="$(gh api "repos/$REPO/compare/$base_uri...$branch_uri" 2>/dev/null)"; then
+              echo "KEEP unverified branch: $branch"; kept=$((kept + 1)); continue
+            fi
+
+            ahead_by="$(jq -r '.ahead_by' <<< "$compare")"
+            if [ "$ahead_by" = "0" ]; then
+              if gh api --method DELETE "repos/$REPO/git/refs/heads/$branch" --silent 2>/dev/null; then
+                echo "DELETE zero-ahead branch: $branch"; deleted=$((deleted + 1))
+              else
+                echo "KEEP delete failed: $branch"; kept=$((kept + 1))
+              fi
+              continue
+            fi
+
+            if ! git fetch --quiet --no-tags origin               "+refs/heads/$BASE:refs/remotes/origin/$BASE"               "+refs/heads/$branch:refs/remotes/origin/$branch"; then
+              echo "KEEP unique branch; patch audit fetch failed: $branch"; kept=$((kept + 1)); continue
+            fi
+
+            merge_base="$(git merge-base "origin/$BASE" "origin/$branch" 2>/dev/null || true)"
+            if [ -z "$merge_base" ]; then
+              echo "KEEP unique branch; no merge-base: $branch"; kept=$((kept + 1)); continue
+            fi
+
+            if git diff --quiet "$merge_base" "origin/$branch"; then
+              candidates+=("EMPTY_NET_PATCH|$branch|$sha")
+              continue
+            fi
+
+            cherry_output="$(git cherry "origin/$BASE" "origin/$branch" 2>/dev/null || true)"
+            if [ -n "$cherry_output" ] && ! grep -q '^+' <<< "$cherry_output"; then
+              candidates+=("INDIVIDUAL_EQUIVALENT|$branch|$sha")
+              continue
+            fi
+
+            aggregate_patch_id="$(
+              git diff --binary "$merge_base" "origin/$branch" | git patch-id --stable | awk 'NR == 1 { print $1 }'
+            )"
+            if [ -n "$aggregate_patch_id" ] && [ -n "${main_patch_ids["$aggregate_patch_id"]+x}" ]; then
+              candidates+=("AGGREGATE_SQUASH_EQUIVALENT|$branch|$sha")
+              continue
+            fi
+
+            echo "KEEP UNCLASSIFIED_UNIQUE ($ahead_by): $branch @ $sha"
+            kept=$((kept + 1))
+          done
+
+          for candidate in "${candidates[@]}"; do
+            IFS='|' read -r class branch sha <<< "$candidate"
+            if [ -z "${closed_pr_refs["$branch"]+x}" ]; then
+              echo "KEEP $class without closed-PR provenance: $branch @ $sha"
+              kept=$((kept + 1))
+              continue
+            fi
+            if gh api --method DELETE "repos/$REPO/git/refs/heads/$branch" --silent 2>/dev/null; then
+              echo "DELETE $class with closed-PR provenance: $branch @ $sha"
+              deleted=$((deleted + 1))
+            else
+              echo "KEEP $class delete failed: $branch"
+              kept=$((kept + 1))
+            fi
+          done
+
+          echo "Deleted: $deleted"
+          echo "Kept/reported: $kept"
