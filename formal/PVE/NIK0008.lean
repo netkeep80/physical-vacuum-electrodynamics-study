@@ -120,4 +120,39 @@ theorem c012_michelson_gale_intervals_overlap :
       (236 : ℝ) / 1000 + (2 : ℝ) / 1000) := by
   norm_num
 
+
+/--
+NIK-0008-C016: minimal one-dimensional kinematic witness for the Hall-device
+patent SU661656A1. "drift" is the signed carrier speed relative to the
+sample, "sample" and "magnet" are signed speeds in an arbitrary common
+coordinate system. "gain" collects the fixed Hall-geometry and field factors.
+
+This is NOT a derivation of Nikolaev's alleged Earth-specific anomaly.
+It checks whether the patent's cancellation setup can, by itself,
+identify a privileged frame. It cannot: a common velocity shift of
+sample and magnet leaves the signal invariant.
+-/
+noncomputable def relativeHallSignal (gain drift sample magnet : ℝ) : ℝ :=
+  gain * (drift + sample - magnet)
+
+theorem c016_hall_common_frame_shift
+    (gain drift sample magnet shift : ℝ) :
+    relativeHallSignal gain drift (sample + shift) (magnet + shift) =
+      relativeHallSignal gain drift sample magnet := by
+  unfold relativeHallSignal
+  ring
+
+/-- The device's null method is compatible with relative carrier/magnet motion. -/
+theorem c016_hall_null_at_relative_speed_cancel
+    (gain drift magnet : ℝ) :
+    relativeHallSignal gain drift (magnet - drift) magnet = 0 := by
+  unfold relativeHallSignal
+  ring
+
+/-- Reversing the signed relative carrier velocity reverses the witness signal. -/
+theorem c016_hall_signal_odd
+    (gain relativeSpeed : ℝ) :
+    gain * (-relativeSpeed) = -(gain * relativeSpeed) := by
+  ring
+
 end PVE.NIK0008
