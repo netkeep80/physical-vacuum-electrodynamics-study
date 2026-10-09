@@ -32,7 +32,7 @@ const STRONG_STATUSES = new Set([
   "VIOLATED",
 ]);
 const ALL_AXIS_STATUSES = new Set([...WEAK_STATUSES, ...STRONG_STATUSES]);
-const AUDITED_EXPLICIT_STATUSES = new Set(["OPEN","NOT_TESTED","GAP","CONDITIONAL"]);
+const AUDITED_EXPLICIT_STATUSES = new Set(["OPEN","NOT_TESTED","GAP","CONDITIONAL"]);\nconst VERIFICATION_TRACKS = ["lean","julia","typescript"];\nconst VERIFICATION_STATUSES = new Set(["OPEN","PASS","FAIL","N_A"]);
 const CLAIM_KINDS = new Set([
   "definition",
   "historical_fact",
@@ -111,7 +111,7 @@ for (let i = 0; i < (coverage.sections ?? []).length; i++) {
 
 const model = JSON.parse(await readFile(MODEL_PATH, "utf8"));
 exactKeys(model, ["schema","source_manifest","coverage_manifest","evidence","claims"], "research-model");
-if (model.schema !== "pve-research-model/v1") fail("unsupported research model schema");
+if (model.schema !== "pve-research-model/v2") fail("unsupported research model schema");
 if (model.source_manifest !== "sources/nikolaev-2004/source.json") fail("research-model source_manifest must point to canonical source baseline");
 if (model.coverage_manifest !== "audit/book-coverage.json") fail("research-model coverage_manifest must point to canonical coverage");
 if (!Array.isArray(model.evidence)) fail("research-model.evidence must be array");
@@ -146,7 +146,7 @@ const claimIds = new Set();
 const claims = model.claims ?? [];
 for (let i = 0; i < claims.length; i++) {
   const c = claims[i];
-  if (!exactKeys(c, ["id","section_id","kind","statement","attribution","source","dependencies","axes"], `claim[${i}]`)) continue;
+  if (!exactKeys(c, ["id","section_id","kind","statement","attribution","source","dependencies","axes","verification"], `claim[${i}]`)) continue;
   if (!/^NIK-[0-9]{4}-C[0-9]{3}$/.test(c.id ?? "")) fail(`claim[${i}]: invalid id`);
   if (claimIds.has(c.id)) fail(`duplicate claim id ${c.id}`);
   claimIds.add(c.id);
@@ -181,6 +181,32 @@ for (let i = 0; i < claims.length; i++) {
     }
   }
   if (!stringArray(c.dependencies ?? [])) fail(`${c.id}: dependencies must be string array`);
+  if (!c.verification || typeof c.verification !== "object" || Array.isArray(c.verification)) {
+    fail(`${c.id}: verification object required`);
+  } else {
+    const verificationExtras = Object.keys(c.verification).filter((key) => !VERIFICATION_TRACKS.includes(key));
+    if (verificationExtras.length) fail(`${c.id}: unknown verification track(s) ${verificationExtras.join(", ")}`);
+    for (const track of VERIFICATION_TRACKS) {
+      const v = c.verification[track];
+      if (!v || typeof v !== "object" || Array.isArray(v)) {
+        fail(`${c.id}: missing verification track ${track}`);
+        continue;
+      }
+      exactKeys(v, ["status","finding","evidence"], `${c.id}.verification.${track}`);
+      if (!VERIFICATION_STATUSES.has(v.status)) fail(`${c.id}: ${track} unknown verification status ${v.status}`);
+      if (!nonEmptyString(v.finding)) fail(`${c.id}: ${track}.finding must be non-empty`);
+      if (!stringArray(v.evidence ?? [])) fail(`${c.id}: ${track}.evidence must be evidence-id array`);
+      for (const evidenceId of v.evidence ?? []) {
+        if (!evidenceById.has(evidenceId)) fail(`${c.id}: ${track} references unknown evidence ${evidenceId}`);
+      }
+      if ((v.status === "PASS" || v.status === "FAIL") && (v.evidence ?? []).length === 0) {
+        fail(`${c.id}: ${track} status ${v.status} requires evidence`);
+      }
+      if (v.status === "N_A" && (v.evidence ?? []).length !== 0) {
+        fail(`${c.id}: ${track} N_A must not carry evidence`);
+      }
+    }
+  }
   if (!c.axes || typeof c.axes !== "object" || Array.isArray(c.axes)) {
     fail(`${c.id}: axes object required`);
     continue;
@@ -200,6 +226,12 @@ for (let i = 0; i < claims.length; i++) {
     if (STRONG_STATUSES.has(a.status)) {
       if (!nonEmptyString(a.finding)) fail(`${c.id}: ${axis} status ${a.status} requires finding`);
       if ((a.evidence ?? []).length === 0) fail(`${c.id}: ${axis} status ${a.status} requires evidence`);
+    }
+  }
+  if (STRONG_STATUSES.has(c.axes?.math?.status)) {
+    const openTracks = VERIFICATION_TRACKS.filter((track) => c.verification?.[track]?.status === "OPEN");
+    if (openTracks.length) {
+      fail(`${c.id}: strong math status cannot have OPEN verification track(s): ${openTracks.join(", ")}`);
     }
   }
 }
