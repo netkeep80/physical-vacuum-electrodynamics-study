@@ -1,0 +1,43 @@
+{
+  "schema": "pve-source/v1",
+  "id": "NIKOLAEV-PVE-2004",
+  "repository_path": "Николаев Г.В. – Электродинамика физического вакуума – 2004.pdf",
+  "identity": {
+    "size_bytes": 8859035,
+    "sha256": "370944dcc059f23e4a99a96326c44db93ee5d715c7798f9e2fccb76cca234749",
+    "git_blob_sha1": "ca8052023acbea6c0ec126b135b027c291268d2d",
+    "pdf_page_count": 702
+  },
+  "bibliographic": {
+    "author": "Николаев Геннадий Васильевич",
+    "title": "Электродинамика физического вакуума",
+    "subtitle": "Новые концепции физического мира",
+    "publisher_text": "Изд-во НТЛ",
+    "year": 2004,
+    "printed_page_count_text": "700 с.",
+    "illustrations_text": "69 ил.",
+    "udc_text": "537.6/8, 550.39",
+    "provenance_pages": [
+      1,
+      2
+    ]
+  },
+  "repository_binding": {
+    "verified_against_attached_source": true,
+    "method": "Computed Git blob SHA-1 from the exact PDF bytes using Git blob framing and compared it with the GitHub contents object; size and blob id match.",
+    "immutable_requirement": "PVE-SRC-001"
+  },
+  "navigation": {
+    "canonical_coverage_manifest": "audit/book-coverage.json",
+    "toc_source_pdf_pages": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "coverage_entries": 139
+  },
+  "authority_rule": "The exact repository PDF is primary. Parsed/OCR text is a navigation aid only; ambiguous mathematical or bibliographic symbols must be checked against the rendered source page."
+}
