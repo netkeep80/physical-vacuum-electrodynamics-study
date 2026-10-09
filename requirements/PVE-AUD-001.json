@@ -1,0 +1,19 @@
+{
+  "id": "PVE-AUD-001",
+  "title": "Sequential complete-book audit",
+  "summary": "The canonical research flow follows the book from beginning to end. Every substantive section receives explicit disposition of its reasoning, material claims, formulas, examples, numerical results, evidence and conclusions.",
+  "artifacts": [
+    {
+      "path": "requirements/PVE-AUD-001.json",
+      "role": "requirement"
+    },
+    {
+      "path": "docs/book-audit-plan.md",
+      "role": "protocol"
+    },
+    {
+      "path": "README.md",
+      "role": "publication"
+    }
+  ]
+}

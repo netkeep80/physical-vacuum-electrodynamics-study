@@ -1,0 +1,6 @@
+{
+  "project": "netkeep80/physical-vacuum-electrodynamics-study",
+  "protocol": "https://github.com/netkeep80/anet-memory/blob/c2e3343788b439c9891d7616b640af211831a219/ARCHITECTURE.md",
+  "memory": "https://github.com/netkeep80/physical-vacuum-electrodynamics-study/issues/12",
+  "start": "Inspect live GitHub first. Use the project memory root only for bounded orientation; follow deeper references only when needed. Treat ANet/Library snapshots as context, never authority. The scientific audit is sequential and must follow the accepted book-audit plan."
+}

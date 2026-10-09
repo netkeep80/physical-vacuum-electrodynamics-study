@@ -1,0 +1,95 @@
+{
+  "policy_format_version": "0.3.0",
+  "repository_kind": "documentation",
+  "enforcement": {
+    "mode": "advisory"
+  },
+  "packs": {
+    "requirements-strict": {
+      "requirement_json_globs": [
+        "requirements/*.json"
+      ],
+      "requirement_id_pattern": "PVE-(?:GOV|SRC|AUD|MATH|PHY|EVD|STATE)-[0-9]{3}",
+      "closed_repository": false,
+      "strict_heading_docs": [
+        "requirements/index.md"
+      ],
+      "evidence_surfaces": [
+        "README.md",
+        "docs/**",
+        "requirements/index.md",
+        "formal/**",
+        "compute/**",
+        "checks/**",
+        "experiments/**",
+        "sources/**",
+        ".github/workflows/**"
+      ],
+      "changed_requirement_evidence_surfaces": [
+        "README.md",
+        "docs/**",
+        "requirements/index.md",
+        "checks/**",
+        ".github/workflows/**"
+      ],
+      "affected_evidence_surfaces": [
+        "README.md",
+        "docs/**",
+        "formal/**",
+        "compute/**",
+        "checks/**",
+        "experiments/**",
+        "sources/**"
+      ],
+      "implementation_evidence_surfaces": [
+        "formal/**",
+        "compute/**",
+        "scripts/**",
+        ".github/workflows/**"
+      ],
+      "verification_evidence_surfaces": [
+        "checks/**",
+        "formal/**",
+        "compute/**",
+        "experiments/**",
+        ".github/workflows/**"
+      ]
+    }
+  },
+  "paths": {
+    "forbidden": [
+      "legacy/**",
+      "archive/**",
+      "old/**",
+      "deprecated/**",
+      "*.bak",
+      "*.tmp",
+      "*.orig"
+    ],
+    "canonical_docs": [
+      "README.md",
+      "docs/research-protocol.md",
+      "docs/book-audit-plan.md"
+    ],
+    "governance_paths": [
+      "repo-policy.json",
+      "requirements/**",
+      "docs/research-protocol.md",
+      "docs/book-audit-plan.md",
+      ".github/workflows/repo-guard.yml",
+      ".github/PULL_REQUEST_TEMPLATE.md",
+      ".anet/memory.json"
+    ],
+    "pr_immutable": [
+      "Николаев Г.В. – Электродинамика физического вакуума – 2004.pdf"
+    ],
+    "operational_paths": []
+  },
+  "diff_rules": {
+    "max_new_docs": 20,
+    "max_new_files": 40,
+    "max_net_added_lines": 6000
+  },
+  "content_rules": [],
+  "cochange_rules": []
+}
