@@ -36,6 +36,24 @@ const missingAttribution = await run((model) => {
 assert.notEqual(missingAttribution.status, 0);
 assert.match(missingAttribution.stderr, /attribution object required/);
 
+const missingVerification = await run((model) => {
+  delete model.claims[0].verification;
+});
+assert.notEqual(missingVerification.status, 0);
+assert.match(missingVerification.stderr, /verification object required/);
+
+const passWithoutEvidence = await run((model) => {
+  model.claims[0].verification.lean = { status: "PASS", finding: "fixture", evidence: [] };
+});
+assert.notEqual(passWithoutEvidence.status, 0);
+assert.match(passWithoutEvidence.stderr, /status PASS requires evidence/);
+
+const naWithEvidence = await run((model) => {
+  model.claims[0].verification.lean = { status: "N_A", finding: "fixture", evidence: [model.evidence[0].id] };
+});
+assert.notEqual(naWithEvidence.status, 0);
+assert.match(naWithEvidence.stderr, /N_A must not carry evidence/);
+
 const sectionDependency = await run((model) => {
   model.claims[0].dependencies = ["NIK-0002"];
 });
