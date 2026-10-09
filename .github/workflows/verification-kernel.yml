@@ -48,3 +48,17 @@ jobs:
           show-versioninfo: "true"
       - name: Run deterministic smoke
         run: julia --project=compute compute/smoke.jl
+
+  typescript:
+    name: TypeScript numerical regression
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+      - name: Set up exact Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: 20
+      - name: Compile pinned TypeScript
+        run: npx --yes --package typescript@5.9.3 tsc -p compute/ts/tsconfig.json
+      - name: Run deterministic numeric regression smoke
+        run: node compute/ts/dist/smoke.js
