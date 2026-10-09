@@ -134,6 +134,51 @@
         "kind": "url",
         "url": "https://openstax.org/books/university-physics-volume-2/pages/13-2-lenzs-law"
       }
+    },
+    {
+      "id": "EVID-000015",
+      "kind": "experiment",
+      "title": "Nagel et al., Nature Communications 6, 8174 (2015) — direct terrestrial Lorentz-symmetry test in electrodynamics to 10^-18",
+      "locator": {
+        "kind": "url",
+        "url": "https://www.nature.com/articles/ncomms9174"
+      }
+    },
+    {
+      "id": "EVID-000016",
+      "kind": "literature",
+      "title": "Stefan Marinov — New Measurement of the Earth’s Absolute Velocity with the Help of the Coupled Shutters Experiment (detailed self-report/republication)",
+      "locator": {
+        "kind": "url",
+        "url": "https://amareis.github.io/marinov/en.html"
+      }
+    },
+    {
+      "id": "EVID-000017",
+      "kind": "literature",
+      "title": "T. Ivezić, Phys. Rev. A 44, 2682 (1991) — Electric fields from steady currents and unexplained electromagnetic experiments",
+      "locator": {
+        "kind": "url",
+        "url": "https://journals.aps.org/pra/abstract/10.1103/PhysRevA.44.2682"
+      }
+    },
+    {
+      "id": "EVID-000018",
+      "kind": "literature",
+      "title": "A. K. Singal, Phys. Rev. E 48, 4138 (1993) — Comment on Ivezić’s explanation of unexplained electromagnetic experiments",
+      "locator": {
+        "kind": "url",
+        "url": "https://journals.aps.org/pre/abstract/10.1103/PhysRevE.48.4138"
+      }
+    },
+    {
+      "id": "EVID-000019",
+      "kind": "literature",
+      "title": "Carl Hering, Transactions AIEE 42 (1923) — Electromagnetic Forces; A Search for More Rational Fundamentals; A Proposed Revision of the Laws",
+      "locator": {
+        "kind": "url",
+        "url": "https://ieeexplore.ieee.org/document/6592033/"
+      }
     }
   ],
   "claims": [
@@ -1548,9 +1593,12 @@
           "evidence": []
         },
         "assumptions": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Переход от зарегистрированной модуляции/анизотропии в конкретной установке к фундаментальному отказу от принципов относительности требует исключения систематик и независимой репликации; такой bridge в текущем evidence не установлен.",
+          "evidence": [
+            "EVID-000016",
+            "EVID-000015"
+          ]
         },
         "dimensional": {
           "status": "NOT_APPLICABLE",
@@ -1558,9 +1606,12 @@
           "evidence": []
         },
         "relation_to_comparator": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "INCONSISTENT",
+          "finding": "Широкий вывод предисловия о том, что эксперименты уже отвергли принципы относительности и эквивалентности, не согласуется с современным accepted experimental comparator: прямой terrestrial test photon-sector Lorentz symmetry не обнаружил нарушения на уровне ~10^-18, а MICROSCOPE не обнаружил нарушения слабого принципа эквивалентности на уровне ~10^-15. Эти измерения не являются прямой репликацией установок Мюллера или Маринова, поэтому экспериментальные детали исходных опытов оцениваются отдельно.",
+          "evidence": [
+            "EVID-000015",
+            "EVID-000004"
+          ]
         },
         "invariance": {
           "status": "OPEN",
@@ -1573,9 +1624,11 @@
           "evidence": []
         },
         "experiment": {
-          "status": "NOT_TESTED",
-          "finding": null,
-          "evidence": []
+          "status": "GAP",
+          "finding": "Для coupled-shutters существует подробный авторский self-report с заявленным результатом порядка 360 ± 40 km/s и описанием аппаратуры, но найденное evidence пока не образует независимую репликацию с подтвержденным error budget. Поэтому существование авторского результата установлено, а его экспериментальная достоверность и вывод об «абсолютной скорости» остаются открытыми.",
+          "evidence": [
+            "EVID-000016"
+          ]
         }
       }
     },
@@ -1728,9 +1781,12 @@
           "evidence": []
         },
         "assumptions": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Сам факт продольной механической силы или напряжения в токонесущем проводнике не уникально указывает на новый скалярный магнитный компонент. В peer-reviewed литературе предлагалось объяснение продольных напряжений обычными электрическими полями токов, и это объяснение затем было предметом отдельной критики. Следовательно, для «Сибирского Коли» нужен полный model discrimination на геометрии конкретной установки.",
+          "evidence": [
+            "EVID-000017",
+            "EVID-000018"
+          ]
         },
         "dimensional": {
           "status": "NOT_APPLICABLE",
@@ -1755,9 +1811,12 @@
           "evidence": []
         },
         "experiment": {
-          "status": "NOT_TESTED",
-          "finding": "Предисловие сообщает о наблюдаемой продольной силе, но в этой волне не восстановлены первичный протокол, геометрия установки, неопределенности и raw measurements; экспериментальный verdict не повышается.",
-          "evidence": []
+          "status": "GAP",
+          "finding": "В этой волне найдено подтверждение существования отдельной peer-reviewed литературы о продольных электродинамических силах, но не первичный dataset/протокол именно «Сибирского Коли». Поэтому наблюдение в конкретной установке и его воспроизводимость остаются незакрытым экспериментальным долгом.",
+          "evidence": [
+            "EVID-000017",
+            "EVID-000018"
+          ]
         }
       }
     },
@@ -2042,9 +2101,11 @@
           "evidence": []
         },
         "assumptions": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Библиографическое ядро утверждения подтверждено: работа Carl Hering с указанным названием действительно опубликована в Transactions AIEE, vol. 42 (1923), начиная со стр. 311, и посвящена в том числе longitudinal force. Однако доступное сейчас evidence не устанавливает приоритет «первым» и не подтверждает дословно именно конфигурацию sliding contacts.",
+          "evidence": [
+            "EVID-000019"
+          ]
         },
         "dimensional": {
           "status": "NOT_APPLICABLE",
@@ -2067,9 +2128,11 @@
           "evidence": []
         },
         "experiment": {
-          "status": "NOT_TESTED",
-          "finding": null,
-          "evidence": []
+          "status": "GAP",
+          "finding": "Первичная статья Hering идентифицирована, но для сильного historical/experimental verdict требуется прочитать конкретный экспериментальный passage и сопоставить его со схемой, которую Маринов описывает как продольное движение проволоки со скользящими контактами.",
+          "evidence": [
+            "EVID-000019"
+          ]
         }
       }
     },
@@ -2127,8 +2190,8 @@
           "evidence": []
         },
         "experiment": {
-          "status": "NOT_TESTED",
-          "finding": null,
+          "status": "GAP",
+          "finding": "Предисловие ссылается на Deutsche Physik 3(11), 5 (1994) как на опыты, противоречившие двум ранним «уравнениям Николаева». Точный primary article/dataset в этой волне ещё не восстановлен, поэтому self-falsification claim Маринова остаётся открытым.",
           "evidence": []
         }
       }
@@ -2247,8 +2310,8 @@
           "evidence": []
         },
         "experiment": {
-          "status": "NOT_TESTED",
-          "finding": null,
+          "status": "GAP",
+          "finding": "Маринов сообщает, что позднейшие опыты не обнаружили предсказанный B_mar и тем самым противоречили его собственному уравнению. Без точного primary protocol, sensitivity bound и raw measurements этот self-falsification result пока не воспроизведён.",
           "evidence": []
         }
       }
