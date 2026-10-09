@@ -116,6 +116,24 @@
         "url": "https://github.com/netkeep80/physical-vacuum-electrodynamics-study/blob/4a75d08426b70c6ff593ca37f1f6f8b7968aae2c/%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B5%D0%B2%20%D0%93.%D0%92.%20%E2%80%93%20%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D0%BA%D0%B0%20%D1%84%D0%B8%D0%B7%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B2%D0%B0%D0%BA%D1%83%D1%83%D0%BC%D0%B0%20%E2%80%93%202004.pdf"
       },
       "sha256": "370944dcc059f23e4a99a96326c44db93ee5d715c7798f9e2fccb76cca234749"
+    },
+    {
+      "id": "EVID-000013",
+      "kind": "literature",
+      "title": "OpenStax University Physics Volume 2 §11.4 — magnetic force on a current-carrying conductor",
+      "locator": {
+        "kind": "url",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/11-4-magnetic-force-on-a-current-carrying-conductor"
+      }
+    },
+    {
+      "id": "EVID-000014",
+      "kind": "literature",
+      "title": "OpenStax University Physics Volume 2 §13.2 — Lenz’s law and conservation of energy",
+      "locator": {
+        "kind": "url",
+        "url": "https://openstax.org/books/university-physics-volume-2/pages/13-2-lenzs-law"
+      }
     }
   ],
   "claims": [
@@ -1720,9 +1738,11 @@
           "evidence": []
         },
         "relation_to_comparator": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Для локального элемента обычного токонесущего проводника стандартный магнитный comparator задаёт dF = I dl × B, то есть магнитная сила перпендикулярна dl и B. Однако из одного описания «Сибирского Коли» нельзя заключить, что измеренная суммарная сила установки несовместима с Maxwell–Lorentz: требуется восстановить геометрию, токовые пути, контакты, электрические поля и неоднородное поле магнита.",
+          "evidence": [
+            "EVID-000013"
+          ]
         },
         "invariance": {
           "status": "NOT_APPLICABLE",
@@ -1736,7 +1756,7 @@
         },
         "experiment": {
           "status": "NOT_TESTED",
-          "finding": null,
+          "finding": "Предисловие сообщает о наблюдаемой продольной силе, но в этой волне не восстановлены первичный протокол, геометрия установки, неопределенности и raw measurements; экспериментальный verdict не повышается.",
           "evidence": []
         }
       }
@@ -1780,9 +1800,11 @@
           "evidence": []
         },
         "relation_to_comparator": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "INCONSISTENT",
+          "finding": "В стандартной Maxwell–Lorentz электродинамике магнитная сила на элемент тока имеет вид dF = I dl × B. Дополнительный фундаментальный продольный член I dl S / c в эту силу не входит; поэтому предложенный закон является модификацией, а не эквивалентной записью стандартного comparator. Это не является экспериментальным опровержением S.",
+          "evidence": [
+            "EVID-000013"
+          ]
         },
         "invariance": {
           "status": "OPEN",
@@ -1840,9 +1862,11 @@
           "evidence": []
         },
         "relation_to_comparator": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "INCONSISTENT",
+          "finding": "Стандартный закон Ленца требует, чтобы индуцированный ток противодействовал изменению магнитного потока, вызвавшему индукцию. Заявленный Мариновым режим, в котором индуцированный ток помогает движению и тем самым усиливает причину изменения, противоположен стандартному Lenz-response для обычной электромагнитной индукции.",
+          "evidence": [
+            "EVID-000014"
+          ]
         },
         "invariance": {
           "status": "NOT_APPLICABLE",
@@ -1850,13 +1874,15 @@
           "evidence": []
         },
         "conservation": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "VIOLATED",
+          "finding": "Если описанный «антиленц-эффект» трактовать как самоподдерживающееся получение механической/электрической энергии в пассивной системе без внешнего источника, вывод о вечном двигателе нарушает стандартный энергетический баланс: Lenz-response препятствует именно положительной обратной связи, которая создавала бы энергию без работы извне. Это verdict по заявленному perpetual-motion следствию, а не по факту наблюдения конкретной установки.",
+          "evidence": [
+            "EVID-000014"
+          ]
         },
         "experiment": {
           "status": "NOT_TESTED",
-          "finding": null,
+          "finding": "Наличие или отсутствие заявленного эффекта в конкретной установке требует отдельной проверки экспериментальной схемы, источников энергии, измерений и неопределенностей; comparator/conservation verdict сам по себе эксперимент не опровергает.",
           "evidence": []
         }
       }
@@ -1900,9 +1926,11 @@
           "evidence": []
         },
         "relation_to_comparator": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Равенство B = curl A является стандартным. Но приведенная рядом конкретная сумма A = Σ(q_i v_i / c r_i) не может считаться общей эквивалентной формой без явных условий на источники, запаздывание, gauge и используемое приближение; эти условия в предисловии не заданы.",
+          "evidence": [
+            "EVID-000009"
+          ]
         },
         "invariance": {
           "status": "OPEN",
@@ -1960,14 +1988,18 @@
           "evidence": []
         },
         "relation_to_comparator": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "INCONSISTENT",
+          "finding": "В стандартной электродинамике векторный потенциал обладает gauge freedom: A можно изменить добавлением градиента gauge-функции без изменения физических E и B. Поэтому div A сам по себе не является gauge-invariant observable. Физическая интерпретация S через -div A без отдельного gauge-fixing или модифицированного закона преобразования не эквивалентна стандартному описанию.",
+          "evidence": [
+            "EVID-000009"
+          ]
         },
         "invariance": {
-          "status": "NOT_APPLICABLE",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Предисловие не задаёт gauge-fixing или преобразование S, компенсирующее изменение div A. Поэтому gauge-invariance заявленного физического S не установлена; она может быть оценена только после явного задания дополнительной структуры теории.",
+          "evidence": [
+            "EVID-000009"
+          ]
         },
         "conservation": {
           "status": "NOT_APPLICABLE",

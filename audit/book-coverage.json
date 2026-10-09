@@ -53,12 +53,13 @@
       "source_page": 22,
       "kind": "foreword",
       "status": "IN_PROGRESS",
-      "disposition": "Exact source span pp. 22–26 visually inspected; 16 substantive claims registered with explicit Stefan Marinov attribution. Only source-fact provenance is strongly promoted in this first pass; mathematical, comparator, conservation and experimental evaluation remains open.",
+      "disposition": "Exact source span pp. 22–26 visually inspected; 16 substantive claims registered with explicit Stefan Marinov attribution. Wave 2 adds bounded comparator/conservation findings for the longitudinal scalar-force and anti-Lenz core while preserving experimental claims as NOT_TESTED/conditional where apparatus-level evidence has not yet been reconstructed.",
       "evidence": [
         "audit/research-model.json",
         "docs/generated/verified-facts.md",
         "issue #37",
-        "PR #38"
+        "PR #38",
+        "issue #41"
       ]
     },
     {
