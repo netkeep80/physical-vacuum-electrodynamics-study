@@ -32,6 +32,7 @@ const STRONG_STATUSES = new Set([
   "VIOLATED",
 ]);
 const ALL_AXIS_STATUSES = new Set([...WEAK_STATUSES, ...STRONG_STATUSES]);
+const AUDITED_EXPLICIT_STATUSES = new Set(["OPEN","NOT_TESTED","GAP","CONDITIONAL"]);
 const CLAIM_KINDS = new Set([
   "definition",
   "historical_fact",
@@ -194,8 +195,26 @@ for (let i = 0; i < claims.length; i++) {
 
 for (const c of claims) {
   for (const dependency of c.dependencies ?? []) {
-    if (!claimIds.has(dependency)) fail(`${c.id}: unresolved dependency ${dependency}`);
-    if (dependency === c.id) fail(`${c.id}: self dependency is forbidden`);
+    const resolvesClaim = claimIds.has(dependency);
+    const resolvesSection = sectionIds.has(dependency);
+    if (!resolvesClaim && !resolvesSection) fail(`${c.id}: unresolved dependency ${dependency}`);
+    if (dependency === c.id || dependency === c.section_id) {
+      fail(`${c.id}: self dependency is forbidden`);
+    }
+  }
+}
+
+for (const section of coverage.sections ?? []) {
+  if (section.status !== "AUDITED") continue;
+  const sectionClaims = claims.filter((claim) => claim.section_id === section.id);
+  if (sectionClaims.length === 0) fail(`${section.id}: AUDITED section requires at least one registered claim`);
+  for (const claim of sectionClaims) {
+    for (const axis of AXES) {
+      const state = claim.axes?.[axis];
+      if (state && AUDITED_EXPLICIT_STATUSES.has(state.status) && !nonEmptyString(state.finding)) {
+        fail(`${claim.id}: AUDITED section requires explicit finding for ${axis} status ${state.status}`);
+      }
+    }
   }
 }
 
