@@ -32,9 +32,12 @@
       "title": "Предисловие к книге «Непротиворечивая электродинамика»",
       "source_page": 17,
       "kind": "foreword",
-      "status": "NOT_STARTED",
-      "disposition": null,
-      "evidence": []
+      "status": "IN_PROGRESS",
+      "disposition": "Claim inventory extracted from visually inspected pp. 17–21; source-fact provenance verified, scientific axes remain under audit.",
+      "evidence": [
+        "audit/research-model.json",
+        "PR #32 / Research integrity source-inspection run"
+      ]
     },
     {
       "id": "NIK-0002",

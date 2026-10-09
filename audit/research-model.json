@@ -2,6 +2,1177 @@
   "schema": "pve-research-model/v1",
   "source_manifest": "sources/nikolaev-2004/source.json",
   "coverage_manifest": "audit/book-coverage.json",
-  "evidence": [],
-  "claims": []
+  "evidence": [
+    {
+      "id": "EVID-000001",
+      "kind": "source",
+      "title": "Николаев Г. В. «Электродинамика физического вакуума» (2004), exact repository PDF; NIK-0001 visually inspected on pp. 17–21",
+      "locator": {
+        "kind": "repository",
+        "path": "Николаев Г.В. – Электродинамика физического вакуума – 2004.pdf",
+        "revision": "ef5b18e649a8a4a9702043a73e1f05821731abc5",
+        "url": "https://github.com/netkeep80/physical-vacuum-electrodynamics-study/blob/ef5b18e649a8a4a9702043a73e1f05821731abc5/%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B5%D0%B2%20%D0%93.%D0%92.%20%E2%80%93%20%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D0%BA%D0%B0%20%D1%84%D0%B8%D0%B7%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B2%D0%B0%D0%BA%D1%83%D1%83%D0%BC%D0%B0%20%E2%80%93%202004.pdf"
+      },
+      "sha256": "370944dcc059f23e4a99a96326c44db93ee5d715c7798f9e2fccb76cca234749"
+    },
+    {
+      "id": "EVID-000002",
+      "kind": "literature",
+      "title": "CERN — The Standard Model: four fundamental forces and force carriers",
+      "locator": {
+        "kind": "url",
+        "url": "https://home.cern/science/physics/standard-model/"
+      }
+    },
+    {
+      "id": "EVID-000003",
+      "kind": "literature",
+      "title": "CERN — The Z boson: W and Z bosons carry the weak force",
+      "locator": {
+        "kind": "url",
+        "url": "https://home.cern/science/physics/z-boson/"
+      }
+    },
+    {
+      "id": "EVID-000004",
+      "kind": "experiment",
+      "title": "MICROSCOPE mission final test of the equivalence principle, Phys. Rev. Lett. 129, 121102 (2022)",
+      "locator": {
+        "kind": "url",
+        "url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.129.121102"
+      }
+    },
+    {
+      "id": "EVID-000005",
+      "kind": "literature",
+      "title": "NASA — Cosmological redshift from expansion of space",
+      "locator": {
+        "kind": "url",
+        "url": "https://science.nasa.gov/asset/webb/what-is-cosmological-redshift/"
+      }
+    },
+    {
+      "id": "EVID-000006",
+      "kind": "literature",
+      "title": "NASA/GSFC — CMB spectrum as thermal relic with blackbody spectrum",
+      "locator": {
+        "kind": "url",
+        "url": "https://asd.gsfc.nasa.gov/archive/arcade/cmb_spectrum.html"
+      }
+    }
+  ],
+  "claims": [
+    {
+      "id": "NIK-0001-C001",
+      "section_id": "NIK-0001",
+      "kind": "physical_claim",
+      "statement": "В предисловии перечислены четыре фундаментальных взаимодействия — сильное, слабое, электромагнитное и гравитационное — и утверждается, что в повседневной практике человек чаще всего сталкивается с электромагнитными.",
+      "source": {
+        "page": 17,
+        "locator": "p.17, абз. 1"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 17 Золотарев действительно перечисляет четыре типа взаимодействий и выделяет электромагнитные как наиболее часто встречающиеся в повседневной практике.",
+          "evidence": [
+            "EVID-000001"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "SUPPORTED",
+          "finding": "Современная справочная модель CERN также выделяет сильное, слабое, электромагнитное и гравитационное взаимодействия; при этом Standard Model описывает первые три и не включает гравитацию.",
+          "evidence": [
+            "EVID-000002"
+          ]
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0001-C002",
+      "section_id": "NIK-0001",
+      "kind": "physical_claim",
+      "statement": "Взаимодействия частиц вещества и сущность механических взаимодействий тел в основном имеют электромагнитную природу; практически все используемые человеком приборы и устройства основаны на электромагнитных взаимодействиях.",
+      "source": {
+        "page": 17,
+        "locator": "p.17, абз. 1–2"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 17 именно так связываются взаимодействия вещества, механические взаимодействия и работа практически всех приборов с электромагнитными взаимодействиями.",
+          "evidence": [
+            "EVID-000001"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0001-C003",
+      "section_id": "NIK-0001",
+      "kind": "physical_claim",
+      "statement": "К началу 2000-х новые и уточненные физические явления якобы не укладывались в общепринятые закономерности электродинамики в рамках уравнений Максвелла, поэтому законченность классической электродинамики является кажущейся.",
+      "source": {
+        "page": 17,
+        "locator": "p.17, абз. 3"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 17 содержится прямое утверждение о явлениях, не укладывающихся в электродинамику Максвелла, и о кажущейся законченности классической электродинамики.",
+          "evidence": [
+            "EVID-000001"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "GAP",
+          "finding": "В самом предисловии не перечислены конкретные «не укладывающиеся» явления и не заданы falsifiable criteria; проверка переносится на те места книги, где такие явления формулируются явно.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0001-C004",
+      "section_id": "NIK-0001",
+      "kind": "historical_fact",
+      "statement": "Монография Николаева анализирует исторические предпосылки противоречий, приводит теоретические и экспериментальные парадоксы, причем большинство из них, по словам автора предисловия, выявлено самим Николаевым, и предлагает пути устранения противоречий.",
+      "source": {
+        "page": 17,
+        "locator": "p.17, абз. 4"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 17 предисловие именно так характеризует содержание и авторство парадоксов в монографии Николаева.",
+          "evidence": [
+            "EVID-000001"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0001-C005",
+      "section_id": "NIK-0001",
+      "kind": "physical_claim",
+      "statement": "Николаев якобы достоверно доказал открытие нового типа магнитного поля.",
+      "source": {
+        "page": 17,
+        "locator": "p.17, абз. 4"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 17 открытие нового типа магнитного поля Николаевым прямо характеризуется как «достоверно доказанное».",
+          "evidence": [
+            "EVID-000001"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "GAP",
+          "finding": "Фраза о «достоверно доказанном» новом магнитном поле дана без самостоятельного доказательства или точной ссылки на эксперимент в предисловии; оценка зависит от последующих глав монографии.",
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0001-C006",
+      "section_id": "NIK-0001",
+      "kind": "physical_claim",
+      "statement": "Авторы подхода Золотарева утверждают, что объединили четыре взаимодействия через «явление компутации» — хаотическое блуждание элементарных частиц по квантованному пространству физического вакуума — и тем самым теоретически вывели практически все фундаментальные экспериментально известные физические законы.",
+      "source": {
+        "page": 18,
+        "locator": "p.18, абз. 2"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 18 содержится именно такое заявление об объединении четырех взаимодействий через «компутацию» и выводе практически всех фундаментальных законов.",
+          "evidence": [
+            "EVID-000001"
+          ]
+        },
+        "math": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "GAP",
+          "finding": "Предисловие заявляет объединение четырех взаимодействий и вывод почти всех фундаментальных законов, но здесь не дает формального отображения на проверяемый accepted comparator.",
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0001-C007",
+      "section_id": "NIK-0001",
+      "kind": "physical_claim",
+      "statement": "Физический вакуум представлен как сверхтекучая «вихревая губка» Бернулли, а вихревые трубки в ней — как круговые токи виртуальных электронно-позитронных пар.",
+      "source": {
+        "page": 18,
+        "locator": "p.18, абз. 3"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 18 физический вакуум прямо описан как сверхтекучая «вихревая губка» Бернулли, а вихревые трубки — как токи виртуальных электронно-позитронных пар.",
+          "evidence": [
+            "EVID-000001"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0001-C008",
+      "section_id": "NIK-0001",
+      "kind": "physical_claim",
+      "statement": "Знак электрического заряда связывается с направлением вращения вихревой трубки, а инвариант элементарного заряда — с объемом пространственной клетки в составе такой трубки.",
+      "source": {
+        "page": 18,
+        "locator": "p.18, абз. 3"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 18 знак заряда и величина элементарного заряда действительно интерпретируются через вращение вихревых трубок и объем пространственной клетки.",
+          "evidence": [
+            "EVID-000001"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0001-C009",
+      "section_id": "NIK-0001",
+      "kind": "physical_claim",
+      "statement": "Фотоны трактуются как локальные изгибы вихревых трубок; изгибы распространяются со скоростью света, а сопутствующие сдвиги — практически с бесконечной скоростью и формируют электромагнитную волну, подчиняющуюся уравнениям Максвелла.",
+      "source": {
+        "page": 18,
+        "locator": "p.18, абз. 3"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 18 изложена именно эта модель фотона, распространения изгиба и почти мгновенных сдвигов, формирующих электромагнитную волну.",
+          "evidence": [
+            "EVID-000001"
+          ]
+        },
+        "math": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0001-C010",
+      "section_id": "NIK-0001",
+      "kind": "physical_claim",
+      "statement": "Расчет взаимодействия изгибов вихревых трубок через поглощение сдвигов якобы количественно приводит к закону Кулона; электрический заряд трактуется как константа взаимодействия, а электрическая механическая сила — как реакция при поглощении сдвига.",
+      "source": {
+        "page": 18,
+        "locator": "p.18, абз. 3"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 18 заявлено количественное получение закона Кулона из механизма поглощения сдвигов и дана соответствующая интерпретация заряда и силы.",
+          "evidence": [
+            "EVID-000001"
+          ]
+        },
+        "math": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0001-C011",
+      "section_id": "NIK-0001",
+      "kind": "physical_claim",
+      "statement": "Напряженность электрического поля интерпретируется как количество движения в единице объема, трансляционный компонент смещения — как электрическое поле, вращательный — как магнитное поле; магнитное поле затем объявляется реально существующим и участвующим вместе со спиновым и электрическим полями в сильных взаимодействиях ядер.",
+      "source": {
+        "page": 18,
+        "locator": "p.18, конец абз. 3 – p.19, абз. 1"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 18–19 эти интерпретации электрического и магнитного полей и их роль в сильных ядерных взаимодействиях сформулированы явно.",
+          "evidence": [
+            "EVID-000001"
+          ]
+        },
+        "math": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "INCONSISTENT",
+          "finding": "Accepted Standard Model связывает фундаментальное сильное взаимодействие с глюонами/QCD, а не с комбинацией обычного магнитного, электрического и «спинового» полей, как утверждается в предисловии.",
+          "evidence": [
+            "EVID-000002"
+          ]
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0001-C012",
+      "section_id": "NIK-0001",
+      "kind": "physical_claim",
+      "statement": "Распад элементарных частиц при слабых взаимодействиях интерпретируется как кратковременность пребывания в потенциальной яме при положительной внутренней энергии.",
+      "source": {
+        "page": 19,
+        "locator": "p.19, абз. 1"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 19 слабый распад прямо объясняется кратковременным пребыванием в потенциальной яме при положительной внутренней энергии.",
+          "evidence": [
+            "EVID-000001"
+          ]
+        },
+        "math": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "INCONSISTENT",
+          "finding": "Accepted electroweak description связывает слабое взаимодействие и превращения частиц с W/Z-бозонами; изложенная модель «кратковременного пребывания в потенциальной яме» не совпадает с этим механизмом.",
+          "evidence": [
+            "EVID-000002",
+            "EVID-000003"
+          ]
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0001-C013",
+      "section_id": "NIK-0001",
+      "kind": "physical_claim",
+      "statement": "Совмещение двух электрических контуров с противоположными токами якобы приводит к их отталкиванию при нулевом внешнем магнитном поле; аналогично компенсация магнитного поля двух параллельно движущихся зарядов противоположного знака не уничтожает их кинетическую энергию, отождествляемую с энергией магнитного поля.",
+      "source": {
+        "page": 19,
+        "locator": "p.19, абз. 2"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 19 действительно приводятся оба аргумента — про противоположные токи в контурах и про два параллельно движущихся разноименных заряда.",
+          "evidence": [
+            "EVID-000001"
+          ]
+        },
+        "math": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0001-C014",
+      "section_id": "NIK-0001",
+      "kind": "physical_claim",
+      "statement": "При относительном движении зарядов меняется темп обмена сдвигами и электрическое взаимодействие; выделенный компонент, записанный в единицах магнитного поля, отождествляется с открытым Николаевым скалярным магнитным полем.",
+      "source": {
+        "page": 19,
+        "locator": "p.19, абз. 3"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 19 именно так объясняется происхождение скалярного магнитного поля Николаева из изменения электрического взаимодействия при относительном движении.",
+          "evidence": [
+            "EVID-000001"
+          ]
+        },
+        "math": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0001-C015",
+      "section_id": "NIK-0001",
+      "kind": "physical_claim",
+      "statement": "Скалярный электрический потенциал интерпретируется как энергия электрического поля в единице объема и считается физически однозначным; при скорости заряда V он якобы уменьшается в V/C раз и становится векторным потенциалом A; из сходства потенциалов делается вывод о возможности выражать полное магнитное поле через градиент потенциала.",
+      "source": {
+        "page": 19,
+        "locator": "p.19, абз. 4 – p.20, абз. 1"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 19–20 присутствуют все указанные утверждения о физическом смысле потенциалов, множителе V/C, векторном потенциале и градиенте полного магнитного поля.",
+          "evidence": [
+            "EVID-000001"
+          ]
+        },
+        "math": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0001-C016",
+      "section_id": "NIK-0001",
+      "kind": "mathematical_claim",
+      "statement": "Закономерности электродинамики якобы можно формулировать как через магнитное поле, так и через векторный потенциал, причем различается лишь математическое удобство для практических задач.",
+      "source": {
+        "page": 20,
+        "locator": "p.20, абз. 1"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 20 сформулирована эквивалентность описания закономерностей через магнитное поле и векторный потенциал с оговоркой о различном удобстве.",
+          "evidence": [
+            "EVID-000001"
+          ]
+        },
+        "math": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0001-C017",
+      "section_id": "NIK-0001",
+      "kind": "physical_claim",
+      "statement": "Гравитация объясняется обменом гравитонами отрицательной массы; при переходе частицы между пространственными клетками испускается пара гравитонов положительной и отрицательной массы, причем положительные уходят в сопряженный мир античастиц; заявляется количественный вывод закона всемирного тяготения и гравитационной постоянной.",
+      "source": {
+        "page": 20,
+        "locator": "p.20, абз. 2"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 20 изложена именно эта гравитационная модель и заявлен количественный вывод закона тяготения и G.",
+          "evidence": [
+            "EVID-000001"
+          ]
+        },
+        "math": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0001-C018",
+      "section_id": "NIK-0001",
+      "kind": "physical_claim",
+      "statement": "Космологическое красное смещение объясняется «похудением» фотонов, а интенсивность и спектр фонового излучения Вселенной якобы количественно выводятся в рамках той же модели.",
+      "source": {
+        "page": 20,
+        "locator": "p.20, абз. 2"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 20 космологическое красное смещение и фоновое излучение прямо связываются с этой моделью и заявляются как количественно объясненные.",
+          "evidence": [
+            "EVID-000001"
+          ]
+        },
+        "math": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "INCONSISTENT",
+          "finding": "Стандартная космологическая интерпретация связывает космологическое красное смещение с расширением пространства, а CMB — с тепловым реликтовым излучением горячей ранней Вселенной; это иной механизм, чем заявленное «похудение» фотонов.",
+          "evidence": [
+            "EVID-000005",
+            "EVID-000006"
+          ]
+        },
+        "invariance": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_TESTED",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    },
+    {
+      "id": "NIK-0001-C019",
+      "section_id": "NIK-0001",
+      "kind": "experimental_claim",
+      "statement": "Электрону приписывается большее удельное гравитационное взаимодействие, чем нуклонам; в поддержку приводятся сведения 1986 года об увеличении земного ускорения тел с меньшей относительной концентрацией нуклонов.",
+      "source": {
+        "page": 20,
+        "locator": "p.20, абз. 2"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 20 сформулирован вывод об удельном «гравитационном утяжелении» электрона и приведена ссылка на «За рубежом», 1986, №15 как экспериментальная поддержка.",
+          "evidence": [
+            "EVID-000001"
+          ]
+        },
+        "math": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "OPEN",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "CONTRADICTED",
+          "finding": "Финальный результат MICROSCOPE не обнаружил нарушения слабого принципа эквивалентности для тел разного состава и ограничил параметр Этвеша для Ti/Pt на уровне порядка 10^-15; это противоречит общему тезису о композиционно-зависимом земном ускорении как экспериментальном эффекте.",
+          "evidence": [
+            "EVID-000004"
+          ]
+        }
+      }
+    },
+    {
+      "id": "NIK-0001-C020",
+      "section_id": "NIK-0001",
+      "kind": "interpretation",
+      "statement": "Золотарев оценивает монографию Николаева как крупный вклад в электродинамику и физику, подчеркивает научную честность автора, его противоречие традиционной теории и признание недостатков собственной теории; предисловие подписано В. Ф. Золотаревым, доктором технических наук, Ленинград.",
+      "source": {
+        "page": 20,
+        "locator": "p.20, абз. 3 – p.21"
+      },
+      "dependencies": [],
+      "axes": {
+        "source_fact": {
+          "status": "VERIFIED",
+          "finding": "На стр. 20–21 именно так дана итоговая оценка монографии и указана подпись «Докт. техн. наук Золотарев В.Ф., г. Ленинград».",
+          "evidence": [
+            "EVID-000001"
+          ]
+        },
+        "math": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "assumptions": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "dimensional": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "relation_to_comparator": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "invariance": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "conservation": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        },
+        "experiment": {
+          "status": "NOT_APPLICABLE",
+          "finding": null,
+          "evidence": []
+        }
+      }
+    }
+  ]
 }
