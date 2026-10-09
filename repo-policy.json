@@ -86,9 +86,7 @@
       ".github/ISSUE_TEMPLATE/**",
       ".anet/memory.json"
     ],
-    "pr_immutable": [
-      "Николаев Г.В. – Электродинамика физического вакуума – 2004.pdf"
-    ],
+    "pr_immutable": [],
     "operational_paths": []
   },
   "diff_rules": {
