@@ -189,7 +189,7 @@ def clean_text(value: Any) -> str:
     text = str(value).replace("—", "-").replace("–", "-")
     text = text.replace("discriminating power", "различающая способность")
     text = text.replace("verdict", "заключение")
-    text = re.sub(r"\\bp\\.(\\d+)\\b", r"стр. \\1", text)
+    text = re.sub(r"\bp\.(\d+)\b", r"стр. \1", text)
     text = text.replace(" bottom", ", нижняя часть")
     text = text.replace(" top", ", верхняя часть")
     text = text.replace(" before §2 heading", ", до заголовка §2")
