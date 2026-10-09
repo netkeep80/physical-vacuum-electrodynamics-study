@@ -1,5 +1,5 @@
 {
-  "schema": "pve-research-model/v1",
+  "schema": "pve-research-model/v2",
   "source_manifest": "sources/nikolaev-2004/source.json",
   "coverage_manifest": "audit/book-coverage.json",
   "evidence": [
@@ -230,6 +230,39 @@
         "url": "https://github.com/netkeep80/physical-vacuum-electrodynamics-study/blob/eaf81ba4f0579878c5d04a3288256fd448fd1ebd/%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B5%D0%B2%20%D0%93.%D0%92.%20%E2%80%93%20%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%B4%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D0%BA%D0%B0%20%D1%84%D0%B8%D0%B7%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B2%D0%B0%D0%BA%D1%83%D1%83%D0%BC%D0%B0%20%E2%80%93%202004.pdf"
       },
       "sha256": "370944dcc059f23e4a99a96326c44db93ee5d715c7798f9e2fccb76cca234749"
+    },
+    {
+      "id": "EVID-000025",
+      "kind": "formal_proof",
+      "title": "Lean 4 — NIK-0007 C005/C010/C011 formal checks",
+      "locator": {
+        "kind": "repository",
+        "path": "formal/PVE/NIK0007.lean",
+        "revision": "c8cec3db8266038c8d05bd25c7c8ecb332290333",
+        "url": "https://github.com/netkeep80/physical-vacuum-electrodynamics-study/blob/c8cec3db8266038c8d05bd25c7c8ecb332290333/formal/PVE/NIK0007.lean"
+      }
+    },
+    {
+      "id": "EVID-000026",
+      "kind": "computation",
+      "title": "Julia — NIK-0007 C005 algebraic, dimensional and numerical reproduction",
+      "locator": {
+        "kind": "repository",
+        "path": "compute/nik0007.jl",
+        "revision": "c8cec3db8266038c8d05bd25c7c8ecb332290333",
+        "url": "https://github.com/netkeep80/physical-vacuum-electrodynamics-study/blob/c8cec3db8266038c8d05bd25c7c8ecb332290333/compute/nik0007.jl"
+      }
+    },
+    {
+      "id": "EVID-000027",
+      "kind": "computation",
+      "title": "TypeScript — NIK-0007 C005 numerical regression/property tests",
+      "locator": {
+        "kind": "repository",
+        "path": "compute/ts/nik0007.ts",
+        "revision": "b75254366db45f35b4b6f3c058218714592d6460",
+        "url": "https://github.com/netkeep80/physical-vacuum-electrodynamics-study/blob/b75254366db45f35b4b6f3c058218714592d6460/compute/ts/nik0007.ts"
+      }
     }
   ],
   "claims": [
@@ -293,6 +326,23 @@
         "name": "Золотарев В. Ф.",
         "role": "foreword_author",
         "source_locator": "p.21, signature block"
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -355,6 +405,23 @@
         "name": "Золотарев В. Ф.",
         "role": "foreword_author",
         "source_locator": "p.21, signature block"
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -417,6 +484,23 @@
         "name": "Золотарев В. Ф.",
         "role": "foreword_author",
         "source_locator": "p.21, signature block"
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -479,6 +563,23 @@
         "name": "Золотарев В. Ф.",
         "role": "foreword_author",
         "source_locator": "p.21, signature block"
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -543,6 +644,23 @@
         "name": "Золотарев В. Ф.",
         "role": "foreword_author",
         "source_locator": "p.21, signature block"
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -603,6 +721,23 @@
         "name": "Золотарев В. Ф.",
         "role": "foreword_author",
         "source_locator": "p.21, signature block"
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -663,6 +798,23 @@
         "name": "Золотарев В. Ф.",
         "role": "foreword_author",
         "source_locator": "p.21, signature block"
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -723,6 +875,23 @@
         "name": "Золотарев В. Ф.",
         "role": "foreword_author",
         "source_locator": "p.21, signature block"
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -789,6 +958,23 @@
         "name": "Золотарев В. Ф.",
         "role": "foreword_author",
         "source_locator": "p.21, signature block"
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -851,6 +1037,23 @@
         "name": "Золотарев В. Ф.",
         "role": "foreword_author",
         "source_locator": "p.21, signature block"
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -913,6 +1116,23 @@
         "name": "Золотарев В. Ф.",
         "role": "foreword_author",
         "source_locator": "p.21, signature block"
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -976,6 +1196,23 @@
         "name": "Золотарев В. Ф.",
         "role": "foreword_author",
         "source_locator": "p.21, signature block"
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -1042,6 +1279,23 @@
         "name": "Золотарев В. Ф.",
         "role": "foreword_author",
         "source_locator": "p.21, signature block"
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -1106,6 +1360,23 @@
         "name": "Золотарев В. Ф.",
         "role": "foreword_author",
         "source_locator": "p.21, signature block"
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -1172,6 +1443,23 @@
         "name": "Золотарев В. Ф.",
         "role": "foreword_author",
         "source_locator": "p.21, signature block"
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -1237,6 +1525,23 @@
         "name": "Золотарев В. Ф.",
         "role": "foreword_author",
         "source_locator": "p.21, signature block"
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -1301,6 +1606,23 @@
         "name": "Золотарев В. Ф.",
         "role": "foreword_author",
         "source_locator": "p.21, signature block"
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -1366,6 +1688,23 @@
         "name": "Золотарев В. Ф.",
         "role": "foreword_author",
         "source_locator": "p.21, signature block"
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -1433,6 +1772,23 @@
         "name": "Золотарев В. Ф.",
         "role": "foreword_author",
         "source_locator": "p.21, signature block"
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -1493,6 +1849,23 @@
         "name": "Золотарев В. Ф.",
         "role": "foreword_author",
         "source_locator": "p.21, signature block"
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -1553,6 +1926,23 @@
           "finding": null,
           "evidence": []
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -1611,6 +2001,23 @@
         "experiment": {
           "status": "NOT_APPLICABLE",
           "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
           "evidence": []
         }
       }
@@ -1688,6 +2095,23 @@
             "EVID-000016"
           ]
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -1753,6 +2177,23 @@
           "finding": "Сообщение о повторении части опытов зарегистрировано как source fact, но независимый первичный протокол и воспроизводимые measurements в текущем корпусе не установлены; экспериментальный долг переносится на NIK-0128.",
           "evidence": []
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -1811,6 +2252,23 @@
         "experiment": {
           "status": "NOT_APPLICABLE",
           "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
           "evidence": []
         }
       }
@@ -1883,6 +2341,23 @@
             "EVID-000017",
             "EVID-000018"
           ]
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
         }
       }
     },
@@ -1960,6 +2435,23 @@
           "finding": null,
           "evidence": []
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -2029,6 +2521,23 @@
         "experiment": {
           "status": "NOT_TESTED",
           "finding": "Наличие или отсутствие заявленного эффекта в конкретной установке требует отдельной проверки экспериментальной схемы, источников энергии, измерений и неопределенностей; comparator/conservation verdict сам по себе эксперимент не опровергает.",
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
           "evidence": []
         }
       }
@@ -2102,6 +2611,23 @@
         "experiment": {
           "status": "NOT_APPLICABLE",
           "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
           "evidence": []
         }
       }
@@ -2181,6 +2707,23 @@
             "EVID-000012"
           ]
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -2245,6 +2788,23 @@
             "EVID-000019"
           ]
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -2307,6 +2867,23 @@
         "experiment": {
           "status": "GAP",
           "finding": "Предисловие ссылается на Deutsche Physik 3(11), 5 (1994) как на опыты, противоречившие двум ранним «уравнениям Николаева». Точный primary article/dataset в этой волне ещё не восстановлен, поэтому self-falsification claim Маринова остаётся открытым.",
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
           "evidence": []
         }
       }
@@ -2378,6 +2955,23 @@
           "finding": null,
           "evidence": []
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -2440,6 +3034,23 @@
           "finding": "Маринов сообщает, что позднейшие опыты не обнаружили предсказанный B_mar и тем самым противоречили его собственному уравнению. Без точного primary protocol, sensitivity bound и raw measurements этот self-falsification result пока не воспроизведён.",
           "evidence": []
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -2500,6 +3111,23 @@
           "finding": null,
           "evidence": []
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -2558,6 +3186,23 @@
         "experiment": {
           "status": "NOT_APPLICABLE",
           "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
           "evidence": []
         }
       }
@@ -2625,6 +3270,23 @@
           "finding": null,
           "evidence": []
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -2683,6 +3345,23 @@
         "experiment": {
           "status": "NOT_APPLICABLE",
           "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
           "evidence": []
         }
       }
@@ -2745,6 +3424,23 @@
           "finding": null,
           "evidence": []
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -2803,6 +3499,23 @@
         "experiment": {
           "status": "NOT_APPLICABLE",
           "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
           "evidence": []
         }
       }
@@ -2865,6 +3578,23 @@
           "finding": null,
           "evidence": []
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -2923,6 +3653,23 @@
         "experiment": {
           "status": "NOT_APPLICABLE",
           "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
           "evidence": []
         }
       }
@@ -2985,6 +3732,23 @@
           "finding": null,
           "evidence": []
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -3043,6 +3807,23 @@
         "experiment": {
           "status": "NOT_APPLICABLE",
           "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
           "evidence": []
         }
       }
@@ -3105,6 +3886,23 @@
           "finding": null,
           "evidence": []
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -3163,6 +3961,23 @@
         "experiment": {
           "status": "NOT_APPLICABLE",
           "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
           "evidence": []
         }
       }
@@ -3231,6 +4046,23 @@
             "EVID-000022"
           ]
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -3297,6 +4129,23 @@
             "EVID-000023"
           ]
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -3355,6 +4204,23 @@
         "experiment": {
           "status": "NOT_TESTED",
           "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
           "evidence": []
         }
       }
@@ -3422,6 +4288,23 @@
             "EVID-000023"
           ]
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -3480,6 +4363,23 @@
         "experiment": {
           "status": "NOT_TESTED",
           "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
           "evidence": []
         }
       }
@@ -3542,6 +4442,23 @@
           "finding": null,
           "evidence": []
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -3600,6 +4517,23 @@
         "experiment": {
           "status": "NOT_APPLICABLE",
           "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
           "evidence": []
         }
       }
@@ -3662,6 +4596,23 @@
           "finding": null,
           "evidence": []
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -3720,6 +4671,23 @@
         "experiment": {
           "status": "NOT_APPLICABLE",
           "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
           "evidence": []
         }
       }
@@ -3782,6 +4750,23 @@
           "finding": null,
           "evidence": []
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -3840,6 +4825,23 @@
         "experiment": {
           "status": "NOT_APPLICABLE",
           "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
           "evidence": []
         }
       }
@@ -3902,6 +4904,23 @@
           "finding": null,
           "evidence": []
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Материал FRONT находится вне обязательного тройного контура проверки, который начинается с NIK-0007 / стр. 81.",
+          "evidence": []
+        }
       }
     },
     {
@@ -3960,6 +4979,23 @@
         "experiment": {
           "status": "NOT_APPLICABLE",
           "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
           "evidence": []
         }
       }
@@ -4022,6 +5058,23 @@
           "finding": null,
           "evidence": []
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        }
       }
     },
     {
@@ -4080,6 +5133,23 @@
         "experiment": {
           "status": "NOT_TESTED",
           "finding": "Конкретный набор экспериментов и их discriminating power в §1 не разобраны; проверка переносится на последующие разделы.",
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
           "evidence": []
         }
       }
@@ -4142,6 +5212,23 @@
           "finding": null,
           "evidence": []
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        }
       }
     },
     {
@@ -4169,8 +5256,12 @@
         },
         "math": {
           "status": "GAP",
-          "finding": "В §1 не задаётся точное определение переменной m в применённом к фотону выражении E=mc² и не выводится переход от энергии фотона к инерционной/гравитационной массе; математический смысл этого шага пока недостаточно определён для сильного verdict.",
-          "evidence": []
+          "finding": "Алгебраическая часть проверена: при c ≠ 0 из E = m·c² следует m = E/c². Однако §1 не определяет физический смысл величины m в этом применении и не выводит переход к инерционной либо гравитационной интерпретации, поэтому семантическая часть шага остаётся пробелом.",
+          "evidence": [
+            "EVID-000025",
+            "EVID-000026",
+            "EVID-000027"
+          ]
         },
         "assumptions": {
           "status": "OPEN",
@@ -4178,9 +5269,12 @@
           "evidence": []
         },
         "dimensional": {
-          "status": "NOT_APPLICABLE",
-          "finding": null,
-          "evidence": []
+          "status": "VERIFIED",
+          "finding": "В базовых размерностях M,L,T выражение E/c² имеет размерность массы: (M·L²·T⁻²)/(L²·T⁻²)=M. Независимые Julia и TypeScript проверки совпали.",
+          "evidence": [
+            "EVID-000026",
+            "EVID-000027"
+          ]
         },
         "relation_to_comparator": {
           "status": "NOT_APPLICABLE",
@@ -4201,6 +5295,29 @@
           "status": "NOT_APPLICABLE",
           "finding": null,
           "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "PASS",
+          "finding": "Lean формально доказал алгебраическое следствие m = E/c² из E = m·c² при условии c ≠ 0.",
+          "evidence": [
+            "EVID-000025"
+          ]
+        },
+        "julia": {
+          "status": "PASS",
+          "finding": "Julia воспроизвела обратное вычисление массы на нулевом, малых, обычных, отрицательном и больших тестовых значениях и проверила размерностные показатели.",
+          "evidence": [
+            "EVID-000026"
+          ]
+        },
+        "typescript": {
+          "status": "PASS",
+          "finding": "TypeScript regression/property tests воспроизвели преобразование E↔m, проверили граничный случай c=0 и размерностные показатели.",
+          "evidence": [
+            "EVID-000027"
+          ]
         }
       }
     },
@@ -4260,6 +5377,23 @@
         "experiment": {
           "status": "NOT_APPLICABLE",
           "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
           "evidence": []
         }
       }
@@ -4322,6 +5456,23 @@
           "finding": null,
           "evidence": []
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        }
       }
     },
     {
@@ -4380,6 +5531,23 @@
         "experiment": {
           "status": "NOT_APPLICABLE",
           "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
           "evidence": []
         }
       }
@@ -4442,6 +5610,23 @@
           "finding": null,
           "evidence": []
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        }
       }
     },
     {
@@ -4468,10 +5653,10 @@
           ]
         },
         "math": {
-          "status": "CONDITIONAL",
-          "finding": "Логическая форма аналогии корректна только как демонстрация неединственности интерпретации: из переноса импульса/энергии само по себе не следует отсутствие носителя. Аналогия ещё не выводит существование электромагнитного носителя.",
+          "status": "VERIFIED",
+          "finding": "Логическая часть аргумента корректна в ограниченном смысле: один пример волны, которая переносит рассматриваемые величины и при этом имеет носитель, является контрпримером универсальному выводу «перенос ⇒ носителя нет». Это не доказывает существование электромагнитного носителя.",
           "evidence": [
-            "EVID-000024"
+            "EVID-000025"
           ]
         },
         "assumptions": {
@@ -4504,6 +5689,25 @@
           "finding": null,
           "evidence": []
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "PASS",
+          "finding": "Lean доказал, что один пример волны с носителем опровергает универсальную импликацию «перенос → носителя нет».",
+          "evidence": [
+            "EVID-000025"
+          ]
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Проверяемый переход является чистой пропозициональной логикой; численное вычисление в Julia не добавляет проверяемого содержания.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Проверяемый переход является чистой пропозициональной логикой; численные regression/property tests неприменимы.",
+          "evidence": []
+        }
       }
     },
     {
@@ -4520,7 +5724,9 @@
         "page": 84,
         "locator": "p.84, абз. 1"
       },
-      "dependencies": [],
+      "dependencies": [
+        "NIK-0007-C010"
+      ],
       "axes": {
         "source_fact": {
           "status": "VERIFIED",
@@ -4530,14 +5736,18 @@
           ]
         },
         "math": {
-          "status": "NOT_APPLICABLE",
-          "finding": null,
-          "evidence": []
+          "status": "VERIFIED",
+          "finding": "Формальный контрпример показывает, что предпосылки «звуковая волна переносит величины и имеет носитель» плюс «электромагнитная волна переносит величины» совместимы с отсутствием носителя у электромагнитной волны. Следовательно, одна акустическая аналогия не выводит электромагнитный носитель.",
+          "evidence": [
+            "EVID-000025"
+          ]
         },
         "assumptions": {
           "status": "GAP",
-          "finding": "Из существования носителей у механических волн логически не следует существование носителя у любого другого типа волны. В §1 этот шаг является эвристической аналогией, а не доказательством; для дальнейшей теории потребуется независимое определение/вывод среды.",
-          "evidence": []
+          "finding": "Для перехода от акустической аналогии к существованию электромагнитной среды требуется отдельная связывающая модель или независимый постулат. Lean-контрпример подтверждает, что перечисленных в §1 предпосылок для такого вывода недостаточно.",
+          "evidence": [
+            "EVID-000025"
+          ]
         },
         "dimensional": {
           "status": "NOT_APPLICABLE",
@@ -4564,6 +5774,25 @@
           "finding": null,
           "evidence": []
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "PASS",
+          "finding": "Lean построил явный контрпример: акустические предпосылки истинны, электромагнитный перенос задан, а электромагнитный носитель ложен.",
+          "evidence": [
+            "EVID-000025"
+          ]
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "Здесь проверяется логическая выводимость, а не численная модель; вычислительная Julia-проверка неприменима.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "Здесь проверяется логическая выводимость, а не численная модель; численные regression/property tests неприменимы.",
+          "evidence": []
+        }
       }
     },
     {
@@ -4580,7 +5809,9 @@
         "page": 84,
         "locator": "p.84, абз. 2–3 – p.85"
       },
-      "dependencies": [],
+      "dependencies": [
+        "NIK-0007-C008"
+      ],
       "axes": {
         "source_fact": {
           "status": "VERIFIED",
@@ -4624,6 +5855,23 @@
           "finding": null,
           "evidence": []
         }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        }
       }
     },
     {
@@ -4640,7 +5888,14 @@
         "page": 85,
         "locator": "p.85 bottom – p.86 before §2 heading"
       },
-      "dependencies": [],
+      "dependencies": [
+        "NIK-0007-C004",
+        "NIK-0007-C006",
+        "NIK-0007-C008",
+        "NIK-0007-C010",
+        "NIK-0007-C011",
+        "NIK-0007-C012"
+      ],
       "axes": {
         "source_fact": {
           "status": "VERIFIED",
@@ -4682,6 +5937,23 @@
         "experiment": {
           "status": "NOT_APPLICABLE",
           "finding": null,
+          "evidence": []
+        }
+      },
+      "verification": {
+        "lean": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        },
+        "julia": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
+          "evidence": []
+        },
+        "typescript": {
+          "status": "N_A",
+          "finding": "В текущем утверждении нет самостоятельной формулы или численной задачи для данного контура проверки.",
           "evidence": []
         }
       }

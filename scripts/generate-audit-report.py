@@ -268,36 +268,29 @@ def evidence_summary(eid: str, evidence_by_id: dict[str, dict[str, Any]], styles
 
 
 def verification_matrix(claim: dict[str, Any], evidence_by_id: dict[str, dict[str, Any]]) -> list[list[str]]:
-    all_evidence_ids: list[str] = []
-    for axis in AXES:
-        all_evidence_ids.extend((claim.get("axes", {}).get(axis, {}) or {}).get("evidence", []) or [])
-    evidence = [evidence_by_id[eid] for eid in all_evidence_ids if eid in evidence_by_id]
-
-    math_status = ((claim.get("axes") or {}).get("math") or {}).get("status")
-    required = claim.get("kind") in {"mathematical_claim", "numerical_result"} or math_status not in {None, "NOT_APPLICABLE"}
-    if not required:
-        return [
-            ["Lean 4", "не требуется для данного утверждения"],
-            ["Julia", "не требуется для данного утверждения"],
-            ["TypeScript", "не требуется для данного утверждения"],
-        ]
-
-    def ids_for(predicate):
-        ids = []
-        for e in evidence:
-            title = str(e.get("title", ""))
-            if predicate(e, title):
-                ids.append(e["id"])
-        return ids
-
-    lean = ids_for(lambda e, title: e.get("kind") == "formal_proof" or "Lean" in title)
-    ts = ids_for(lambda e, title: "TypeScript" in title or "TS regression" in title)
-    julia = ids_for(lambda e, title: (e.get("kind") == "computation" and "TypeScript" not in title and "TS regression" not in title) or "Julia" in title)
-
-    def state(ids):
-        return "зафиксировано: " + ", ".join(ids) if ids else "не зарегистрировано"
-
-    return [["Lean 4", state(lean)], ["Julia", state(julia)], ["TypeScript", state(ts)]]
+    status_ru = {
+        "OPEN": "открыто",
+        "PASS": "пройдено",
+        "FAIL": "обнаружено несоответствие",
+        "N_A": "не применимо",
+    }
+    labels = {
+        "lean": "Lean 4",
+        "julia": "Julia",
+        "typescript": "TypeScript",
+    }
+    matrix = claim.get("verification") or {}
+    rows: list[list[str]] = []
+    for track in ("lean", "julia", "typescript"):
+        state = matrix.get(track) or {}
+        status = status_ru.get(state.get("status"), state.get("status", "не задано"))
+        finding = clean_text(state.get("finding") or "")
+        evidence_ids = state.get("evidence") or []
+        evidence_suffix = ""
+        if evidence_ids:
+            evidence_suffix = " Свидетельства: " + ", ".join(evidence_ids) + "."
+        rows.append([labels[track], f"{status}. {finding}{evidence_suffix}".strip()])
+    return rows
 
 
 def build_pdf(model: dict[str, Any], coverage: dict[str, Any]) -> bytes:
