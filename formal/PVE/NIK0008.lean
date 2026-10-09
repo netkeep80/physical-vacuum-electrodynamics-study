@@ -3,13 +3,13 @@ import Physlib.Electromagnetism.Kinematics.GaugeTransformation
 namespace PVE.NIK0008
 
 /-- Fixture angular velocity, s⁻¹ (radians dimensionless): 7.2921159e-5. -/
-def earthOmega : ℝ := 72921159 / 1000000000000
+noncomputable def earthOmega : ℝ := 72921159 / 1000000000000
 
 /-- Fixture equatorial radius, m: 6 378 137. -/
 def earthRadius : ℝ := 6378137
 
 /-- Tangential speed v = ωR for the explicit fixture. -/
-def earthSurfaceSpeed : ℝ := earthOmega * earthRadius
+noncomputable def earthSurfaceSpeed : ℝ := earthOmega * earthRadius
 
 /--
 NIK-0008-C011: with the explicit fixture above, the literal tangential speed
@@ -25,7 +25,7 @@ theorem c011_fixture_surface_speed :
 def lightSpeed : ℝ := 299792458
 
 /-- Dimensionless kinematic ratio V/C for the same fixture. -/
-def earthVC : ℝ := earthSurfaceSpeed / lightSpeed
+noncomputable def earthVC : ℝ := earthSurfaceSpeed / lightSpeed
 
 /--
 NIK-0008-C013: the explicit Earth-rotation fixture gives a V/C parameter
@@ -36,13 +36,13 @@ theorem c013_fixture_v_over_c :
   norm_num [earthVC, earthSurfaceSpeed, earthOmega, earthRadius, lightSpeed]
 
 /-- Magnetic dipole moment of an ideal uniformly charged rotating spherical shell. -/
-def shellMoment (Q ω R : ℝ) : ℝ := Q * ω * R^2 / 3
+noncomputable def shellMoment (Q ω R : ℝ) : ℝ := Q * ω * R^2 / 3
 
 /--
 Two concentric capacitor shells carry +Q at radius a and -Q at radius b,
 and rotate with the same angular velocity ω.
 -/
-def capacitorMoment (Q ω a b : ℝ) : ℝ :=
+noncomputable def capacitorMoment (Q ω a b : ℝ) : ℝ :=
   shellMoment Q ω a + shellMoment (-Q) ω b
 
 /--
