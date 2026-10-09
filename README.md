@@ -4,20 +4,22 @@
 
 ## Текущее состояние
 
-Проект находится на этапе инфраструктурного bootstrap. Научный аудит книги **ещё не начат**.
+Научный аудит книги **ещё не начат**. Базовая исследовательская инфраструктура уже собрана и проверяется перед переходом к странице 17.
 
-Сначала должны быть приняты:
+Уже приняты:
 
-- исследовательский протокол;
-- исполняемые требования проекта;
-- repo-guard и CI;
-- гигиена веток, PR и issues;
-- ANet bootstrap;
-- точная фиксация исходного корпуса;
-- полный последовательный план проверки книги;
-- план формального и вычислительного verification kernel.
+- исследовательский протокол и исполняемые требования;
+- repo-guard и research-integrity CI;
+- защита исходного PDF и точная фиксация корпуса;
+- полный последовательный coverage из 139 разделов;
+- Lean 4 + Physlib verification kernel;
+- Julia computational workbench;
+- базовая гигиена веток, PR и issues;
+- repo-local ANet bootstrap.
 
-Только после этого исследование начинается с первых страниц книги и идёт последовательно до конца.
+Перед стартом научного аудита остаётся закрыть последние инфраструктурные acceptance-witnesses, не меняя научный статус книги.
+
+После этого исследование начинается с первых страниц книги и идёт последовательно до конца.
 
 ## Основные правила
 
@@ -40,4 +42,4 @@
 - ANet memory root: #12
 - Repository hygiene: #14
 
-Канонические процедуры: [research protocol](docs/research-protocol.md), [book audit plan](docs/book-audit-plan.md) и [repository hygiene](docs/repository-hygiene.md).
+Канонические процедуры: [research protocol](docs/research-protocol.md), [book audit plan](docs/book-audit-plan.md), [verification kernel](docs/verification-kernel.md) и [repository hygiene](docs/repository-hygiene.md).
