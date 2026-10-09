@@ -20,6 +20,9 @@ jobs:
         with:
           node-version: 20
 
+      - name: Check research-model dependency contract
+        run: node checks/research-model-contract-selftest.mjs
+
       - name: Check research state
         run: node checks/audit-integrity.mjs
 
