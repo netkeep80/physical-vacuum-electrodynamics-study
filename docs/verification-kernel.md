@@ -1,11 +1,27 @@
 # Verification kernel
 
-This project deliberately separates three kinds of evidence.
+This project separates physical evidence from mathematical verification and requires a **three-track mathematical verification matrix** for every substantive core formula/problem.
 
-## Formal implication
+## Core applicability
+
+The mandatory gate applies to the core scientific audit beginning at **NIK-0007 / p.81** and to every later mathematical dependency used by the core theory.
+
+For each substantive core mathematical item:
+
+```
+claim/formula ID
+  -> Lean 4 theorem/check
+  -> Julia reproduction
+  -> TypeScript numeric regression/property tests
+```
+
+A track may be marked N/A only when it is genuinely inapplicable and the reason is explicit. Silent omission is not accepted.
+
+A completed mathematical disposition requires all three tracks to be either evidenced or explicitly justified as N/A.
+
+## Lean 4 — formal implication
 
 Lean 4 is the proof kernel for statements of the form `assumptions -> mathematical consequence`.
-The infrastructure baseline imports a pinned Physlib revision; it does not assert empirical truth.
 
 Pinned formal baseline:
 
@@ -15,19 +31,54 @@ Pinned formal baseline:
 
 Accepted project proof code must not use `sorry`/`admit`. CI runs a build plus an axiom audit for the `PVE` namespace.
 
-## Computational evidence
+Lean formalizes exact assumptions, definitions, identities, transformations and implication chains. A Lean PASS proves the formalized statement, not the empirical truth of the physical model.
 
-Julia is the symbolic/numeric workbench, initially pinned in CI to `1.13.1`.
-A numerical/symbolic result is reproducible computational evidence, not a formal proof and not an empirical measurement.
+## Julia — computational reproduction
 
-Packages such as Symbolics, ModelingToolkit and unit systems are intentionally not added until a real sequential audit case requires them.
+Julia is the independent symbolic/numeric workbench, pinned in CI to `1.13.1`.
+
+For each applicable formula/problem Julia should reproduce, as appropriate:
+
+- direct numerical evaluation;
+- symbolic or algebraic checks;
+- limiting cases;
+- sensitivity to parameters;
+- dimensional/unit-aware checks when justified;
+- independent recalculation of examples and tables.
+
+A Julia PASS is computational evidence, not a formal proof and not an empirical measurement.
+
+## TypeScript — numerical regression layer
+
+TypeScript is the continuously executable numerical regression/property layer.
+
+Pinned baseline:
+
+- Node.js: `20`;
+- TypeScript: `5.9.3`.
+
+For each applicable formula/problem, TS tests should cover concrete cases such as:
+
+- nominal values;
+- zero cases;
+- sign reversals;
+- boundary/limit cases;
+- symmetry/antisymmetry properties;
+- selected adversarial values;
+- stable expected values or explicit tolerances.
+
+The TS layer is intended to catch implementation regressions and arithmetic/sign mistakes as the audit evolves. It does not replace Lean or Julia.
+
+Baseline files live under `compute/ts/`.
 
 ## Physical evidence
 
-Physical claims require observables, comparator predictions, uncertainty and experiment/literature evidence.
-Neither a Lean theorem nor a Julia calculation alone establishes that a model describes nature.
+Physical claims require observables, comparator predictions where relevant, uncertainty and experiment/literature evidence.
+
+Neither Lean, Julia nor TypeScript alone establishes that a model describes nature.
 
 ## Sequential rule
 
-The smoke tests are neutral infrastructure. The first real Nikolaev claim enters this pipeline only when encountered by the page-ordered audit beginning at page 17.
-The later `H_parallel` case remains deferred to its proper place in Part III.
+The smoke tests are neutral infrastructure. The first real mandatory core items begin at **NIK-0007 / p.81**.
+
+Later scalar-field cases remain deferred to their proper source position, but when reached their mathematical items must use the same Lean/Julia/TypeScript traceability contract.
