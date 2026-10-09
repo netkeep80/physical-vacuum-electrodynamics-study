@@ -1,6 +1,6 @@
-# repo-guard trusted-base witnesses [PVE-UNKNOWN-999]
+# repo-guard trusted-base witnesses [PVE-GOV-999]
 
-This file is intentionally invalid in the first candidate state.
+This file is intentionally invalid in the negative candidate state. `PVE-GOV-999` is syntactically valid under the project requirement grammar but does not exist.
 
 The unresolved requirement reference above is the negative witness requested by issue 15.
 It must be rejected by repo-guard for requirement-resolution reasons.
