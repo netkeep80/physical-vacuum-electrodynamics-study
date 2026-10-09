@@ -52,15 +52,16 @@
       "title": "Предисловие к книге «Современная электродинамика и причины ее парадоксальности»",
       "source_page": 22,
       "kind": "foreword",
-      "status": "IN_PROGRESS",
-      "disposition": "Exact source span pp. 22–26 visually inspected; 16 substantive claims registered with explicit Stefan Marinov attribution. Comparator/conservation wave is accepted, and experimental-provenance wave distinguishes author self-reports and historical paper existence from independent replication. Modern Lorentz/equivalence precision tests contradict the foreword’s broad rejection claim; apparatus-specific experimental verdicts remain GAP/NOT_TESTED where primary datasets are not yet reconstructed.",
+      "status": "AUDITED",
+      "disposition": "AUDITED under explicit-disposition semantics. The pp.22–26 foreword is fully inventoried into 16 Stefan Marinov-attributed claims. Source provenance, bounded comparator/conservation findings, historical/experimental provenance and one dimensional-consistency check are recorded. Every remaining applicable weak axis has an explicit finding; book-owned debts are mapped to NIK-0009, NIK-0015, NIK-0036, NIK-0061, NIK-0063, NIK-0069, NIK-0071, NIK-0084, NIK-0128 and NIK-0129. Missing external Deutsche Physik/Hering experiment details remain explicit GAPs rather than being promoted.",
       "evidence": [
         "audit/research-model.json",
         "docs/generated/verified-facts.md",
         "issue #37",
         "PR #38",
         "issue #41",
-        "issue #43"
+        "issue #43",
+        "issue #45"
       ]
     },
     {

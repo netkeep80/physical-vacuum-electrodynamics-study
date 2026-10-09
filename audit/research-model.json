@@ -1578,7 +1578,11 @@
         "page": 22,
         "locator": "p.22, абз. 3"
       },
-      "dependencies": [],
+      "dependencies": [
+        "NIK-0009",
+        "NIK-0015",
+        "NIK-0129"
+      ],
       "axes": {
         "source_fact": {
           "status": "VERIFIED",
@@ -1614,9 +1618,12 @@
           ]
         },
         "invariance": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Заявленный вывод об «абсолютной скорости Земли» затрагивает Lorentz/boost invariance и зависит от того, что именно измеряет coupled-shutters observable и как исключаются synchronization/systematic effects. Этот вопрос будет повторно проверен при последовательном аудите разделов о принципе относительности.",
+          "evidence": [
+            "EVID-000015",
+            "EVID-000016"
+          ]
         },
         "conservation": {
           "status": "NOT_APPLICABLE",
@@ -1646,7 +1653,10 @@
         "page": 22,
         "locator": "p.22, абз. 4 – p.23, абз. 1"
       },
-      "dependencies": [],
+      "dependencies": [
+        "NIK-0071",
+        "NIK-0128"
+      ],
       "axes": {
         "source_fact": {
           "status": "VERIFIED",
@@ -1656,13 +1666,13 @@
           ]
         },
         "math": {
-          "status": "OPEN",
+          "status": "NOT_APPLICABLE",
           "finding": null,
           "evidence": []
         },
         "assumptions": {
-          "status": "OPEN",
-          "finding": null,
+          "status": "GAP",
+          "finding": "Предисловие не даёт схемы повторённых опытов, параметров установки, error budget и точного критерия несовместимости с Lorentz law; без этих данных логический bridge от наблюдения к фундаментальной силовой модели не проверяем.",
           "evidence": []
         },
         "dimensional": {
@@ -1671,9 +1681,11 @@
           "evidence": []
         },
         "relation_to_comparator": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Маринов заявляет несовместимость опытов с уравнением Лоренца, но в предисловии отсутствуют достаточные аппаратные данные для расчёта полного Maxwell–Lorentz prediction. Вопрос адресован downstream-разделам о скалярных/векторных полях и их экспериментальных подтверждениях.",
+          "evidence": [
+            "EVID-000013"
+          ]
         },
         "invariance": {
           "status": "NOT_APPLICABLE",
@@ -1686,8 +1698,8 @@
           "evidence": []
         },
         "experiment": {
-          "status": "NOT_TESTED",
-          "finding": null,
+          "status": "GAP",
+          "finding": "Сообщение о повторении части опытов зарегистрировано как source fact, но независимый первичный протокол и воспроизводимые measurements в текущем корпусе не установлены; экспериментальный долг переносится на NIK-0128.",
           "evidence": []
         }
       }
@@ -1766,7 +1778,10 @@
         "page": 23,
         "locator": "p.23, абз. 3"
       },
-      "dependencies": [],
+      "dependencies": [
+        "NIK-0071",
+        "NIK-0128"
+      ],
       "axes": {
         "source_fact": {
           "status": "VERIFIED",
@@ -1776,7 +1791,7 @@
           ]
         },
         "math": {
-          "status": "OPEN",
+          "status": "NOT_APPLICABLE",
           "finding": null,
           "evidence": []
         },
@@ -1806,7 +1821,7 @@
           "evidence": []
         },
         "conservation": {
-          "status": "OPEN",
+          "status": "NOT_APPLICABLE",
           "finding": null,
           "evidence": []
         },
@@ -1834,7 +1849,12 @@
         "page": 23,
         "locator": "p.23, формула после абз. 3"
       },
-      "dependencies": [],
+      "dependencies": [
+        "NIK-0036",
+        "NIK-0069",
+        "NIK-0071",
+        "NIK-0084"
+      ],
       "axes": {
         "source_fact": {
           "status": "VERIFIED",
@@ -1844,19 +1864,26 @@
           ]
         },
         "math": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Формула силы в предисловии однозначно транскрибируется, но её derivation из полевых уравнений и область применимости там не приведены. Математическая проверка полной теории отложена до разделов, где определяются аксиальное/скалярное и радиальное/векторное магнитные поля.",
+          "evidence": [
+            "EVID-000012"
+          ]
         },
         "assumptions": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "GAP",
+          "finding": "Для дополнительного члена требуется физическое определение S, правила gauge/transformations и coupling to matter; в предисловии этот набор предпосылок отсутствует.",
+          "evidence": [
+            "EVID-000009"
+          ]
         },
         "dimensional": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "SATISFIED",
+          "finding": "В используемой в предисловии Gaussian-style записи оба члена силы размерностно совместимы, если S имеет ту же размерность, что B. Соседние определения B = rot A и S через div A также дают B и S одинаковую derivative-dimension относительно A. Это только dimensional consistency, не доказательство физической реальности S.",
+          "evidence": [
+            "EVID-000012",
+            "EVID-000009"
+          ]
         },
         "relation_to_comparator": {
           "status": "INCONSISTENT",
@@ -1866,13 +1893,15 @@
           ]
         },
         "invariance": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Инвариантность дополнительного S-члена нельзя установить без полного закона преобразования S и gauge prescription; этот долг адресован NIK-0069/NIK-0084.",
+          "evidence": [
+            "EVID-000009"
+          ]
         },
         "conservation": {
-          "status": "OPEN",
-          "finding": null,
+          "status": "CONDITIONAL",
+          "finding": "Продольный член способен выполнять работу вдоль тока, поэтому согласованность с полным energy-momentum balance требует отдельной field-energy accounting, отсутствующей в предисловии; вопрос адресован NIK-0036.",
           "evidence": []
         },
         "experiment": {
@@ -1896,7 +1925,12 @@
         "page": 23,
         "locator": "p.23, абз. 4 – p.24, абз. 1"
       },
-      "dependencies": [],
+      "dependencies": [
+        "NIK-0036",
+        "NIK-0061",
+        "NIK-0063",
+        "NIK-0128"
+      ],
       "axes": {
         "source_fact": {
           "status": "VERIFIED",
@@ -1906,14 +1940,16 @@
           ]
         },
         "math": {
-          "status": "OPEN",
+          "status": "NOT_APPLICABLE",
           "finding": null,
           "evidence": []
         },
         "assumptions": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Вывод о perpetual motion требует пассивной замкнутой системы без скрытого внешнего источника энергии. Именно при этом условии self-aiding induction конфликтует со стандартным Lenz/energy balance; конкретная установка должна отдельно проверяться на внешние power paths.",
+          "evidence": [
+            "EVID-000014"
+          ]
         },
         "dimensional": {
           "status": "NOT_APPLICABLE",
@@ -1960,7 +1996,10 @@
         "page": 24,
         "locator": "p.24, первая формула"
       },
-      "dependencies": [],
+      "dependencies": [
+        "NIK-0069",
+        "NIK-0084"
+      ],
       "axes": {
         "source_fact": {
           "status": "VERIFIED",
@@ -1970,19 +2009,25 @@
           ]
         },
         "math": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Тождество B = curl A стандартно, но полная корректность конкретной суммы A = Σ(q_i v_i/(c r_i)) зависит от режима движения источников, retardation и выбранного gauge; эти условия в предисловии не специфицированы.",
+          "evidence": [
+            "EVID-000009"
+          ]
         },
         "assumptions": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Явная source-formula для A требует оговорить gauge, временную зависимость и приближение (например, квазистационарность); без них область эквивалентности стандартным potentials не установлена.",
+          "evidence": [
+            "EVID-000009"
+          ]
         },
         "dimensional": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Размерностная форма совместима с Gaussian-style potential notation, но окончательная проверка нормировок и единиц должна выполняться на полном наборе определений поздней теории, а не по одной формуле предисловия.",
+          "evidence": [
+            "EVID-000012"
+          ]
         },
         "relation_to_comparator": {
           "status": "CONDITIONAL",
@@ -1992,9 +2037,11 @@
           ]
         },
         "invariance": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "A gauge-dependent, тогда как B = curl A gauge-invariant. Конкретное представление A может быть допустимо только после задания gauge/conditions; этот вопрос адресован NIK-0069/NIK-0084.",
+          "evidence": [
+            "EVID-000009"
+          ]
         },
         "conservation": {
           "status": "NOT_APPLICABLE",
@@ -2022,7 +2069,11 @@
         "page": 24,
         "locator": "p.24, вторая формула и следующий абз."
       },
-      "dependencies": [],
+      "dependencies": [
+        "NIK-0069",
+        "NIK-0084",
+        "NIK-0128"
+      ],
       "axes": {
         "source_fact": {
           "status": "VERIFIED",
@@ -2032,19 +2083,26 @@
           ]
         },
         "math": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Предисловие приводит кандидатную формулу S и одновременно сообщает неопределённость коэффициента 1/2; без последующего derivation и точных definitions формула не считается математически принятой.",
+          "evidence": [
+            "EVID-000012"
+          ]
         },
         "assumptions": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "GAP",
+          "finding": "Для физического S через div A отсутствует явный gauge-fixing либо модифицированный transformation law, а коэффициент определяется ссылкой на качественные эксперименты; эти предпосылки должны быть восстановлены downstream.",
+          "evidence": [
+            "EVID-000009",
+            "EVID-000012"
+          ]
         },
         "dimensional": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Операторы curl A и div A имеют одинаковую derivative-dimension, однако полный дополнительный source-term формулы S и выбранная система единиц требуют повторной проверки по позднему формализму книги.",
+          "evidence": [
+            "EVID-000012"
+          ]
         },
         "relation_to_comparator": {
           "status": "INCONSISTENT",
@@ -2066,9 +2124,11 @@
           "evidence": []
         },
         "experiment": {
-          "status": "NOT_TESTED",
-          "finding": null,
-          "evidence": []
+          "status": "GAP",
+          "finding": "Сам Маринов отмечает, что доступные ему опыты были качественными и не определяли коэффициент формулы S. Количественная экспериментальная проверка переносится на NIK-0128.",
+          "evidence": [
+            "EVID-000012"
+          ]
         }
       }
     },
@@ -2150,7 +2210,11 @@
         "page": 24,
         "locator": "p.24, последний абз. – p.25, абз. 1"
       },
-      "dependencies": [],
+      "dependencies": [
+        "NIK-0069",
+        "NIK-0071",
+        "NIK-0128"
+      ],
       "axes": {
         "source_fact": {
           "status": "VERIFIED",
@@ -2160,13 +2224,13 @@
           ]
         },
         "math": {
-          "status": "OPEN",
-          "finding": null,
+          "status": "GAP",
+          "finding": "Два ранних «уравнения Николаева», с которыми Маринов сравнивает опыт, в предисловии полностью не выписаны; без их exact form математический falsifier не воспроизводится.",
           "evidence": []
         },
         "assumptions": {
-          "status": "OPEN",
-          "finding": null,
+          "status": "GAP",
+          "finding": "Не восстановлены геометрия, controls, sensitivity и измеряемая observable опытов Deutsche Physik 3(11), 5 (1994).",
           "evidence": []
         },
         "dimensional": {
@@ -2175,8 +2239,8 @@
           "evidence": []
         },
         "relation_to_comparator": {
-          "status": "OPEN",
-          "finding": null,
+          "status": "GAP",
+          "finding": "Пока exact equations и experimental observable не восстановлены, нельзя установить, какая именно часть ранних моделей была опровергнута и как это относится к Maxwell–Lorentz comparator.",
           "evidence": []
         },
         "invariance": {
@@ -2210,7 +2274,10 @@
         "page": 25,
         "locator": "p.25, абз. 1"
       },
-      "dependencies": [],
+      "dependencies": [
+        "NIK-0069",
+        "NIK-0084"
+      ],
       "axes": {
         "source_fact": {
           "status": "VERIFIED",
@@ -2220,24 +2287,30 @@
           ]
         },
         "math": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "GAP",
+          "finding": "Точное «уравнение Маринова» в предисловии не приведено, поэтому заявленная симметризация Lorentz/Grassmann equation пока не воспроизведена алгебраически.",
+          "evidence": [
+            "EVID-000012"
+          ]
         },
         "assumptions": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "GAP",
+          "finding": "Не заданы точные definitions, gauge и область применимости уравнения Маринова; известна только авторская характеристика происхождения и использование S с коэффициентом 1/2.",
+          "evidence": [
+            "EVID-000012"
+          ]
         },
         "dimensional": {
-          "status": "OPEN",
-          "finding": null,
+          "status": "GAP",
+          "finding": "Без exact equation нельзя выполнить независимый полный dimensional audit.",
           "evidence": []
         },
         "relation_to_comparator": {
-          "status": "OPEN",
-          "finding": null,
-          "evidence": []
+          "status": "CONDITIONAL",
+          "finding": "Автор утверждает, что equation получается симметризацией Lorentz/Grassmann law, но без exact form нельзя проверить, сохраняет ли оно standard predictions или добавляет независимые degrees of freedom.",
+          "evidence": [
+            "EVID-000012"
+          ]
         },
         "invariance": {
           "status": "NOT_APPLICABLE",
@@ -2270,7 +2343,9 @@
         "page": 25,
         "locator": "p.25, абз. 2"
       },
-      "dependencies": [],
+      "dependencies": [
+        "NIK-0128"
+      ],
       "axes": {
         "source_fact": {
           "status": "VERIFIED",
@@ -2280,13 +2355,13 @@
           ]
         },
         "math": {
-          "status": "OPEN",
-          "finding": null,
+          "status": "GAP",
+          "finding": "Предсказанный компонент B_mar упомянут, но exact equation и количественный prediction отсутствуют в предисловии.",
           "evidence": []
         },
         "assumptions": {
-          "status": "OPEN",
-          "finding": null,
+          "status": "GAP",
+          "finding": "Не указан sensitivity threshold, при котором ненаблюдение B_mar должно считаться falsification.",
           "evidence": []
         },
         "dimensional": {
@@ -2295,8 +2370,8 @@
           "evidence": []
         },
         "relation_to_comparator": {
-          "status": "OPEN",
-          "finding": null,
+          "status": "GAP",
+          "finding": "Self-falsification уравнения Маринова не превращается автоматически в verdict по Maxwell–Lorentz или модели Николаева; требуется exact equation и observable.",
           "evidence": []
         },
         "invariance": {
