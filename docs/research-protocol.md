@@ -176,3 +176,29 @@ Evidence является отдельным объектом модели. Дл
 `docs/generated/verified-facts.md` не является самостоятельной authority. Он генерируется детерминированно только из принятой модели и содержит все сильные результаты вместе со ссылками на свидетельства.
 
 Связь модели и Markdown контролируется через repo-guard `ProjectionModel` / `ProjectionBuildRecord`: фиксируются identity модели проекции, SHA-256 источника, contract генератора, configuration digest и SHA-256 generated output. Любое ручное изменение generated Markdown или рассинхронизация модели делает projection check красным.
+
+
+## Generated Russian sequential PDF [PVE-STATE-002]
+
+Основной человекочитаемый научный результат проекта — `docs/generated/audit-report.pdf`.
+
+PDF строится **не** из `verified-facts.md`, а непосредственно из:
+
+- `audit/research-model.json`;
+- `audit/book-coverage.json`;
+- зарегистрированных в модели evidence/dependency связей.
+
+Основная последовательность отчёта начинается с **NIK-0007 / стр. 81** и следует каноническому порядку книги.
+
+Отчёт обязан показывать не только сильные результаты, но и исследовательский долг:
+
+- `OPEN`;
+- `GAP`;
+- `CONDITIONAL`;
+- `NOT_TESTED`;
+- незакрытые зависимости;
+- состояние Lean 4 / Julia / TypeScript проверки.
+
+Весь человекочитаемый текст отчёта формируется на русском языке. Машинные ID, SHA-256 и названия инструментов Lean 4 / Julia / TypeScript сохраняются как технические идентификаторы.
+
+PDF имеет ownership `generated`. Ручное изменение PDF не является изменением научного состояния и должно обнаруживаться projection check. Любое изменение канонической модели требует пересборки PDF.
