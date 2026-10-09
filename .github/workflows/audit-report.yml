@@ -1,0 +1,97 @@
+name: Russian audit PDF
+
+on:
+  pull_request:
+    branches: ["**"]
+    paths:
+      - "audit/research-model.json"
+      - "audit/book-coverage.json"
+      - "requirements/PVE-STATE-002.json"
+      - "projections/audit-report.model.json"
+      - "projections/audit-report.build.json"
+      - "docs/generated/audit-report.pdf"
+      - "scripts/generate-audit-report.py"
+      - "checks/audit-report-projection.mjs"
+      - ".github/workflows/audit-report.yml"
+  push:
+    branches: ["main"]
+    paths:
+      - "audit/research-model.json"
+      - "audit/book-coverage.json"
+      - "requirements/PVE-STATE-002.json"
+      - "projections/audit-report.model.json"
+      - "projections/audit-report.build.json"
+      - "docs/generated/audit-report.pdf"
+      - "scripts/generate-audit-report.py"
+      - "checks/audit-report-projection.mjs"
+      - ".github/workflows/audit-report.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    name: generate and verify Russian sequential PDF
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+
+      - name: Set up exact Python
+        uses: actions/setup-python@06da6279cdbca41027908073e81a4544dc79c06b
+        with:
+          python-version: "3.12"
+
+      - name: Install exact PDF runtime
+        run: |
+          python -m pip install --disable-pip-version-check reportlab==4.4.9
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends fonts-dejavu-core poppler-utils
+
+      - name: Check committed report or generate initial candidate
+        run: |
+          if test -f docs/generated/audit-report.pdf && test -f projections/audit-report.build.json; then
+            python scripts/generate-audit-report.py --check
+          else
+            python scripts/generate-audit-report.py --write
+          fi
+
+      - name: Render smoke test
+        run: |
+          mkdir -p /tmp/audit-report-render
+          pdftoppm -f 1 -singlefile -png -r 120 docs/generated/audit-report.pdf /tmp/audit-report-render/page-1
+          test -s /tmp/audit-report-render/page-1.png
+
+      - name: Russian text smoke test
+        run: |
+          pdftotext docs/generated/audit-report.pdf /tmp/audit-report.txt
+          grep -F "Независимый аудит теоретических построений" /tmp/audit-report.txt
+          grep -F "Последовательный аудит" /tmp/audit-report.txt
+          grep -F "NIK-0007" /tmp/audit-report.txt
+
+      - name: Check out exact repo-guard projection API
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: netkeep80/repo-guard
+          ref: 38f8c681a9ac0a49a8c785b2dab5758d7ff79ad8
+          path: .repo-guard-tool
+          fetch-depth: 1
+
+      - name: Install exact repo-guard runtime dependencies
+        run: npm --prefix .repo-guard-tool install --omit=dev --silent
+
+      - name: Verify ProjectionModel identity when committed output exists
+        run: |
+          if test -f projections/audit-report.build.json; then
+            node checks/audit-report-projection.mjs --repo-guard-root .repo-guard-tool
+          fi
+
+      - name: Upload candidate report
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: russian-sequential-audit-report
+          path: |
+            docs/generated/audit-report.pdf
+            projections/audit-report.build.json
+          if-no-files-found: error
+          retention-days: 14
