@@ -50,6 +50,8 @@ jobs:
         run: julia --project=compute compute/smoke.jl
       - name: Run NIK-0007 computational checks
         run: julia --project=compute compute/nik0007.jl
+      - name: Run NIK-0008 computational checks
+        run: julia --project=compute compute/nik0008.jl
 
   typescript:
     name: TypeScript numerical regression
@@ -66,3 +68,5 @@ jobs:
         run: node compute/ts/dist/smoke.js
       - name: Run NIK-0007 numerical regression
         run: node compute/ts/dist/nik0007.js
+      - name: Run NIK-0008 numerical regression
+        run: node compute/ts/dist/nik0008.js
