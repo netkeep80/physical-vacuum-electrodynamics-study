@@ -347,4 +347,56 @@ theorem c014_polarCapFraction_exact (eps : ℝ) :
   rw [c014_polarCapIntegral_exact]
   ring
 
+
+/--
+C014 / symmetry-based reduction for any independently constructed spherical
+surface measure. Here Ix,Iy,Iz denote SECOND MOMENT INTEGRALS of coordinates
+against that measure, not free-standing pointwise coordinates.
+
+The hypotheses Ix=Iy, Iy=Iz must eventually follow from proved
+measure-preserving axis permutations; the moment sum must follow from the
+sphere equation and a finite, integrable intrinsic surface measure.
+
+This lemma closes only the algebraic step. It does not establish any of
+those measure-theoretic premises.
+-/
+theorem c014_isotropic_second_moment
+    (Ix Iy Iz area R : ℝ)
+    (hxy : Ix = Iy)
+    (hyz : Iy = Iz)
+    (hsum : Ix + Iy + Iz = R^2 * area) :
+    Ix + Iy = (2 / 3 : ℝ) * R^2 * area := by
+  nlinarith [hxy, hyz, hsum]
+
+/--
+If the true surface measure has area area, if its second moments satisfy
+isotropy and the sphere constraint, and if Q=σ*area is the total shell
+charge, then the CARTESIAN dipole current integral reduces to Q ω R²/3.
+No chart Jacobian, intrinsic-measure normalization, or symmetry property
+is silently assumed by this theorem.
+-/
+theorem c014_intrinsic_moment_from_isotropy
+    (sigma omega Q R area Ix Iy Iz : ℝ)
+    (hcharge : Q = sigma * area)
+    (hxy : Ix = Iy)
+    (hyz : Iy = Iz)
+    (hsum : Ix + Iy + Iz = R^2 * area) :
+    (sigma * omega / 2) * (Ix + Iy) = Q * omega * R^2 / 3 := by
+  rw [c014_isotropic_second_moment Ix Iy Iz area R hxy hyz hsum]
+  rw [hcharge]
+  ring
+
+/--
+Two-shell consequence, still conditional on separately obtained shell
+moments for both signed charge layers. This is an algebraic superposition
+check, not an independent field-equation or coordinate-frame proof.
+-/
+theorem c014_two_shells_from_intrinsic_moments
+    (Q omega a b inner outer : ℝ)
+    (hinner : inner = Q * omega * a^2 / 3)
+    (houter : outer = (-Q) * omega * b^2 / 3) :
+    inner + outer = (Q * omega / 3) * (a^2 - b^2) := by
+  rw [hinner, houter]
+  ring
+
 end PVE.NIK0008
