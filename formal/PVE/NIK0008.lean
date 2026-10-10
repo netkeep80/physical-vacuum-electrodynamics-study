@@ -646,4 +646,71 @@ theorem c014_spherical_coordinate_sq_integrable_of_finite_area
     exact hbound x hx
   exact hint
 
+
+/--
+The exact Cartesian second-moment *trace* of a genuine Euclidean sphere
+is determined by the actual restricted Hausdorff surface mass. No
+unit-sphere area value (in particular 4π) is used. The finite-area
+hypothesis makes all three coordinate-square integrals genuinely
+integrable; equality of these integrals is derived from real Euclidean
+axis symmetries, not assumed.
+
+This is the scalar identity 3*I_i = integral_on_sphere (R^2), pending
+the separately open geometric proof that the standard Hausdorff sphere
+mass is finite and has its classical normalization.
+-/
+theorem c014_spherical_second_moment_trace_of_finite_area
+    (R : ℝ) (i : Fin 3)
+    (hfinite :
+      (μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3)))
+        (Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R) ≠ (⊤ : ENNReal)) :
+    (3 : ℝ) *
+      (∫ x : EuclideanSpace ℝ (Fin 3), (x i)^2
+        ∂((μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3))).restrict
+          (Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R))) =
+      (∫ _x : EuclideanSpace ℝ (Fin 3), R^2
+        ∂((μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3))).restrict
+          (Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R))) := by
+  let μ : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3)) :=
+    (μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3))).restrict
+      (Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R)
+  have hint (j : Fin 3) :
+      MeasureTheory.Integrable (fun x : EuclideanSpace ℝ (Fin 3) => (x j)^2) μ :=
+    c014_spherical_coordinate_sq_integrable_of_finite_area R j hfinite
+  have hsum :
+      (∫ x : EuclideanSpace ℝ (Fin 3), (∑ j : Fin 3, (x j)^2) ∂μ) =
+        ∑ j : Fin 3, ∫ x : EuclideanSpace ℝ (Fin 3), (x j)^2 ∂μ := by
+    exact MeasureTheory.integral_finsetSum Finset.univ (fun j _ => hint j)
+  have hpoint :
+      ∀ᵐ x : EuclideanSpace ℝ (Fin 3) ∂μ,
+        (∑ j : Fin 3, (x j)^2) = R^2 := by
+    have hs : MeasurableSet
+        (Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R) :=
+      Metric.isClosed_sphere.measurableSet
+    filter_upwards [MeasureTheory.ae_restrict_mem hs] with x hx
+    have hnorm : ‖x‖ = R := by
+      simpa only [Metric.mem_sphere, dist_zero_right] using hx
+    rw [← EuclideanSpace.real_norm_sq_eq, hnorm]
+  have hiso (j : Fin 3) :
+      (∫ x : EuclideanSpace ℝ (Fin 3), (x j)^2 ∂μ) =
+        (∫ x : EuclideanSpace ℝ (Fin 3), (x i)^2 ∂μ) :=
+    c014_spherical_second_moments_equal R j i
+  have hthree :
+      (∑ j : Fin 3, ∫ x : EuclideanSpace ℝ (Fin 3), (x j)^2 ∂μ) =
+        (3 : ℝ) * (∫ x : EuclideanSpace ℝ (Fin 3), (x i)^2 ∂μ) := by
+    calc
+      _ = ∑ _j : Fin 3, ∫ x : EuclideanSpace ℝ (Fin 3), (x i)^2 ∂μ := by
+        apply Finset.sum_congr rfl
+        intro j _
+        exact hiso j
+      _ = _ := by simp [nsmul_eq_mul, mul_comm]
+  calc
+    (3 : ℝ) * (∫ x : EuclideanSpace ℝ (Fin 3), (x i)^2 ∂μ) =
+      ∑ j : Fin 3, ∫ x : EuclideanSpace ℝ (Fin 3), (x j)^2 ∂μ :=
+        hthree.symm
+    _ = ∫ x : EuclideanSpace ℝ (Fin 3), (∑ j : Fin 3, (x j)^2) ∂μ :=
+      hsum.symm
+    _ = ∫ _x : EuclideanSpace ℝ (Fin 3), R^2 ∂μ :=
+      MeasureTheory.integral_congr_ae hpoint
+
 end PVE.NIK0008
