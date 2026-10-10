@@ -447,6 +447,7 @@ or identifying μHE[2] with the Haar-induced measure.
 The remaining bridge μHE[2](S₁)=4π and invariance of the coordinate
 second moments remain explicit open obligations of issue #76.
 -/
+set_option maxHeartbeats 1000000 in
 theorem c014_euclidean_hausdorff_sphere_radius_scale
     (R : ℝ) (hR : 0 < R) :
     (μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3)))
@@ -458,7 +459,7 @@ theorem c014_euclidean_hausdorff_sphere_radius_scale
   have hSphere :
       R • Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) 1 =
         Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R := by
-    simpa [Real.norm_of_nonneg hR.le] using
+    simpa only [smul_zero, mul_one, Real.norm_eq_abs, abs_of_pos hR] using
       (_root_.smul_sphere' hRne
         (0 : EuclideanSpace ℝ (Fin 3)) (1 : ℝ))
   rw [← hSphere]
