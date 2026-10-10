@@ -617,7 +617,7 @@ theorem c014_spherical_coordinate_sq_integrable_of_finite_area
     (R : ℝ) (i : Fin 3)
     (hfinite :
       (μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3)))
-        (Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R) ≠ ∞) :
+        (Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R) ≠ (⊤ : ENNReal)) :
     MeasureTheory.Integrable
       (fun x : EuclideanSpace ℝ (Fin 3) => (x i) ^ 2)
       ((μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3))).restrict
