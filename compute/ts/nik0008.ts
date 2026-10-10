@@ -257,8 +257,7 @@ function c014CubedSphereSurface(Q: number, omega: number, R: number, n: number) 
           const analyticJac = R * R / D ** 3;
           maxJacRelativeError = Math.max(maxJacRelativeError,
             Math.abs(jac - analyticJac) / analyticJac);
-          const K = cross3([0, 0, omega], r).map(x => sigma * x)
-            as [number, number, number];
+          const K = cross3([0, 0, omega], r).map(x => sigma * x) as [number, number, number];
           const dArea = jac * delta * delta;
           area += dArea;
           moment += 0.5 * cross3(r, K)[2] * dArea;
