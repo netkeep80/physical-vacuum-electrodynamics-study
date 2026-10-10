@@ -201,4 +201,75 @@ for cap_eps in (0.0, 0.001, 0.03, 0.2, 1.0)
 end
 println("NIK0008_C014_POLE_CAPS=PASS")
 
+
+# C014 / independent six-face cubed-sphere quadrature. This is an
+# independently parameterized surface integral, not the earlier
+# u=cos(theta)/phi construction and not a Lean measure theorem.
+function c014_cubed_sphere_surface(Q, omega, R; n=96)
+    @assert R > 0 && isfinite(R) && n >= 2
+    sigma = Q/(4pi*R^2)
+    delta = 2/n
+    area = 0.0
+    moment = 0.0
+    Ix, Iy, Iz = 0.0, 0.0, 0.0
+    max_jac_relative_error = 0.0
+    for axis in 1:3
+        ia = mod1(axis+1,3)
+        ib = mod1(axis+2,3)
+        for side in (-1.0,1.0), i in 0:n-1, j in 0:n-1
+            a = -1 + (i+0.5)*delta
+            b = -1 + (j+0.5)*delta
+            v = zeros(3)
+            ea = zeros(3)
+            eb = zeros(3)
+            v[axis] = side
+            v[ia], v[ib] = a, b
+            ea[ia] = 1.0
+            eb[ib] = 1.0
+            D = norm3(v)
+            point = ntuple(k -> R*v[k]/D, 3)
+            drda = ntuple(k -> R*(ea[k]/D-v[k]*a/D^3), 3)
+            drdb = ntuple(k -> R*(eb[k]/D-v[k]*b/D^3), 3)
+            jac = norm3(cross3(drda, drdb))
+            expected_jac = R^2/D^3
+            max_jac_relative_error = max(max_jac_relative_error,
+                                          abs(jac-expected_jac)/expected_jac)
+            K = ntuple(k -> sigma*cross3((0.0,0.0,omega),point)[k], 3)
+            darea = jac*delta^2
+            area += darea
+            moment += 0.5*cross3(point,K)[3]*darea
+            Ix += point[1]^2*darea
+            Iy += point[2]^2*darea
+            Iz += point[3]^2*darea
+        end
+    end
+    @assert max_jac_relative_error < 2e-12
+    (; area, moment, Ix, Iy, Iz, max_jac_relative_error)
+end
+
+previous_area_error = Inf
+for n in (12,24,48,96)
+    result = c014_cubed_sphere_surface(3.0,4.0,2.0;n=n)
+    area_error = abs(result.area/(4pi*4)-1)
+    moment_error = abs(result.moment/shell_moment(3.0,4.0,2.0)-1)
+    @assert area_error < previous_area_error && moment_error < 4e-3
+    if isfinite(previous_area_error)
+        @assert area_error < 0.3*previous_area_error
+    end
+    previous_area_error = area_error
+    assert_close(result.Ix,result.Iy;rtol=1e-10)
+    assert_close(result.Iy,result.Iz;rtol=1e-10)
+end
+for (q,w,radius) in ((1.0,1.0,1.0),(-2.5,0.7,1.3),
+                     (4.0,-3.0,0.25),(3.0,0.0,2.0))
+    value = c014_cubed_sphere_surface(q,w,radius;n=96)
+    assert_close(value.area,4pi*radius^2;rtol=3.5e-5)
+    assert_close(value.moment,shell_moment(q,w,radius);rtol=3.5e-5)
+end
+for (q,w) in ((0.0,4.0),(4.0,0.0))
+    result = c014_cubed_sphere_surface(q,w,1.0;n=24)
+    assert_close(result.moment,0.0)
+end
+println("NIK0008_C014_CUBED_SPHERE_INDEPENDENT_QUADRATURE=PASS")
+
 println("NIK0008_JULIA_PASS")
