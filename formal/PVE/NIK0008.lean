@@ -194,4 +194,62 @@ theorem c014_capacitor_moment_from_integrals (Q ω a b : ℝ) :
   rw [c014_shell_moment_from_polar_integral, c014_shell_moment_from_polar_integral]
   exact c014_capacitor_moment_formula Q ω a b
 
+
+/--
+C014 / geometrical step toward the 3D surface-current integral.
+
+For a rigid rotation about z, K = sigma (omega × r) has Cartesian
+components Kx = -sigma*omega*y, Ky = sigma*omega*x.
+The z-component of the magnetic dipole integrand is
+(1/2)(r × K)_z = (x*Ky-y*Kx)/2.
+-/
+noncomputable def c014_cartesianMomentDensity
+    (sigma omega x y : ℝ) : ℝ :=
+  (x * (sigma * omega * x) - y * (-sigma * omega * y)) / 2
+
+theorem c014_cartesianMomentDensity_eq
+    (sigma omega x y : ℝ) :
+    c014_cartesianMomentDensity sigma omega x y =
+      (sigma * omega / 2) * (x^2 + y^2) := by
+  unfold c014_cartesianMomentDensity
+  ring
+
+/--
+A sphere point represented by x=R*t*c, y=R*t*s, z=R*u.
+The hypotheses c²+s²=1 and t²+u²=1 explicitly encode the geometry;
+they do NOT assert a surface area measure or Jacobian.
+-/
+theorem c014_sphere_parameter_radius
+    (R t c s u : ℝ)
+    (hc : c^2 + s^2 = 1)
+    (htu : t^2 + u^2 = 1) :
+    (R*t*c)^2 + (R*t*s)^2 + (R*u)^2 = R^2 := by
+  calc
+    (R*t*c)^2 + (R*t*s)^2 + (R*u)^2 =
+        R^2 * (t^2*(c^2+s^2) + u^2) := by ring
+    _ = R^2 * (t^2 + u^2) := by rw [hc]; ring
+    _ = R^2 := by rw [htu]; ring
+
+/--
+The full 3D Cartesian current density reduces to the exact polar
+integrand at every sphere point, independently of azimuth. This removes
+the prior assumption about the form of the magnetic dipole integrand,
+but does not prove the surface measure/Jacobian transformation.
+-/
+theorem c014_cartesian_density_to_polar
+    (sigma omega R t c s u : ℝ)
+    (hc : c^2 + s^2 = 1)
+    (htu : t^2 + u^2 = 1) :
+    c014_cartesianMomentDensity sigma omega (R*t*c) (R*t*s) =
+      (sigma * omega * R^2 / 2) * (1 - u^2) := by
+  calc
+    c014_cartesianMomentDensity sigma omega (R*t*c) (R*t*s) =
+        (sigma * omega / 2) * ((R*t*c)^2 + (R*t*s)^2) := by
+          exact c014_cartesianMomentDensity_eq sigma omega (R*t*c) (R*t*s)
+    _ = (sigma * omega * R^2 / 2) * (t^2 * (c^2+s^2)) := by ring
+    _ = (sigma * omega * R^2 / 2) * t^2 := by rw [hc]; ring
+    _ = (sigma * omega * R^2 / 2) * (1 - u^2) := by
+      have ht : t^2 = 1 - u^2 := by linarith
+      rw [ht]
+
 end PVE.NIK0008
