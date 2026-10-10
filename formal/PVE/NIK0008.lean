@@ -173,7 +173,7 @@ theorem c014_polar_integral_value :
   rw [intervalIntegral.integral_sub
     (intervalIntegrable_const)
     (intervalIntegral.intervalIntegrable_pow (2 : ℕ))]
-  rw [intervalIntegral.integral_one, intervalIntegral.integral_pow]
+  rw [intervalIntegral.integral_const (1 : ℝ), intervalIntegral.integral_pow]
   norm_num
 
 noncomputable def shellMomentFromPolarIntegral (Q ω R : ℝ) : ℝ :=
