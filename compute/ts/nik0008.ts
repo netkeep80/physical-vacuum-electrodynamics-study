@@ -310,4 +310,76 @@ for (const radius of [-1, 0, Number.NaN]) {
 }
 console.log("NIK0008_C014_CUBED_SPHERE_INDEPENDENT_QUADRATURE=PASS");
 
+
+// C014: constructive radial cube-face atlas diagnostic. This is deliberately
+// independent of any surface-area formula. Six faces cover sampled S^2 points,
+// and normalized charts satisfy the theoretical <=2 Lipschitz estimate.
+function c014RadialFace(axis: number, sign: number, u: number, v: number): Vec3 {
+  if (!Number.isInteger(axis) || axis < 0 || axis > 2 || Math.abs(sign) !== 1) {
+    throw new Error("invalid radial face");
+  }
+  const raw = [0, 0, 0];
+  raw[axis] = sign;
+  raw[(axis + 1) % 3] = u;
+  raw[(axis + 2) % 3] = v;
+  const n = Math.hypot(...raw);
+  return raw.map(a => a/n) as [number, number, number];
+}
+function c014RecoverRadialFace(x: Vec3) {
+  const ab = x.map(Math.abs);
+  const axis = ab.indexOf(Math.max(...ab));
+  const denominator = ab[axis];
+  if (!(denominator > 0)) throw new Error("zero sphere vector");
+  const sign = Math.sign(x[axis]);
+  const u = x[(axis + 1) % 3]/denominator;
+  const v = x[(axis + 2) % 3]/denominator;
+  if (Math.hypot(u,v) > 2+1e-12) throw new Error("chart parameter left compact disk");
+  return c014RadialFace(axis, sign, u, v);
+}
+const c014BoundarySphere: Vec3[] = [
+  [1,0,0],[-1,0,0],[0,1,0],[0,-1,0],[0,0,1],[0,0,-1],
+  [1/Math.sqrt(3),1/Math.sqrt(3),1/Math.sqrt(3)],
+  [-1/Math.sqrt(3),-1/Math.sqrt(3),-1/Math.sqrt(3)],
+];
+let c014AtlasChecks=0, c014MaxCoverageError=0;
+for (const x of c014BoundarySphere) {
+  const y=c014RecoverRadialFace(x);
+  c014MaxCoverageError=Math.max(c014MaxCoverageError,norm3([x[0]-y[0],x[1]-y[1],x[2]-y[2]]));
+  c014AtlasChecks++;
+}
+for (let i=0;i<120;i++) {
+  const theta=Math.PI*(i+0.5)/120;
+  for (let j=0;j<80;j++) {
+    const phi=2*Math.PI*(j+0.5)/80;
+    const x: Vec3=[Math.sin(theta)*Math.cos(phi),Math.sin(theta)*Math.sin(phi),Math.cos(theta)];
+    const y=c014RecoverRadialFace(x);
+    c014MaxCoverageError=Math.max(c014MaxCoverageError,norm3([x[0]-y[0],x[1]-y[1],x[2]-y[2]]));
+    c014AtlasChecks++;
+  }
+}
+if (!(c014MaxCoverageError < 1e-12)) throw new Error("radial face coverage regression");
+let c014MaxLipschitzRatio=0;
+for (let axis=0;axis<3;axis++) for (const sign of [-1,1]) {
+  for (let i=0;i<50;i++) {
+    const theta=2*Math.PI*i/50;
+    const r=1.9*(i+0.5)/50;
+    const u=r*Math.cos(theta),v=r*Math.sin(theta);
+    const x=c014RadialFace(axis,sign,u,v);
+    if (Math.abs(norm3(x)-1)>1e-12) throw new Error("radial normalization norm");
+    for (let j=0;j<50;j++) {
+      if(i===j) continue;
+      const t=2*Math.PI*j/50;
+      const rr=1.9*(j+0.5)/50;
+      const uu=rr*Math.cos(t),vv=rr*Math.sin(t);
+      const y=c014RadialFace(axis,sign,uu,vv);
+      const d=Math.hypot(u-uu,v-vv);
+      const ratio=norm3([x[0]-y[0],x[1]-y[1],x[2]-y[2]])/d;
+      if (!(ratio<=2+1e-12)) throw new Error("radial 2-Lipschitz regression");
+      c014MaxLipschitzRatio=Math.max(c014MaxLipschitzRatio,ratio);
+    }
+  }
+}
+console.log("NIK0008_C014_RADIAL_ATLAS_NUMERIC=PASS;samples="+c014AtlasChecks+
+  ";max_error="+c014MaxCoverageError+";max_ratio="+c014MaxLipschitzRatio);
+
 console.log("NIK0008_TYPESCRIPT_PASS");
