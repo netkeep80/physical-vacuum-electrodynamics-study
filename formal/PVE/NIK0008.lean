@@ -787,4 +787,52 @@ theorem c014_unit_sphere_finite_area_of_finite_chart_cover
     simpa using hbi
   exact (lt_of_le_of_lt (MeasureTheory.measure_mono hcover) hunion).ne
 
+/--
+C014: radial normalization of a nonzero point in the genuine Euclidean
+three-space lies on the actual unit metric sphere. This is not a surface
+measure or Jacobian assertion.
+-/
+noncomputable def c014_radial_normalize
+    (v : EuclideanSpace ℝ (Fin 3)) : EuclideanSpace ℝ (Fin 3) :=
+  (‖v‖ : ℝ)⁻¹ • v
+
+theorem c014_radial_normalize_mem_sphere
+    (v : EuclideanSpace ℝ (Fin 3)) (hv : v ≠ 0) :
+    c014_radial_normalize v ∈
+      Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) 1 := by
+  change ‖(‖v‖ : ℝ)⁻¹ • v‖ = 1
+  exact norm_smul_inv_norm hv
+
+/-- A constructive source for the positive first-coordinate radial face. -/
+noncomputable def c014_radial_first_positive_raw
+    (u : EuclideanSpace ℝ (Fin 2)) : EuclideanSpace ℝ (Fin 3) :=
+  !₂[1, u 0, u 1]
+
+theorem c014_radial_first_positive_raw_nonzero
+    (u : EuclideanSpace ℝ (Fin 2)) :
+    c014_radial_first_positive_raw u ≠ 0 := by
+  intro h
+  have hcoord :
+      (c014_radial_first_positive_raw u) (0 : Fin 3) = (1 : ℝ) := by
+    rfl
+  have hz := congrArg (fun v : EuclideanSpace ℝ (Fin 3) => v (0 : Fin 3)) h
+  simp only [hcoord, PiLp.zero_apply] at hz
+  norm_num at hz
+
+/-- Every parameter maps onto the actual sphere; coverage is not yet proved. -/
+theorem c014_radial_first_positive_image_on_sphere
+    (u : EuclideanSpace ℝ (Fin 2)) :
+    c014_radial_normalize (c014_radial_first_positive_raw u) ∈
+      Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) 1 := by
+  exact c014_radial_normalize_mem_sphere _
+    (c014_radial_first_positive_raw_nonzero u)
+
+/-- The compact disk used as parameter domain for the six radial faces. -/
+def c014_radial_parameter_disk : Set (EuclideanSpace ℝ (Fin 2)) :=
+  Metric.closedBall 0 2
+
+theorem c014_radial_parameter_disk_compact :
+    IsCompact c014_radial_parameter_disk := by
+  exact isCompact_closedBall 0 2
+
 end PVE.NIK0008
