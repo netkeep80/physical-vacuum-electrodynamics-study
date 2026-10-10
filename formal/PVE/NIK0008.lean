@@ -871,4 +871,42 @@ theorem c014_radial_first_signed_image_on_sphere
   rw [hz, norm_zero] at h
   norm_num at h
 
+/--
+A single Euclidean permutation moves the already proved signed first
+coordinate face onto any of the three Cartesian axes. The finite
+index consists of precisely three axes and two signs, i.e. six maps.
+The Euclidean linear isometry is already accepted in C014.
+-/
+noncomputable def c014_radial_axis_signed_raw
+    (axis : Fin 3) (positive : Bool)
+    (u : EuclideanSpace ℝ (Fin 2)) :
+    EuclideanSpace ℝ (Fin 3) :=
+  c014_cartesian_axis_permutation (Equiv.swap (0 : Fin 3) axis)
+    (c014_radial_first_signed_raw positive u)
+
+/-- Each of the six affine sources has norm at least one. -/
+theorem c014_radial_axis_signed_raw_norm_ge_one
+    (axis : Fin 3) (positive : Bool)
+    (u : EuclideanSpace ℝ (Fin 2)) :
+    1 ≤ ‖c014_radial_axis_signed_raw axis positive u‖ := by
+  simp only [c014_radial_axis_signed_raw, LinearIsometryEquiv.norm_map]
+  exact c014_radial_first_signed_raw_norm_ge_one positive u
+
+/-- Each of the six radially normalized maps lands on the genuine S². -/
+theorem c014_radial_axis_signed_image_on_sphere
+    (axis : Fin 3) (positive : Bool)
+    (u : EuclideanSpace ℝ (Fin 2)) :
+    c014_radial_normalize (c014_radial_axis_signed_raw axis positive u) ∈
+      Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) 1 := by
+  apply c014_radial_normalize_mem_sphere
+  have h := c014_radial_axis_signed_raw_norm_ge_one axis positive u
+  intro hz
+  rw [hz, norm_zero] at h
+  norm_num at h
+
+/-- The explicit family of signed Cartesian radial charts has six indices. -/
+theorem c014_radial_atlas_index_card :
+    Fintype.card (Fin 3 × Bool) = 6 := by
+  decide
+
 end PVE.NIK0008
