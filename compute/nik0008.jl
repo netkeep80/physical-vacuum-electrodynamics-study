@@ -273,4 +273,69 @@ for (q,w) in ((0.0,4.0),(4.0,0.0))
 end
 println("NIK0008_C014_CUBED_SPHERE_INDEPENDENT_QUADRATURE=PASS")
 
+
+# C014 radial cube-face atlas diagnostic; no surface measure formula used.
+# Validate six constructive charts, the compact radius-2 planar parameter
+# domain, and the analytic <=2 Lipschitz bound independently from TypeScript.
+function c014_radial_face(axis, side, u, v)
+    @assert axis in 1:3 && abs(side) == 1
+    raw=zeros(3)
+    raw[axis]=side
+    raw[mod1(axis+1,3)]=u
+    raw[mod1(axis+2,3)]=v
+    D=norm3(raw)
+    @assert D >= 1
+    Tuple(raw ./ D)
+end
+function c014_recover_radial_face(x)
+    axis=argmax(abs.(collect(x)))
+    denominator=abs(x[axis])
+    @assert denominator>0
+    side=sign(x[axis])
+    u=x[mod1(axis+1,3)]/denominator
+    v=x[mod1(axis+2,3)]/denominator
+    @assert hypot(u,v)<=2+1e-12
+    c014_radial_face(axis,side,u,v)
+end
+let checked=0, max_error=0.0, max_ratio=0.0
+    boundary=((1.0,0.0,0.0),(-1.0,0.0,0.0),(0.0,1.0,0.0),
+              (0.0,-1.0,0.0),(0.0,0.0,1.0),(0.0,0.0,-1.0),
+              (1/sqrt(3),1/sqrt(3),1/sqrt(3)),
+              (-1/sqrt(3),-1/sqrt(3),-1/sqrt(3)))
+    for x in boundary
+        y=c014_recover_radial_face(x)
+        max_error=max(max_error,norm3(ntuple(k->x[k]-y[k],3)))
+        checked+=1
+    end
+    for i in 0:119, j in 0:79
+        theta=pi*(i+0.5)/120
+        phi=2pi*(j+0.5)/80
+        x=(sin(theta)*cos(phi),sin(theta)*sin(phi),cos(theta))
+        y=c014_recover_radial_face(x)
+        max_error=max(max_error,norm3(ntuple(k->x[k]-y[k],3)))
+        checked+=1
+    end
+    @assert max_error<1e-12
+    for axis in 1:3, side in (-1.0,1.0), i in 0:49
+        theta=2pi*i/50
+        r=1.9*(i+0.5)/50
+        u,v=r*cos(theta),r*sin(theta)
+        x=c014_radial_face(axis,side,u,v)
+        @assert abs(norm3(x)-1)<1e-12
+        for j in 0:49
+            i==j && continue
+            t=2pi*j/50
+            rr=1.9*(j+0.5)/50
+            uu,vv=rr*cos(t),rr*sin(t)
+            y=c014_radial_face(axis,side,uu,vv)
+            d=hypot(u-uu,v-vv)
+            ratio=norm3(ntuple(k->x[k]-y[k],3))/d
+            @assert ratio<=2+1e-12
+            max_ratio=max(max_ratio,ratio)
+        end
+    end
+    println("NIK0008_C014_RADIAL_ATLAS_NUMERIC=PASS; samples=",checked,
+            "; max_error=",max_error,"; max_ratio=",max_ratio)
+end
+
 println("NIK0008_JULIA_PASS")
