@@ -909,4 +909,44 @@ theorem c014_radial_atlas_index_card :
     Fintype.card (Fin 3 × Bool) = 6 := by
   decide
 
+/--
+Radial normalization commutes with genuine Euclidean linear isometries.
+This exact equality permits transferring future local Lipschitz bounds
+from the first face to all the Cartesian-axis permutations. It does not
+assume a surface area formula or a bound on the normalization itself.
+-/
+theorem c014_radial_normalize_axis_permutation
+    (e : Fin 3 ≃ Fin 3) (v : EuclideanSpace ℝ (Fin 3)) :
+    c014_radial_normalize (c014_cartesian_axis_permutation e v) =
+      c014_cartesian_axis_permutation e (c014_radial_normalize v) := by
+  simp only [c014_radial_normalize, LinearIsometryEquiv.norm_map,
+    map_smul]
+
+/-- The exact six-face normalization reduces to the first signed face. -/
+theorem c014_radial_axis_chart_eq_permuted_first
+    (axis : Fin 3) (positive : Bool)
+    (u : EuclideanSpace ℝ (Fin 2)) :
+    c014_radial_normalize (c014_radial_axis_signed_raw axis positive u) =
+      c014_cartesian_axis_permutation (Equiv.swap (0 : Fin 3) axis)
+        (c014_radial_normalize (c014_radial_first_signed_raw positive u)) := by
+  exact c014_radial_normalize_axis_permutation _ _
+
+/--
+Exactly equal Euclidean distances between normalized points on an
+arbitrary signed axis face and on its original first-axis face. Any
+future Lipschitz constant proved for the latter transfers to all six.
+-/
+theorem c014_radial_axis_chart_dist_eq_first
+    (axis : Fin 3) (positive : Bool)
+    (u v : EuclideanSpace ℝ (Fin 2)) :
+    dist
+      (c014_radial_normalize (c014_radial_axis_signed_raw axis positive u))
+      (c014_radial_normalize (c014_radial_axis_signed_raw axis positive v)) =
+    dist
+      (c014_radial_normalize (c014_radial_first_signed_raw positive u))
+      (c014_radial_normalize (c014_radial_first_signed_raw positive v)) := by
+  rw [c014_radial_axis_chart_eq_permuted_first,
+    c014_radial_axis_chart_eq_permuted_first]
+  exact LinearIsometryEquiv.dist_map _ _ _
+
 end PVE.NIK0008
