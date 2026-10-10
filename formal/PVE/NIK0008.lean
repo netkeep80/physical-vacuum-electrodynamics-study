@@ -412,10 +412,7 @@ theorem c014_unit_sphere_measure_ambient_volume :
         MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3))).toSphere) Set.univ =
       (3 : ENNReal) * MeasureTheory.volume
         (Metric.ball (0 : EuclideanSpace ℝ (Fin 3)) 1) := by
-  simpa [finrank_euclideanSpace] using
-    (MeasureTheory.Measure.toSphere_apply_univ
-      (μ := (MeasureTheory.volume :
-        MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3)))))
+  simp [MeasureTheory.Measure.toSphere_apply_univ, finrank_euclideanSpace]
 
 /--
 Normalization of the unit Euclidean sphere measure in real units.
@@ -430,7 +427,7 @@ theorem c014_unit_sphere_measure_area :
   rw [MeasureTheory.Measure.toSphere_real_apply_univ]
   simp [MeasureTheory.measureReal_def, EuclideanSpace.volume_ball_fin_three,
     finrank_euclideanSpace]
-  rw [ENNReal.toReal_ofReal (by positivity : 0 ≤ Real.pi * (4 / 3 : ℝ))]
+  rw [ENNReal.toReal_ofReal (by positivity : 0 ≤ Real.pi * 4 / 3)]
   ring
 
 end PVE.NIK0008
