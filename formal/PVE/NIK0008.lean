@@ -410,7 +410,7 @@ as the pushforward of the desired u/phi surface integral.
 theorem c014_unit_sphere_measure_ambient_volume :
     ((MeasureTheory.volume :
         MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3))).toSphere) Set.univ =
-      (3 : ℝ≥0∞) * MeasureTheory.volume
+      (3 : ENNReal) * MeasureTheory.volume
         (Metric.ball (0 : EuclideanSpace ℝ (Fin 3)) 1) := by
   simpa [finrank_euclideanSpace] using
     (MeasureTheory.Measure.toSphere_apply_univ
@@ -429,7 +429,8 @@ theorem c014_unit_sphere_measure_area :
       Set.univ = 4 * Real.pi := by
   rw [MeasureTheory.Measure.toSphere_real_apply_univ]
   simp [MeasureTheory.measureReal_def, EuclideanSpace.volume_ball_fin_three,
-    finrank_euclideanSpace, Real.pi_nonneg]
-  <;> ring
+    finrank_euclideanSpace]
+  rw [ENNReal.toReal_ofReal (by positivity : 0 ≤ Real.pi * (4 / 3 : ℝ))]
+  ring
 
 end PVE.NIK0008
