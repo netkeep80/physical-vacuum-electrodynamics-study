@@ -502,4 +502,39 @@ theorem c014_axis_permutation_preserves_sphere
   rw [(c014_cartesian_axis_permutation e).image_sphere]
   simp
 
+
+/--
+For C014, the standard Euclidean 2-dimensional Hausdorff measure,
+*restricted to the geometric sphere*, is preserved by any Cartesian
+coordinate permutation. The result combines actual ambient measure
+invariance, the exact sphere-preimage theorem, and the genuine
+restriction/pushforward measure identity; no surface-normalization
+factor is assumed.
+-/
+theorem c014_axis_permutation_preserves_restricted_sphere_measure
+    (e : Fin 3 ≃ Fin 3) (R : ℝ) :
+    MeasureTheory.MeasurePreserving (c014_cartesian_axis_permutation e)
+      ((μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3))).restrict
+        (Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R))
+      ((μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3))).restrict
+        (Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R)) := by
+  let iso := c014_cartesian_axis_permutation e
+  let μ : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3)) := μHE[2]
+  let s : Set (EuclideanSpace ℝ (Fin 3)) :=
+    Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R
+  have hs : MeasurableSet s := Metric.isClosed_sphere.measurableSet
+  have hpre : iso ⁻¹' s = s := by
+    dsimp [s]
+    rw [iso.preimage_sphere]
+    simp
+  have hbase : μ.map iso = μ :=
+    (c014_axis_permutation_preserves_hausdorff_measure e).map_eq
+  refine ⟨iso.continuous.measurable, ?_⟩
+  change (μ.restrict s).map iso = μ.restrict s
+  calc
+    (μ.restrict s).map iso = (μ.map iso).restrict s := by
+      rw [MeasureTheory.Measure.restrict_map iso.continuous.measurable hs]
+      rw [hpre]
+    _ = μ.restrict s := by rw [hbase]
+
 end PVE.NIK0008
