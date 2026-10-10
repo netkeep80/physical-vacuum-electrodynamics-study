@@ -1,4 +1,5 @@
 import Physlib.Electromagnetism.Kinematics.GaugeTransformation
+import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
 
 namespace PVE.NIK0008
 
@@ -154,5 +155,43 @@ theorem c016_hall_signal_odd
     (gain relativeSpeed : ℝ) :
     gain * (-relativeSpeed) = -(gain * relativeSpeed) := by
   ring
+
+
+/--
+NIK-0008-C014: exact polar-angle surface-current integral after
+u = cos(theta). With sigma = Q/(4 pi R²) and the rotating-shell
+surface current K = sigma*(omega × r), the z-component of
+(1/2) ∫ (r × K) dA reduces to:
+(Q omega R²/4) ∫[-1,1] (1-u²) du.
+
+This lemma computes the remaining 1D integral in Lean. The reduction
+from the physical surface-current model to the polar integral remains
+an explicit geometric premise, not an implicit Lean theorem.
+-/
+theorem c014_polar_integral_value :
+    (∫ u in (-1 : ℝ)..1, (1 - u^2)) = (4 : ℝ) / 3 := by
+  rw [intervalIntegral.integral_sub
+    (intervalIntegral.intervalIntegrable_const (1 : ℝ))
+    (intervalIntegral.intervalIntegrable_pow (2 : ℕ))]
+  rw [intervalIntegral.integral_one, intervalIntegral.integral_pow]
+  norm_num
+
+noncomputable def shellMomentFromPolarIntegral (Q ω R : ℝ) : ℝ :=
+  (Q * ω * R^2 / 4) * (∫ u in (-1 : ℝ)..1, (1 - u^2))
+
+/-- Conditional derivation from exact polar current integral to shellMoment. -/
+theorem c014_shell_moment_from_polar_integral (Q ω R : ℝ) :
+    shellMomentFromPolarIntegral Q ω R = shellMoment Q ω R := by
+  rw [shellMomentFromPolarIntegral, c014_polar_integral_value]
+  unfold shellMoment
+  ring
+
+/-- The resulting capacitor moment requires no new shell-moment axiom. -/
+theorem c014_capacitor_moment_from_integrals (Q ω a b : ℝ) :
+    shellMomentFromPolarIntegral Q ω a +
+      shellMomentFromPolarIntegral (-Q) ω b =
+      (Q * ω / 3) * (a^2 - b^2) := by
+  rw [c014_shell_moment_from_polar_integral, c014_shell_moment_from_polar_integral]
+  exact c014_capacitor_moment_formula Q ω a b
 
 end PVE.NIK0008
