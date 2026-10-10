@@ -196,4 +196,30 @@ assertNear(shellMomentCartesianSurface(3,4,1)+shellMomentCartesianSurface(-3,4,2
            capacitorMoment(3,4,1,2),"3D Cartesian capacitor moment",1e-5);
 console.log("NIK0008_C014_3D_SURFACE_CROSS_PRODUCT=PASS");
 
+
+// C014: independent north/south polar-cap quadrature in u = cos(theta).
+// This is an endpoint-control regression, not a theorem identifying surface measure.
+function c014PolarCapFractionNumeric(eps: number, n = 10000): number {
+  if (!(eps >= 0 && eps <= 1)) throw new Error("polar cap epsilon out of range");
+  const du = eps / n;
+  let south = 0, north = 0;
+  for (let j = 0; j < n; j++) {
+    const southU = -1 + (j + 0.5) * du;
+    const northU = 1 - eps + (j + 0.5) * du;
+    south += (1 - southU * southU) * du;
+    north += (1 - northU * northU) * du;
+  }
+  return (south + north) / (4 / 3);
+}
+for (const eps of [0, 0.001, 0.03, 0.2, 1]) {
+  assertNear(c014PolarCapFractionNumeric(eps), 1.5 * eps * eps - 0.5 * eps ** 3,
+             "C014 polar-cap fraction", 1e-6, 1e-10);
+}
+for (const invalid of [-0.1, 1.1, Number.NaN]) {
+  let rejected = false;
+  try { c014PolarCapFractionNumeric(invalid); } catch { rejected = true; }
+  if (!rejected) throw new Error("invalid polar cap epsilon accepted");
+}
+console.log("NIK0008_C014_POLE_CAPS=PASS");
+
 console.log("NIK0008_TYPESCRIPT_PASS");
