@@ -107,4 +107,26 @@ for (gain, drift, sample_speed, magnet_speed, shift) in (
 end
 println("NIK0008_C016_HALL_RELATIVE_FRAME_WITNESS=PASS")
 
+
+# C014: a second independent midpoint quadrature, in u=cos(theta),
+# tests the exact polar integral that is proved in Lean 4.
+function shell_moment_polar_numeric(Q, omega, R; n=10_000)
+    du = 2 / n
+    integrated = 0.0
+    for j in 0:n-1
+        u = -1 + (j + 0.5) * du
+        integrated += (1 - u^2) * du
+    end
+    (Q * omega * R^2 / 4) * integrated
+end
+
+for (Q, omega, R) in ((1.0, 1.0, 1.0), (3.0, 4.0, 2.0), (-2.5, 0.7, 1.3))
+    assert_close(shell_moment_polar_numeric(Q, omega, R),
+                 shell_moment(Q, omega, R); rtol=1e-7)
+end
+@assert isapprox(shell_moment_polar_numeric(3.0, 4.0, 1.0) +
+                 shell_moment_polar_numeric(-3.0, 4.0, 2.0),
+                 capacitor_moment(3.0, 4.0, 1.0, 2.0); rtol=1e-7)
+println("NIK0008_C014_POLAR_INTEGRAL=PASS")
+
 println("NIK0008_JULIA_PASS")
