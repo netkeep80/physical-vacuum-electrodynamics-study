@@ -835,4 +835,41 @@ theorem c014_radial_parameter_disk_compact :
     IsCompact c014_radial_parameter_disk := by
   exact isCompact_closedBall 0 2
 
+/--
+The first affine radial face stays at Euclidean distance at least one
+from the origin, for every parameter. This is the quantitative lower
+bound required by the forthcoming Lipschitz normalization estimate.
+-/
+theorem c014_radial_first_positive_raw_norm_ge_one
+    (u : EuclideanSpace ℝ (Fin 2)) :
+    1 ≤ ‖c014_radial_first_positive_raw u‖ := by
+  have h := PiLp.norm_apply_le
+    (c014_radial_first_positive_raw u) (0 : Fin 3)
+  simpa [c014_radial_first_positive_raw] using h
+
+/-- The two signs of the first radial face, with explicit orientation. -/
+noncomputable def c014_radial_first_signed_raw
+    (positive : Bool) (u : EuclideanSpace ℝ (Fin 2)) :
+    EuclideanSpace ℝ (Fin 3) :=
+  if positive then c014_radial_first_positive_raw u
+  else -c014_radial_first_positive_raw u
+
+theorem c014_radial_first_signed_raw_norm_ge_one
+    (positive : Bool) (u : EuclideanSpace ℝ (Fin 2)) :
+    1 ≤ ‖c014_radial_first_signed_raw positive u‖ := by
+  cases positive <;>
+    simp only [c014_radial_first_signed_raw, Bool.false_eq_true, if_false,
+      Bool.true_eq_true, if_true, norm_neg] <;>
+    exact c014_radial_first_positive_raw_norm_ge_one u
+
+theorem c014_radial_first_signed_image_on_sphere
+    (positive : Bool) (u : EuclideanSpace ℝ (Fin 2)) :
+    c014_radial_normalize (c014_radial_first_signed_raw positive u) ∈
+      Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) 1 := by
+  apply c014_radial_normalize_mem_sphere
+  have h := c014_radial_first_signed_raw_norm_ge_one positive u
+  intro hz
+  rw [hz, norm_zero] at h
+  norm_num at h
+
 end PVE.NIK0008
