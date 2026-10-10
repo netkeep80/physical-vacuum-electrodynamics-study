@@ -6,7 +6,7 @@
     {
       "source_id": "research-model",
       "algorithm": "sha256",
-      "digest": "011b9abd987d1d938d01d0fdbd506eca3ffb125a8ecf7f14aa8fa2ab6513512c"
+      "digest": "04f40c03fcb93da7763c2ba20ad04bb80a170df1d357981f3a7b69f72010242a"
     }
   ],
   "generator": {
@@ -16,7 +16,7 @@
   "configuration_digest": "223b612df99d588db663665aafdee3238b8b2312acf806174edfff2a50556dad",
   "output_identity": {
     "algorithm": "sha256",
-    "digest": "3d5faf6e0b48173dff1f4c7bce41c2962a891a6e59267bc5bfb6e7436ee45536"
+    "digest": "f956b9ff568bbda938ebfbbb417347abef5a77c90be4f419b9b54ecf8ea7d2fc"
   },
   "evidence": [
     {
