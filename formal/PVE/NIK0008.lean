@@ -4,6 +4,7 @@ import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
 import Mathlib.Geometry.Euclidean.Volume.Measure
 import Mathlib.Analysis.Normed.Module.Ball.Pointwise
 import Mathlib.MeasureTheory.Integral.Bochner.Basic
+import Mathlib.MeasureTheory.Integral.IntegrableOn
 
 namespace PVE.NIK0008
 
@@ -600,5 +601,49 @@ theorem c014_spherical_second_moments_equal
       funext x
       rw [hcoord x]
     _ = _ := c014_spherical_integral_axis_permutation e R (fun x => (x j)^2)
+
+
+/--
+The square of any Cartesian coordinate is integrable on the
+intrinsic, standard Euclidean Hausdorff spherical surface whenever
+the surface has finite 2D Hausdorff mass.
+
+The only hypothesis is explicit finite surface mass. No isotropy,
+coordinate integral, or 4*pi*R^2 is postulated; a future proof
+of finiteness of the genuine Hausdorff sphere will discharge this
+separate geometric premise. This is not yet a proof of that premise.
+-/
+theorem c014_spherical_coordinate_sq_integrable_of_finite_area
+    (R : ℝ) (i : Fin 3)
+    (hfinite :
+      (μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3)))
+        (Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R) ≠ ∞) :
+    MeasureTheory.Integrable
+      (fun x : EuclideanSpace ℝ (Fin 3) => (x i) ^ 2)
+      ((μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3))).restrict
+        (Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R)) := by
+  let μ : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3)) := μHE[2]
+  let s : Set (EuclideanSpace ℝ (Fin 3)) :=
+    Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R
+  have hs : MeasurableSet s := Metric.isClosed_sphere.measurableSet
+  have hcont :
+      Continuous (fun x : EuclideanSpace ℝ (Fin 3) => (x i) ^ 2) :=
+    (PiLp.continuous_apply i).pow 2
+  have hbound
+      (x : EuclideanSpace ℝ (Fin 3)) (hx : x ∈ s) :
+      ‖(x i) ^ 2‖ ≤ R ^ 2 := by
+    have hxi : ‖x i‖ ≤ ‖x‖ := PiLp.norm_apply_le x i
+    have hxnorm : ‖x‖ = R := by
+      simpa [s, Metric.mem_sphere, dist_zero_right] using hx
+    rw [norm_pow, ← hxnorm]
+    nlinarith [mul_nonneg (sub_nonneg.mpr hxi)
+      (add_nonneg (norm_nonneg (x i)) (norm_nonneg x))]
+  have hint : MeasureTheory.IntegrableOn
+      (fun x : EuclideanSpace ℝ (Fin 3) => (x i) ^ 2) s μ := by
+    apply MeasureTheory.Measure.integrableOn_of_bounded hfinite
+      hcont.aestronglyMeasurable
+    filter_upwards [MeasureTheory.ae_restrict_mem hs] with x hx
+    exact hbound x hx
+  exact hint
 
 end PVE.NIK0008
