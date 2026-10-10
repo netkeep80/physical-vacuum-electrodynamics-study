@@ -1,5 +1,6 @@
 import Physlib.Electromagnetism.Kinematics.GaugeTransformation
 import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
+import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
 
 namespace PVE.NIK0008
 
@@ -397,6 +398,36 @@ theorem c014_two_shells_from_intrinsic_moments
     (houter : outer = (-Q) * omega * b^2 / 3) :
     inner + outer = (Q * omega / 3) * (a^2 - b^2) := by
   rw [hinner, houter]
+  ring
+
+
+/--
+C014 / independent geometric normalization of the *unit* Euclidean
+sphere measure from ambient 3D volume (Haar radial disintegration).
+Unlike the prior polar-chart approach, the measure is not introduced
+as the pushforward of the desired u/phi surface integral.
+-/
+theorem c014_unit_sphere_measure_ambient_volume :
+    ((MeasureTheory.volume :
+        MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3))).toSphere) Set.univ =
+      (3 : ENNReal) * MeasureTheory.volume
+        (Metric.ball (0 : EuclideanSpace ℝ (Fin 3)) 1) := by
+  simp [MeasureTheory.Measure.toSphere_apply_univ, finrank_euclideanSpace]
+
+/--
+Normalization of the unit Euclidean sphere measure in real units.
+The volume of the unit ball (4 pi / 3) is the mathematical input
+of the *ambient* three-dimensional measure, not an assumed surface
+area formula. Does not prove metric-sphere invariance or R-scaling.
+-/
+theorem c014_unit_sphere_measure_area :
+    ((MeasureTheory.volume :
+        MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3))).toSphere).real
+      Set.univ = 4 * Real.pi := by
+  rw [MeasureTheory.Measure.toSphere_real_apply_univ]
+  simp [MeasureTheory.measureReal_def, EuclideanSpace.volume_ball_fin_three,
+    finrank_euclideanSpace]
+  rw [ENNReal.toReal_ofReal (by positivity : 0 ≤ Real.pi * 4 / 3)]
   ring
 
 end PVE.NIK0008
