@@ -171,7 +171,7 @@ an explicit geometric premise, not an implicit Lean theorem.
 theorem c014_polar_integral_value :
     (∫ u in (-1 : ℝ)..1, (1 - u^2)) = (4 : ℝ) / 3 := by
   rw [intervalIntegral.integral_sub
-    (intervalIntegral.intervalIntegrable_const (1 : ℝ))
+    (intervalIntegrable_const)
     (intervalIntegral.intervalIntegrable_pow (2 : ℕ))]
   rw [intervalIntegral.integral_one, intervalIntegral.integral_pow]
   norm_num
