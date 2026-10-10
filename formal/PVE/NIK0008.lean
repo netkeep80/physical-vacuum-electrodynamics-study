@@ -1,6 +1,8 @@
 import Physlib.Electromagnetism.Kinematics.GaugeTransformation
 import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
 import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
+import Mathlib.Geometry.Euclidean.Volume.Measure
+import Mathlib.Analysis.Normed.Module.Ball.Pointwise
 
 namespace PVE.NIK0008
 
@@ -429,5 +431,39 @@ theorem c014_unit_sphere_measure_area :
     finrank_euclideanSpace]
   rw [ENNReal.toReal_ofReal (by positivity : 0 ≤ Real.pi * 4 / 3)]
   ring
+
+open scoped MeasureTheory Pointwise
+
+
+set_option maxHeartbeats 1000000
+
+/--
+C014 / radius scaling of the independently defined Euclidean Hausdorff
+two-dimensional surface measure in the actual Euclidean ℓ² ambient space.
+
+Unlike the existing Haar-derived *unit-sphere* mass theorem, this lemma
+starts with the standard 2D Euclidean Hausdorff measure μHE[2]. It proves
+the geometric R² scaling for R>0, without assuming the unit-sphere mass
+or identifying μHE[2] with the Haar-induced measure.
+
+The remaining bridge μHE[2](S₁)=4π and invariance of the coordinate
+second moments remain explicit open obligations of issue #76.
+-/
+theorem c014_euclidean_hausdorff_sphere_radius_scale
+    (R : ℝ) (hR : 0 < R) :
+    (μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3)))
+      (Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R) =
+      ‖R‖₊ ^ 2 •
+        (μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3)))
+          (Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) 1) := by
+  have hRne : R ≠ 0 := ne_of_gt hR
+  have hSphere :
+      R • Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) 1 =
+        Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R := by
+    simpa only [smul_zero, mul_one, Real.norm_eq_abs, abs_of_pos hR] using
+      (_root_.smul_sphere' hRne
+        (0 : EuclideanSpace ℝ (Fin 3)) (1 : ℝ))
+  rw [← hSphere]
+  exact MeasureTheory.Measure.euclideanHausdorffMeasure_smul₀ 2 hRne _
 
 end PVE.NIK0008
