@@ -728,13 +728,13 @@ factor converts it to the exact μHE[2] used throughout C014.
 This does not claim that a finite family of such images covers S².
 -/
 theorem c014_compact_lipschitz_patch_finite_hausdorff_area
-    (K : ℝ≥0)
+    (K : NNReal)
     (f : EuclideanSpace ℝ (Fin 2) → EuclideanSpace ℝ (Fin 3))
     (hf : LipschitzWith K f)
     (s : Set (EuclideanSpace ℝ (Fin 2))) (hs : IsCompact s) :
     (μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3)))
       (f '' s) ≠ (⊤ : ENNReal) := by
-  haveI : (μH[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 2))).IsAddHaarMeasure := by
+  letI : (μH[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 2))).IsAddHaarMeasure := by
     convert (inferInstance :
       (μH[Module.finrank ℝ (EuclideanSpace ℝ (Fin 2))] :
         MeasureTheory.Measure (EuclideanSpace ℝ (Fin 2))).IsAddHaarMeasure) using 1 <;> simp
