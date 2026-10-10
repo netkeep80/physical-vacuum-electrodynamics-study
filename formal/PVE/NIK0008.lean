@@ -499,8 +499,7 @@ theorem c014_axis_permutation_preserves_sphere
     c014_cartesian_axis_permutation e ''
       Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R =
       Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R := by
-  simpa using
-    (c014_cartesian_axis_permutation e).image_sphere
-      (0 : EuclideanSpace ℝ (Fin 3)) R
+  rw [(c014_cartesian_axis_permutation e).image_sphere]
+  simp
 
 end PVE.NIK0008
