@@ -703,7 +703,7 @@ theorem c014_spherical_second_moment_trace_of_finite_area
         apply Finset.sum_congr rfl
         intro j _
         exact hiso j
-      _ = _ := by simp [nsmul_eq_mul, mul_comm]
+      _ = _ := by simp [nsmul_eq_mul]
   calc
     (3 : ℝ) * (∫ x : EuclideanSpace ℝ (Fin 3), (x i)^2 ∂μ) =
       ∑ j : Fin 3, ∫ x : EuclideanSpace ℝ (Fin 3), (x j)^2 ∂μ :=
