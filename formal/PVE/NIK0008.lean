@@ -858,9 +858,8 @@ theorem c014_radial_first_signed_raw_norm_ge_one
     (positive : Bool) (u : EuclideanSpace ℝ (Fin 2)) :
     1 ≤ ‖c014_radial_first_signed_raw positive u‖ := by
   cases positive <;>
-    simp only [c014_radial_first_signed_raw, Bool.false_eq_true, if_false,
-      Bool.true_eq_true, if_true, norm_neg] <;>
-    exact c014_radial_first_positive_raw_norm_ge_one u
+    simpa [c014_radial_first_signed_raw] using
+      (c014_radial_first_positive_raw_norm_ge_one u)
 
 theorem c014_radial_first_signed_image_on_sphere
     (positive : Bool) (u : EuclideanSpace ℝ (Fin 2)) :
