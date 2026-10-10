@@ -129,4 +129,52 @@ end
                  capacitor_moment(3.0, 4.0, 1.0, 2.0); rtol=1e-7)
 println("NIK0008_C014_POLAR_INTEGRAL=PASS")
 
+
+# C014 / independent full Cartesian cross-product and geometric surface
+# Jacobian. No pre-reduction of the z integrand or area element to 1-u²
+# is used in this computation.
+function cross3(a, b)
+    (a[2]*b[3]-a[3]*b[2],
+     a[3]*b[1]-a[1]*b[3],
+     a[1]*b[2]-a[2]*b[1])
+end
+norm3(v) = sqrt(sum(x -> x*x, v))
+
+function shell_moment_cartesian_surface(Q, omega, R; nu=400, nphi=64)
+    @assert R > 0
+    sigma = Q / (4pi*R^2)
+    du = 2 / nu
+    dphi = 2pi / nphi
+    m = 0.0
+    max_jacobian_error = 0.0
+    for iu in 0:nu-1
+        u = -1 + (iu+0.5)*du
+        t = sqrt(1-u*u)
+        for iphi in 0:nphi-1
+            phi = (iphi+0.5)*dphi
+            cp, sp = cos(phi), sin(phi)
+            r = (R*t*cp, R*t*sp, R*u)
+            omega_vec = (0.0, 0.0, omega)
+            rotated = cross3(omega_vec, r)
+            K = (sigma*rotated[1], sigma*rotated[2], sigma*rotated[3])
+            drdu = (-R*u/t*cp, -R*u/t*sp, R)
+            drdphi = (-R*t*sp, R*t*cp, 0.0)
+            darea_du_dphi = norm3(cross3(drdu, drdphi))
+            max_jacobian_error = max(max_jacobian_error, abs(darea_du_dphi-R^2))
+            m += 0.5*cross3(r,K)[3] * darea_du_dphi * du * dphi
+        end
+    end
+    @assert max_jacobian_error < 1e-10 * max(1.0, R^2)
+    m
+end
+
+for (Q, omega, R) in ((1.0, 1.0, 1.0), (3.0, 4.0, 2.0), (-2.5, 0.7, 1.3))
+    assert_close(shell_moment_cartesian_surface(Q, omega, R),
+                 shell_moment(Q, omega, R); rtol=1e-5)
+end
+assert_close(shell_moment_cartesian_surface(3.0,4.0,1.0) +
+             shell_moment_cartesian_surface(-3.0,4.0,2.0),
+             capacitor_moment(3.0,4.0,1.0,2.0); rtol=1e-5)
+println("NIK0008_C014_3D_SURFACE_CROSS_PRODUCT=PASS")
+
 println("NIK0008_JULIA_PASS")

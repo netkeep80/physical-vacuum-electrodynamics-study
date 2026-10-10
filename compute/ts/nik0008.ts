@@ -151,4 +151,49 @@ assertNear(shellMomentPolarNumeric(3, 4, 1) + shellMomentPolarNumeric(-3, 4, 2),
   capacitorMoment(3, 4, 1, 2), "capacitor polar integral", 1e-8);
 console.log("NIK0008_C014_POLAR_INTEGRAL=PASS");
 
+
+// C014 / independent Cartesian surface-current quadrature with the
+// actual parameterization tangent-vector cross product as area Jacobian.
+// Its 3D integrand is not replaced by the known 1D polar formula.
+type Vec3 = readonly [number, number, number];
+function cross3(a: Vec3, b: Vec3): Vec3 {
+  return [a[1]*b[2]-a[2]*b[1],
+          a[2]*b[0]-a[0]*b[2],
+          a[0]*b[1]-a[1]*b[0]];
+}
+function norm3(a: Vec3): number {
+  return Math.hypot(a[0], a[1], a[2]);
+}
+function shellMomentCartesianSurface(Q: number, omega: number, R: number,
+                                      nU = 400, nPhi = 64): number {
+  if (!(R > 0)) throw new Error("3D Cartesian shell radius must be positive");
+  const sigma = Q / (4*Math.PI*R*R);
+  const du = 2/nU, dphi = 2*Math.PI/nPhi;
+  let m = 0, maxJacError = 0;
+  for (let i = 0; i < nU; i++) {
+    const u = -1 + (i+0.5)*du;
+    const t = Math.sqrt(1-u*u);
+    for (let j = 0; j < nPhi; j++) {
+      const phi = (j+0.5)*dphi, c = Math.cos(phi), s = Math.sin(phi);
+      const r: Vec3 = [R*t*c, R*t*s, R*u];
+      const rotated = cross3([0,0,omega], r);
+      const K: Vec3 = [sigma*rotated[0],sigma*rotated[1],sigma*rotated[2]];
+      const drdu: Vec3 = [-R*u/t*c, -R*u/t*s, R];
+      const drdphi: Vec3 = [-R*t*s, R*t*c, 0];
+      const jacobian = norm3(cross3(drdu, drdphi));
+      maxJacError = Math.max(maxJacError, Math.abs(jacobian-R*R));
+      m += 0.5*cross3(r,K)[2]*jacobian*du*dphi;
+    }
+  }
+  if (!(maxJacError < 1e-10*Math.max(1,R*R))) throw new Error("surface Jacobian regression");
+  return m;
+}
+for (const [q,w,r] of [[1,1,1],[3,4,2],[-2.5,0.7,1.3]] as const) {
+  assertNear(shellMomentCartesianSurface(q,w,r),shellMoment(q,w,r),
+             "3D Cartesian shell moment",1e-5);
+}
+assertNear(shellMomentCartesianSurface(3,4,1)+shellMomentCartesianSurface(-3,4,2),
+           capacitorMoment(3,4,1,2),"3D Cartesian capacitor moment",1e-5);
+console.log("NIK0008_C014_3D_SURFACE_CROSS_PRODUCT=PASS");
+
 console.log("NIK0008_TYPESCRIPT_PASS");
