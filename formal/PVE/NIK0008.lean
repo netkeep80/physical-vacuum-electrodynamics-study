@@ -737,7 +737,8 @@ theorem c014_compact_lipschitz_patch_finite_hausdorff_area
   have hhaar : (μH[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 2))).IsAddHaarMeasure := by
     convert (inferInstance :
       (μH[Module.finrank ℝ (EuclideanSpace ℝ (Fin 2))] :
-        MeasureTheory.Measure (EuclideanSpace ℝ (Fin 2))).IsAddHaarMeasure) using 1 <;> simp
+        MeasureTheory.Measure (EuclideanSpace ℝ (Fin 2))).IsAddHaarMeasure) using 1
+    simp
   have hsource :
       (μH[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 2))) s < ⊤ :=
     hhaar.toIsFiniteMeasureOnCompacts.lt_top_of_isCompact hs
