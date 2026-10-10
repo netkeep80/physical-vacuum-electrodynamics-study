@@ -252,4 +252,58 @@ theorem c014_cartesian_density_to_polar
       have ht : t^2 = 1 - u^2 := by linarith
       rw [ht]
 
+
+/--
+For r(u,phi)=(R*t*c,R*t*s,R*u), where t=sqrt(1-u²),
+c=cos(phi), s=sin(phi), put h=1/t on the open polar patch t>0.
+The tangent vectors are
+  dr/du=(-R*u*h*c,-R*u*h*s,R),
+  dr/dphi=(-R*t*s,R*t*c,0).
+Their three cross-product components are established algebraically below.
+The derivative identities are explicit premises here.
+-/
+theorem c014_sphere_tangent_cross_components
+    (R t c s u h : ℝ)
+    (hc : c^2 + s^2 = 1) (hinv : h*t = 1) :
+    ((-R*u*h*s)*0 - R*(R*t*c) = -R^2*t*c) ∧
+    (R*(-R*t*s) - (-R*u*h*c)*0 = -R^2*t*s) ∧
+    ((-R*u*h*c)*(R*t*c) - (-R*u*h*s)*(-R*t*s) = -R^2*u) := by
+  constructor
+  · ring
+  constructor
+  · ring
+  calc
+    (-R*u*h*c)*(R*t*c) - (-R*u*h*s)*(-R*t*s) =
+        -R^2*u*(h*t)*(c^2+s^2) := by ring
+    _ = -R^2*u := by rw [hc, hinv]; ring
+
+/--
+Exact squared surface Jacobian for the normalized spherical patch:
+|dr/du × dr/dphi|² = R⁴, at every nonsingular parameter point.
+This closes the algebraic geometry step but does not by itself formalize
+the measure-theoretic surface change-of-variables theorem.
+-/
+theorem c014_spherical_area_jacobian_squared
+    (R t c s u : ℝ)
+    (hc : c^2 + s^2 = 1) (htu : t^2 + u^2 = 1) :
+    (-R^2*t*c)^2 + (-R^2*t*s)^2 + (-R^2*u)^2 =
+      (R^2)^2 := by
+  calc
+    (-R^2*t*c)^2 + (-R^2*t*s)^2 + (-R^2*u)^2 =
+        R^4*(t^2*(c^2+s^2) + u^2) := by ring
+    _ = R^4*(t^2 + u^2) := by rw [hc]; ring
+    _ = (R^2)^2 := by rw [htu]; ring
+
+/--
+Pointwise density times the (geometrically established) spherical
+surface Jacobian R²; φ disappears because the charge is homogeneous.
+-/
+theorem c014_cartesian_surface_density_to_u
+    (sigma omega R t c s u : ℝ)
+    (hc : c^2 + s^2 = 1) (htu : t^2 + u^2 = 1) :
+    c014_cartesianMomentDensity sigma omega (R*t*c) (R*t*s) * R^2 =
+      (sigma*omega*R^4/2)*(1-u^2) := by
+  rw [c014_cartesian_density_to_polar sigma omega R t c s u hc htu]
+  ring
+
 end PVE.NIK0008
