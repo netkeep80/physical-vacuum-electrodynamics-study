@@ -247,7 +247,7 @@ function c014_cubed_sphere_surface(Q, omega, R; n=96)
     (; area, moment, Ix, Iy, Iz, max_jac_relative_error)
 end
 
-previous_area_error = Inf
+let previous_area_error = Inf
 for n in (12,24,48,96)
     result = c014_cubed_sphere_surface(3.0,4.0,2.0;n=n)
     area_error = abs(result.area/(4pi*4)-1)
@@ -260,6 +260,7 @@ for n in (12,24,48,96)
     assert_close(result.Ix,result.Iy;rtol=1e-10)
     assert_close(result.Iy,result.Iz;rtol=1e-10)
 end
+end # explicit Julia local scope for refinement accumulator
 for (q,w,radius) in ((1.0,1.0,1.0),(-2.5,0.7,1.3),
                      (4.0,-3.0,0.25),(3.0,0.0,2.0))
     value = c014_cubed_sphere_surface(q,w,radius;n=96)
