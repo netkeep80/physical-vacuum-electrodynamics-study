@@ -800,7 +800,7 @@ theorem c014_radial_normalize_mem_sphere
     (v : EuclideanSpace ℝ (Fin 3)) (hv : v ≠ 0) :
     c014_radial_normalize v ∈
       Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) 1 := by
-  change ‖(‖v‖ : ℝ)⁻¹ • v‖ = 1
+  rw [Metric.mem_sphere, dist_zero_right]
   exact norm_smul_inv_norm hv
 
 /-- A constructive source for the positive first-coordinate radial face. -/
