@@ -713,4 +713,41 @@ theorem c014_spherical_second_moment_trace_of_finite_area
     _ = ∫ _x : EuclideanSpace ℝ (Fin 3), R^2 ∂μ :=
       MeasureTheory.integral_congr_ae hpoint
 
+
+/--
+A constructive finite-area ingredient for the intrinsic S² audit:
+a Lipschitz image of *any compact planar set* has finite normalized
+two-dimensional Euclidean Hausdorff measure in actual Euclidean R³.
+
+The source is genuine Euclidean ℓ²(R²), so its unnormalized 2D
+Hausdorff measure is a Haar measure finite on compact sets. The
+Hausdorff Lipschitz-image inequality then proves the target's
+unnormalized measure finite; the globally fixed finite normalization
+factor converts it to the exact μHE[2] used throughout C014.
+
+This does not claim that a finite family of such images covers S².
+-/
+theorem c014_compact_lipschitz_patch_finite_hausdorff_area
+    (K : ℝ≥0)
+    (f : EuclideanSpace ℝ (Fin 2) → EuclideanSpace ℝ (Fin 3))
+    (hf : LipschitzWith K f)
+    (s : Set (EuclideanSpace ℝ (Fin 2))) (hs : IsCompact s) :
+    (μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3)))
+      (f '' s) ≠ (⊤ : ENNReal) := by
+  haveI : (μH[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 2))).IsAddHaarMeasure := by
+    convert (inferInstance :
+      (μH[Module.finrank ℝ (EuclideanSpace ℝ (Fin 2))] :
+        MeasureTheory.Measure (EuclideanSpace ℝ (Fin 2))).IsAddHaarMeasure) using 1 <;> simp
+  have hsource :
+      (μH[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 2))) s < ⊤ :=
+    hs.measure_lt_top
+  have himage :
+      (μH[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3))) (f '' s) < ⊤ := by
+    have hle := hf.hausdorffMeasure_image_le (d := (2 : ℝ)) (by norm_num) s
+    exact lt_of_le_of_lt hle
+      (ENNReal.mul_lt_top (by simp) hsource)
+  rw [MeasureTheory.Measure.euclideanHausdorffMeasure_def, MeasureTheory.Measure.smul_apply]
+  simp only [ENNReal.smul_def, smul_eq_mul]
+  exact (ENNReal.mul_lt_top (by simp) himage).ne
+
 end PVE.NIK0008
