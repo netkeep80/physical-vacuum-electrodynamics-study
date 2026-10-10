@@ -459,7 +459,7 @@ theorem c014_euclidean_hausdorff_sphere_radius_scale
       R • Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) 1 =
         Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R := by
     simpa [Real.norm_of_nonneg hR.le] using
-      (Metric.smul_sphere' hRne
+      (_root_.smul_sphere' hRne
         (0 : EuclideanSpace ℝ (Fin 3)) (1 : ℝ))
   rw [← hSphere]
   exact MeasureTheory.Measure.euclideanHausdorffMeasure_smul₀ 2 hRne _
