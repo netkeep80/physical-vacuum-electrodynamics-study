@@ -436,7 +436,7 @@ def build_pdf(model: dict[str, Any], coverage: dict[str, Any]) -> bytes:
                     Paragraph(ptext(STATUS_RU.get(state.get("status"), state.get("status", "не задан"))), styles["small"]),
                     Paragraph(ptext(state.get("finding") or "-"), styles["small"]),
                 ])
-            axis_table = Table(axis_rows, colWidths=[40*mm, 30*mm, 106*mm], repeatRows=1)
+            axis_table = Table(axis_rows, colWidths=[40*mm, 30*mm, 106*mm], repeatRows=1, splitInRow=1)
             axis_table.setStyle(TableStyle([
                 ("GRID", (0, 0), (-1, -1), 0.25, colors.grey),
                 ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#F0F0F0")),
