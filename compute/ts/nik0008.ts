@@ -222,4 +222,93 @@ for (const invalid of [-0.1, 1.1, Number.NaN]) {
 }
 console.log("NIK0008_C014_POLE_CAPS=PASS");
 
+
+// C014 / independent cubed-sphere quadrature. Six cube faces are projected
+// radially onto the sphere: r=R*v/|v|, v=(±1,a,b) and permutations.
+// Unlike the prior u=cos(theta)/phi parameterization, there are no poles;
+// the six edges are duplicated only on sets of zero area. The area
+// Jacobian is computed from derivatives of the radial projection, using
+// a vector cross product, not supplied as R² dphi du.
+function c014CubedSphereSurface(Q: number, omega: number, R: number, n: number) {
+  if (!(Number.isInteger(n) && n >= 2 && Number.isFinite(R) && R > 0)) {
+    throw new Error("invalid cubed-sphere radius or grid");
+  }
+  const sigma = Q / (4 * Math.PI * R * R);
+  const delta = 2 / n;
+  let area = 0, moment = 0, ix = 0, iy = 0, iz = 0;
+  let maxJacRelativeError = 0;
+  for (let axis = 0; axis < 3; axis++) {
+    const ia = (axis + 1) % 3, ib = (axis + 2) % 3;
+    for (const side of [-1, 1]) {
+      for (let i = 0; i < n; i++) {
+        const a = -1 + (i + 0.5) * delta;
+        for (let j = 0; j < n; j++) {
+          const b = -1 + (j + 0.5) * delta;
+          const v = [0, 0, 0], ea = [0, 0, 0], eb = [0, 0, 0];
+          v[axis] = side; v[ia] = a; v[ib] = b;
+          ea[ia] = 1; eb[ib] = 1;
+          const D = Math.hypot(...v);
+          const r = v.map(x => R * x / D) as [number, number, number];
+          const drda = ea.map((x, k) =>
+            R * (x / D - v[k] * a / D ** 3)) as [number, number, number];
+          const drdb = eb.map((x, k) =>
+            R * (x / D - v[k] * b / D ** 3)) as [number, number, number];
+          const jac = norm3(cross3(drda, drdb));
+          const analyticJac = R * R / D ** 3;
+          maxJacRelativeError = Math.max(maxJacRelativeError,
+            Math.abs(jac - analyticJac) / analyticJac);
+          const K = cross3([0, 0, omega], r).map(x => sigma * x)
+            as [number, number, number];
+          const dArea = jac * delta * delta;
+          area += dArea;
+          moment += 0.5 * cross3(r, K)[2] * dArea;
+          ix += r[0] ** 2 * dArea;
+          iy += r[1] ** 2 * dArea;
+          iz += r[2] ** 2 * dArea;
+        }
+      }
+    }
+  }
+  if (!(maxJacRelativeError < 2e-12)) {
+    throw new Error("cubed-sphere tangent Jacobian");
+  }
+  return {area, moment, ix, iy, iz, maxJacRelativeError};
+}
+// Grid refinement must converge against the *independently supplied* area
+// normalization 4πR², not against a numerical charge calculated on the
+// same grid (which would hide a common normalization error).
+let previousAreaError = Infinity;
+for (const n of [12, 24, 48, 96]) {
+  const result = c014CubedSphereSurface(3, 4, 2, n);
+  const areaError = Math.abs(result.area / (4 * Math.PI * 4) - 1);
+  const momentError = Math.abs(result.moment / shellMoment(3, 4, 2) - 1);
+  if (!(areaError < previousAreaError && momentError < 4e-3)) {
+    throw new Error("cubed-sphere refinement did not converge");
+  }
+  if (Number.isFinite(previousAreaError) && !(areaError < 0.3 * previousAreaError)) {
+    throw new Error("cubed-sphere rate of convergence");
+  }
+  previousAreaError = areaError;
+  assertNear(result.ix, result.iy, "cubed-sphere x/y moment isotropy", 1e-10);
+  assertNear(result.iy, result.iz, "cubed-sphere y/z moment isotropy", 1e-10);
+}
+for (const [q, w, radius] of [[1, 1, 1], [-2.5, 0.7, 1.3],
+                             [4, -3, 0.25], [3, 0, 2]] as const) {
+  const res = c014CubedSphereSurface(q, w, radius, 96);
+  assertNear(res.area, 4 * Math.PI * radius ** 2,
+    "cubed-sphere intrinsic area", 3.5e-5);
+  assertNear(res.moment, shellMoment(q, w, radius),
+    "cubed-sphere signed magnetic dipole", 3.5e-5);
+}
+for (const [q, w, r] of [[0, 4, 1], [4, 0, 1]] as const) {
+  const result = c014CubedSphereSurface(q, w, r, 24);
+  assertNear(result.moment, 0, "cubed-sphere zero-charge/rotation");
+}
+for (const radius of [-1, 0, Number.NaN]) {
+  let rejected = false;
+  try { c014CubedSphereSurface(1, 1, radius, 12); } catch { rejected = true; }
+  if (!rejected) throw new Error("invalid cubed-sphere radius accepted");
+}
+console.log("NIK0008_C014_CUBED_SPHERE_INDEPENDENT_QUADRATURE=PASS");
+
 console.log("NIK0008_TYPESCRIPT_PASS");
