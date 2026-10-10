@@ -435,6 +435,8 @@ theorem c014_unit_sphere_measure_area :
 open scoped MeasureTheory Pointwise
 
 
+set_option maxHeartbeats 1000000
+
 /--
 C014 / radius scaling of the independently defined Euclidean Hausdorff
 two-dimensional surface measure in the actual Euclidean ℓ² ambient space.
@@ -447,7 +449,6 @@ or identifying μHE[2] with the Haar-induced measure.
 The remaining bridge μHE[2](S₁)=4π and invariance of the coordinate
 second moments remain explicit open obligations of issue #76.
 -/
-set_option maxHeartbeats 1000000 in
 theorem c014_euclidean_hausdorff_sphere_radius_scale
     (R : ℝ) (hR : 0 < R) :
     (μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3)))
