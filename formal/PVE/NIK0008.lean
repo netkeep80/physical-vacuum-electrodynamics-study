@@ -466,4 +466,41 @@ theorem c014_euclidean_hausdorff_sphere_radius_scale
   rw [← hSphere]
   exact MeasureTheory.Measure.euclideanHausdorffMeasure_smul₀ 2 hRne _
 
+
+/--
+For C014, a permutation of the three Cartesian coordinate axes is
+realized by a *genuine Euclidean linear isometry*. The ambient space
+is explicitly EuclideanSpace ℝ (Fin 3), with its ℓ² norm. The proof
+does not substitute the sup-norm on ordinary functions Fin 3 → ℝ.
+-/
+noncomputable def c014_cartesian_axis_permutation (e : Fin 3 ≃ Fin 3) :
+    EuclideanSpace ℝ (Fin 3) ≃ₗᵢ[ℝ] EuclideanSpace ℝ (Fin 3) :=
+  LinearIsometryEquiv.piLpCongrLeft 2 ℝ ℝ e
+
+/--
+The standard *2D Euclidean Hausdorff measure* in ambient 3D Euclidean
+space is invariant under each Cartesian axis permutation. This is a
+measure-theoretic theorem, not a property inferred from numerical tests.
+-/
+theorem c014_axis_permutation_preserves_hausdorff_measure
+    (e : Fin 3 ≃ Fin 3) :
+    MeasureTheory.MeasurePreserving (c014_cartesian_axis_permutation e)
+      (μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3)))
+      (μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3))) := by
+  exact (c014_cartesian_axis_permutation e).toIsometryEquiv
+    |>.measurePreserving_euclideanHausdorffMeasure 2
+
+/--
+Any permutation of coordinate axes maps the actual geometric sphere
+of arbitrary radius R to itself; negative/zero R are allowed here.
+-/
+theorem c014_axis_permutation_preserves_sphere
+    (e : Fin 3 ≃ Fin 3) (R : ℝ) :
+    c014_cartesian_axis_permutation e ''
+      Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R =
+      Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R := by
+  simpa using
+    (c014_cartesian_axis_permutation e).image_sphere
+      (0 : EuclideanSpace ℝ (Fin 3)) R
+
 end PVE.NIK0008
