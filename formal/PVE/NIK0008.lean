@@ -734,13 +734,13 @@ theorem c014_compact_lipschitz_patch_finite_hausdorff_area
     (s : Set (EuclideanSpace ℝ (Fin 2))) (hs : IsCompact s) :
     (μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3)))
       (f '' s) ≠ (⊤ : ENNReal) := by
-  letI : (μH[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 2))).IsAddHaarMeasure := by
+  have hhaar : (μH[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 2))).IsAddHaarMeasure := by
     convert (inferInstance :
       (μH[Module.finrank ℝ (EuclideanSpace ℝ (Fin 2))] :
         MeasureTheory.Measure (EuclideanSpace ℝ (Fin 2))).IsAddHaarMeasure) using 1 <;> simp
   have hsource :
       (μH[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 2))) s < ⊤ :=
-    hs.measure_lt_top
+    hhaar.toIsFiniteMeasureOnCompacts.lt_top_of_isCompact hs
   have himage :
       (μH[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3))) (f '' s) < ⊤ := by
     have hle := hf.hausdorffMeasure_image_le (d := (2 : ℝ)) (by norm_num) s
