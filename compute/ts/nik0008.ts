@@ -131,4 +131,24 @@ for (const [gain, drift, sampleSpeed, magnetSpeed, shift] of hallCases) {
 }
 console.log("NIK0008_C016_HALL_RELATIVE_FRAME_WITNESS=PASS");
 
+
+// C014: independent quadrature after u = cos(theta) verifies the
+// explicit one-dimensional polar integral formalized in Lean.
+function shellMomentPolarNumeric(Q: number, omega: number, R: number, n = 20000): number {
+  const du = 2 / n;
+  let integral = 0;
+  for (let j = 0; j < n; ++j) {
+    const u = -1 + (j + 0.5) * du;
+    integral += (1 - u * u) * du;
+  }
+  return Q * omega * R * R * integral / 4;
+}
+for (const [q, w, radius] of [[1, 1, 1], [3, 4, 2], [-2.5, 0.7, 1.3]] as const) {
+  assertNear(shellMomentPolarNumeric(q, w, radius), shellMoment(q, w, radius),
+    "shell polar integral", 1e-8);
+}
+assertNear(shellMomentPolarNumeric(3, 4, 1) + shellMomentPolarNumeric(-3, 4, 2),
+  capacitorMoment(3, 4, 1, 2), "capacitor polar integral", 1e-8);
+console.log("NIK0008_C014_POLAR_INTEGRAL=PASS");
+
 console.log("NIK0008_TYPESCRIPT_PASS");
