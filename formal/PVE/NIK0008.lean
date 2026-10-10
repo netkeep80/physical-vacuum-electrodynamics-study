@@ -628,7 +628,7 @@ theorem c014_spherical_coordinate_sq_integrable_of_finite_area
   have hs : MeasurableSet s := Metric.isClosed_sphere.measurableSet
   have hcont :
       Continuous (fun x : EuclideanSpace ℝ (Fin 3) => (x i) ^ 2) :=
-    (PiLp.continuous_apply i).pow 2
+    (PiLp.continuous_apply 2 (fun _ : Fin 3 => ℝ) i).pow 2
   have hbound
       (x : EuclideanSpace ℝ (Fin 3)) (hx : x ∈ s) :
       ‖(x i) ^ 2‖ ≤ R ^ 2 := by
