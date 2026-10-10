@@ -785,6 +785,6 @@ theorem c014_unit_sphere_finite_area_of_finite_chart_cover
     exact hpatch i
   have hunion : μ (⋃ i : Fin n, f i '' s i) < ⊤ := by
     simpa using hbi
-  exact (lt_of_le_of_lt (measure_mono hcover) hunion).ne
+  exact (lt_of_le_of_lt (MeasureTheory.measure_mono hcover) hunion).ne
 
 end PVE.NIK0008
