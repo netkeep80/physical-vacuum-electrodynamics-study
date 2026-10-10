@@ -306,4 +306,45 @@ theorem c014_cartesian_surface_density_to_u
   rw [c014_cartesian_density_to_polar sigma omega R t c s u hc htu]
   ring
 
+
+/--
+C014 / pole-cap control. For 0 ≤ eps ≤ 1, the excluded north and south
+polar caps are u ∈ [1-eps,1] and u ∈ [-1,-1+eps]. This computes their
+exact contribution to the already established POLAR integral. It does
+not identify the intrinsic sphere surface measure with its chart measure.
+-/
+noncomputable def c014_polarCapIntegral (eps : ℝ) : ℝ :=
+  (∫ u in (-1 : ℝ)..(-1 + eps), (1 - u^2)) +
+  (∫ u in (1 - eps)..(1 : ℝ), (1 - u^2))
+
+theorem c014_polarCapIntegral_exact (eps : ℝ) :
+    c014_polarCapIntegral eps = 2 * eps^2 - (2 / 3 : ℝ) * eps^3 := by
+  have hsouth :
+      (∫ u in (-1 : ℝ)..(-1 + eps), (1 - u^2)) =
+        eps^2 - eps^3 / 3 := by
+    rw [intervalIntegral.integral_sub
+      (intervalIntegrable_const)
+      (intervalIntegral.intervalIntegrable_pow (2 : ℕ))]
+    rw [integral_one, integral_pow]
+    ring
+  have hnorth :
+      (∫ u in (1 - eps)..(1 : ℝ), (1 - u^2)) =
+        eps^2 - eps^3 / 3 := by
+    rw [intervalIntegral.integral_sub
+      (intervalIntegrable_const)
+      (intervalIntegral.intervalIntegrable_pow (2 : ℕ))]
+    rw [integral_one, integral_pow]
+    ring
+  unfold c014_polarCapIntegral
+  rw [hsouth, hnorth]
+  ring
+
+/-- Pole caps occupy the exact fraction (3/2)eps²-(1/2)eps³ of the
+    normalized full polar magnetic-moment integral 4/3. -/
+theorem c014_polarCapFraction_exact (eps : ℝ) :
+    (3 / 4 : ℝ) * c014_polarCapIntegral eps =
+      (3 / 2 : ℝ) * eps^2 - (1 / 2 : ℝ) * eps^3 := by
+  rw [c014_polarCapIntegral_exact]
+  ring
+
 end PVE.NIK0008

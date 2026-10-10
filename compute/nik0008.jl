@@ -177,4 +177,28 @@ assert_close(shell_moment_cartesian_surface(3.0,4.0,1.0) +
              capacitor_moment(3.0,4.0,1.0,2.0); rtol=1e-5)
 println("NIK0008_C014_3D_SURFACE_CROSS_PRODUCT=PASS")
 
+
+# C014: independent pole-cap quadrature on BOTH ends of u=cos(theta).
+# The exact fraction of the full polar integral is (3/2)eps²-(1/2)eps³.
+# This controls endpoint contributions, but is NOT a Lean surface-measure theorem.
+function c014_polar_cap_fraction_numeric(eps; n=10000)
+    @assert 0.0 <= eps <= 1.0
+    du = eps/n
+    south = 0.0
+    north = 0.0
+    for i in 0:n-1
+        south_u = -1 + (i+0.5)*du
+        north_u = 1-eps + (i+0.5)*du
+        south += (1-south_u^2)*du
+        north += (1-north_u^2)*du
+    end
+    (south+north)/(4/3)
+end
+for cap_eps in (0.0, 0.001, 0.03, 0.2, 1.0)
+    exact = 1.5*cap_eps^2 - 0.5*cap_eps^3
+    assert_close(c014_polar_cap_fraction_numeric(cap_eps), exact;
+                 rtol=1e-6, atol=1e-10)
+end
+println("NIK0008_C014_POLE_CAPS=PASS")
+
 println("NIK0008_JULIA_PASS")
