@@ -3,6 +3,7 @@ import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
 import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
 import Mathlib.Geometry.Euclidean.Volume.Measure
 import Mathlib.Analysis.Normed.Module.Ball.Pointwise
+import Mathlib.MeasureTheory.Integral.Bochner.Basic
 
 namespace PVE.NIK0008
 
@@ -536,5 +537,68 @@ theorem c014_axis_permutation_preserves_restricted_sphere_measure
       rw [MeasureTheory.Measure.restrict_map iso.continuous.measurable hs]
       rw [hpre]
     _ = μ.restrict s := by rw [hbase]
+
+
+/--
+The surface integral of any real-valued function is invariant under
+an axis permutation. This is a **true measure-theoretic change of
+variables**, not an algebraic second-moment assumption. It relies on
+the proved invariance of the *sphere-restricted* Hausdorff measure.
+-/
+theorem c014_spherical_integral_axis_permutation
+    (e : Fin 3 ≃ Fin 3) (R : ℝ)
+    (f : EuclideanSpace ℝ (Fin 3) → ℝ) :
+    (∫ x, f (c014_cartesian_axis_permutation e x)
+      ∂((μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3))).restrict
+        (Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R))) =
+    (∫ x, f x
+      ∂((μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3))).restrict
+        (Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R))) := by
+  exact (c014_axis_permutation_preserves_restricted_sphere_measure e R).integral_comp
+    (c014_cartesian_axis_permutation e).toHomeomorph.measurableEmbedding f
+
+/--
+An axis permutation acts on Euclidean-space coordinates by inverse
+permutation. This uses the ℓ² Euclidean PiLp, not an unnormed function.
+-/
+theorem c014_axis_permutation_coordinate
+    (e : Fin 3 ≃ Fin 3)
+    (x : EuclideanSpace ℝ (Fin 3)) (j : Fin 3) :
+    (c014_cartesian_axis_permutation e x) j = x (e.symm j) := by
+  rfl
+
+/--
+The x², y², z² surface moments of the same *standard* Euclidean
+Hausdorff-restricted sphere measure are pairwise equal for arbitrary
+radius R. This is an unconditional equality of Lean's Bochner integrals;
+finiteness of the mass and explicit unit-sphere normalization remain
+separate mathematical obligations. The statement does not assume
+Ix=Iy=Iz as hypotheses.
+-/
+theorem c014_spherical_second_moments_equal
+    (R : ℝ) (i j : Fin 3) :
+    (∫ x : EuclideanSpace ℝ (Fin 3), (x i)^2
+      ∂((μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3))).restrict
+        (Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R))) =
+    (∫ x : EuclideanSpace ℝ (Fin 3), (x j)^2
+      ∂((μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3))).restrict
+        (Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R))) := by
+  let e : Fin 3 ≃ Fin 3 := Equiv.swap i j
+  have hcoord (x : EuclideanSpace ℝ (Fin 3)) :
+      (c014_cartesian_axis_permutation e x) j = x i := by
+    rw [c014_axis_permutation_coordinate]
+    simp [e]
+  calc
+    (∫ x : EuclideanSpace ℝ (Fin 3), (x i)^2
+      ∂((μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3))).restrict
+        (Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R))) =
+    (∫ x : EuclideanSpace ℝ (Fin 3),
+      ((c014_cartesian_axis_permutation e x) j)^2
+      ∂((μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3))).restrict
+        (Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) R))) := by
+      congr 1
+      funext x
+      rw [hcoord x]
+    _ = _ := c014_spherical_integral_axis_permutation e R (fun x => (x j)^2)
 
 end PVE.NIK0008
