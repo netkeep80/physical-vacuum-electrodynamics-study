@@ -751,4 +751,40 @@ theorem c014_compact_lipschitz_patch_finite_hausdorff_area
   simp only [ENNReal.smul_def, smul_eq_mul]
   exact (ENNReal.mul_lt_top (by simp) himage).ne
 
+/--
+C014: a finite *proved* cover of the genuine Euclidean unit sphere
+by compact planar Lipschitz images suffices for finite normalized
+2-dimensional Euclidean Hausdorff area of the entire sphere.
+
+The covering hypothesis is EXPLICIT. This theorem does not construct
+the six coordinate charts, prove their Lipschitz bounds, or supply
+the absolute area normalization muHE[2](S_1) = 4*pi.
+-/
+theorem c014_unit_sphere_finite_area_of_finite_chart_cover
+    (n : ℕ)
+    (K : Fin n → NNReal)
+    (f : Fin n → EuclideanSpace ℝ (Fin 2) → EuclideanSpace ℝ (Fin 3))
+    (s : Fin n → Set (EuclideanSpace ℝ (Fin 2)))
+    (hs : ∀ i, IsCompact (s i))
+    (hf : ∀ i, LipschitzOnWith (K i) (f i) (s i))
+    (hcover :
+      Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) 1 ⊆
+        ⋃ i : Fin n, f i '' s i) :
+    (μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3)))
+      (Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) 1) ≠
+        (⊤ : ENNReal) := by
+  let μ : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3)) := μHE[2]
+  have hpatch (i : Fin n) : μ (f i '' s i) < ⊤ := by
+    exact lt_top_iff_ne_top.mpr
+      (c014_compact_lipschitz_patch_finite_hausdorff_area
+        (K i) (f i) (s i) (hs i) (hf i))
+  have hbi :
+      μ (⋃ i ∈ (Set.univ : Set (Fin n)), f i '' s i) < ⊤ := by
+    apply MeasureTheory.measure_biUnion_lt_top Set.finite_univ
+    intro i _
+    exact hpatch i
+  have hunion : μ (⋃ i : Fin n, f i '' s i) < ⊤ := by
+    simpa using hbi
+  exact (lt_of_le_of_lt (measure_mono hcover) hunion).ne
+
 end PVE.NIK0008
