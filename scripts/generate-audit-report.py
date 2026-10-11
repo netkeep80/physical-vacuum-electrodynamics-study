@@ -453,7 +453,7 @@ def build_pdf(model: dict[str, Any], coverage: dict[str, Any]) -> bytes:
             vrows = [[Paragraph("Контур", styles["small_bold"]), Paragraph("Состояние", styles["small_bold"])]]
             for track, state in verification_matrix(claim, evidence_by_id):
                 vrows.append([Paragraph(ptext(track), styles["small"]), Paragraph(ptext(state), styles["small"])])
-            vtable = Table(vrows, colWidths=[35*mm, 141*mm], repeatRows=1)
+            vtable = Table(vrows, colWidths=[35*mm, 141*mm], repeatRows=1, splitInRow=1)
             vtable.setStyle(TableStyle([
                 ("GRID", (0, 0), (-1, -1), 0.25, colors.grey),
                 ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#F7F7F7")),
