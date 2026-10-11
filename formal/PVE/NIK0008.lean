@@ -3,6 +3,7 @@ import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
 import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
 import Mathlib.Geometry.Euclidean.Volume.Measure
 import Mathlib.Analysis.Normed.Module.Ball.Pointwise
+import Mathlib.Analysis.Normed.Module.Normalize
 import Mathlib.MeasureTheory.Integral.Bochner.Basic
 import Mathlib.MeasureTheory.Integral.IntegrableOn
 
@@ -1173,7 +1174,7 @@ theorem c014_radial_first_positive_raw_inverse
   fin_cases i <;>
     simp [c014_radial_first_positive_raw,
       c014_radial_first_positive_inverse_parameter,
-      smul_eq_mul, div_eq_mul_inv, mul_comm, h0]
+      smul_eq_mul, div_eq_mul_inv, h0] <;> ring
 
 /--
 An exact right inverse of the normalized first face on the open
