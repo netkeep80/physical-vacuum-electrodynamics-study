@@ -1097,4 +1097,43 @@ theorem c014_radial_normalize_dist_le_two_of_norm_ge_one
       rw [c014_radial_reciprocal_difference A B hA hB]
     _ ≤ 2 * ‖a - b‖ := by nlinarith
 
+/--
+The explicit first positive radial chart is 2-Lipschitz on the chosen
+compact parameter disk. The proof uses exact Euclidean distance
+preservation of the affine face and the unconditional normalized-vector
+estimate; the disk restriction introduces no additional hypothesis.
+-/
+theorem c014_radial_first_positive_lipschitz_two :
+    LipschitzOnWith 2
+      (fun u : EuclideanSpace ℝ (Fin 2) =>
+        c014_radial_normalize (c014_radial_first_positive_raw u))
+      c014_radial_parameter_disk := by
+  apply LipschitzOnWith.of_dist_le_mul
+  intro u _ v _
+  calc
+    dist (c014_radial_normalize (c014_radial_first_positive_raw u))
+        (c014_radial_normalize (c014_radial_first_positive_raw v)) ≤
+      2 * dist (c014_radial_first_positive_raw u)
+        (c014_radial_first_positive_raw v) :=
+      c014_radial_normalize_dist_le_two_of_norm_ge_one _ _
+        (c014_radial_first_positive_raw_norm_ge_one u)
+        (c014_radial_first_positive_raw_norm_ge_one v)
+    _ = (2 : ℝ≥0) * dist u v := by
+      rw [c014_radial_first_positive_raw_dist_eq]
+      norm_num
+
+/--
+All six concrete signed Cartesian radial charts satisfy the same
+unconditional LipschitzOnWith 2 bound on one common compact domain.
+No sphere-covering hypothesis or area normalization is used.
+-/
+theorem c014_six_radial_charts_lipschitz_two :
+    ∀ (axis : Fin 3) (positive : Bool),
+      LipschitzOnWith 2
+        (fun u : EuclideanSpace ℝ (Fin 2) =>
+          c014_radial_normalize (c014_radial_axis_signed_raw axis positive u))
+        c014_radial_parameter_disk := by
+  exact c014_six_radial_charts_lipschitz_of_first_positive
+    2 c014_radial_parameter_disk c014_radial_first_positive_lipschitz_two
+
 end PVE.NIK0008
