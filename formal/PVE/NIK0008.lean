@@ -1005,6 +1005,6 @@ theorem c014_six_radial_charts_lipschitz_of_first_positive
   apply LipschitzOnWith.of_dist_le_mul
   intro u hu v hv
   rw [c014_radial_any_chart_dist_eq_first_positive]
-  exact hfirst.dist_le_mul hu hv
+  exact hfirst.dist_le_mul u hu v hv
 
 end PVE.NIK0008
