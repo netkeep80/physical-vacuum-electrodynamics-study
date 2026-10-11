@@ -1118,7 +1118,7 @@ theorem c014_radial_first_positive_lipschitz_two :
       c014_radial_normalize_dist_le_two_of_norm_ge_one _ _
         (c014_radial_first_positive_raw_norm_ge_one u)
         (c014_radial_first_positive_raw_norm_ge_one v)
-    _ = (2 : ℝ≥0) * dist u v := by
+    _ = (2 : NNReal) * dist u v := by
       rw [c014_radial_first_positive_raw_dist_eq]
       norm_num
 
