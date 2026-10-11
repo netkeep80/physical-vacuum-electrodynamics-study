@@ -1007,4 +1007,35 @@ theorem c014_six_radial_charts_lipschitz_of_first_positive
   rw [c014_radial_any_chart_dist_eq_first_positive]
   exact hfirst.dist_le_mul u hu v hv
 
+/--
+The affine embedding (u₀,u₁) ↦ (1,u₀,u₁) preserves EXACT
+Euclidean ℓ² distances from the 2D domain to genuine Euclidean 3-space.
+Both sides use EuclideanSpace, never the sup-norm on function spaces.
+-/
+theorem c014_radial_first_positive_raw_dist_eq
+    (u v : EuclideanSpace ℝ (Fin 2)) :
+    dist (c014_radial_first_positive_raw u)
+      (c014_radial_first_positive_raw v) = dist u v := by
+  rw [EuclideanSpace.dist_eq, EuclideanSpace.dist_eq]
+  simp [c014_radial_first_positive_raw, Fin.sum_univ_three, Fin.sum_univ_two]
+
+/-- Flipping the sign of the first affine face preserves exact distances. -/
+theorem c014_radial_first_signed_raw_dist_eq
+    (positive : Bool) (u v : EuclideanSpace ℝ (Fin 2)) :
+    dist (c014_radial_first_signed_raw positive u)
+      (c014_radial_first_signed_raw positive v) = dist u v := by
+  cases positive <;>
+    simpa [c014_radial_first_signed_raw] using
+      (c014_radial_first_positive_raw_dist_eq u v)
+
+/-- All six affine sources are Euclidean isometric embeddings of ℝ². -/
+theorem c014_radial_axis_signed_raw_dist_eq
+    (axis : Fin 3) (positive : Bool)
+    (u v : EuclideanSpace ℝ (Fin 2)) :
+    dist (c014_radial_axis_signed_raw axis positive u)
+      (c014_radial_axis_signed_raw axis positive v) = dist u v := by
+  rw [c014_radial_axis_signed_raw, c014_radial_axis_signed_raw,
+    LinearIsometryEquiv.dist_map]
+  exact c014_radial_first_signed_raw_dist_eq positive u v
+
 end PVE.NIK0008
