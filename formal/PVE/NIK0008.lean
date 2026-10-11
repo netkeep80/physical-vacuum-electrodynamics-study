@@ -1251,4 +1251,84 @@ theorem c014_radial_first_positive_dominant_patch_cover
     c014_radial_first_positive_inverse_mem_disk x hx0 h1 h2,
     c014_radial_first_positive_inverse_on_unit_sphere x hx hx0⟩
 
+/--
+The negative dominant first-coordinate patch is covered by the
+NEGATIVE signed radial face. Its parameters are those of -x, not
+an incorrectly unsigned raw triple.
+-/
+theorem c014_radial_first_negative_dominant_patch_cover
+    (x : EuclideanSpace ℝ (Fin 3))
+    (hx : ‖x‖ = 1) (hx0 : x 0 < 0)
+    (h1 : |x 1| ≤ -(x 0)) (h2 : |x 2| ≤ -(x 0)) :
+    x ∈
+      (fun u : EuclideanSpace ℝ (Fin 2) =>
+        c014_radial_normalize (c014_radial_first_signed_raw false u)) ''
+          c014_radial_parameter_disk := by
+  have hnegNorm : ‖-x‖ = 1 := by simpa using hx
+  have hnegZero : 0 < (-x) 0 := by simpa using (neg_pos.mpr hx0)
+  have hnegOne : |(-x) 1| ≤ (-x) 0 := by simpa using h1
+  have hnegTwo : |(-x) 2| ≤ (-x) 0 := by simpa using h2
+  obtain ⟨u, hu, heq⟩ :=
+    c014_radial_first_positive_dominant_patch_cover
+      (-x) hnegNorm hnegZero hnegOne hnegTwo
+  refine ⟨u, hu, ?_⟩
+  have h := congrArg Neg.neg heq
+  simpa [c014_radial_first_signed_raw, c014_radial_normalize_neg] using h
+
+/--
+A compact first-axis signed chart patch transfers exactly under
+the Euclidean isometry that swaps axis 0 with the requested axis.
+The transfer changes no parameters and assumes no sphere measure.
+-/
+theorem c014_radial_axis_chart_image_of_first_signed_image
+    (axis : Fin 3) (positive : Bool)
+    (x : EuclideanSpace ℝ (Fin 3))
+    (hx : x ∈
+      (fun u : EuclideanSpace ℝ (Fin 2) =>
+        c014_radial_normalize (c014_radial_first_signed_raw positive u)) ''
+          c014_radial_parameter_disk) :
+    c014_cartesian_axis_permutation (Equiv.swap (0 : Fin 3) axis) x ∈
+      (fun u : EuclideanSpace ℝ (Fin 2) =>
+        c014_radial_normalize (c014_radial_axis_signed_raw axis positive u)) ''
+          c014_radial_parameter_disk := by
+  obtain ⟨u, hu, heq⟩ := hx
+  refine ⟨u, hu, ?_⟩
+  change c014_radial_normalize
+      (c014_radial_axis_signed_raw axis positive u) =
+    c014_cartesian_axis_permutation (Equiv.swap (0 : Fin 3) axis) x
+  rw [c014_radial_axis_chart_eq_permuted_first]
+  exact congrArg
+    (c014_cartesian_axis_permutation (Equiv.swap (0 : Fin 3) axis)) heq
+
+/--
+Every positive dominant first-axis patch transfers to the corresponding
+positive patch in the actual permuted Euclidean space.
+-/
+theorem c014_radial_axis_positive_dominant_patch_cover
+    (axis : Fin 3) (y : EuclideanSpace ℝ (Fin 3))
+    (hy : ‖y‖ = 1) (hy0 : 0 < y 0)
+    (h1 : |y 1| ≤ y 0) (h2 : |y 2| ≤ y 0) :
+    c014_cartesian_axis_permutation (Equiv.swap (0 : Fin 3) axis) y ∈
+      (fun u : EuclideanSpace ℝ (Fin 2) =>
+        c014_radial_normalize (c014_radial_axis_signed_raw axis true u)) ''
+          c014_radial_parameter_disk := by
+  apply c014_radial_axis_chart_image_of_first_signed_image
+  simpa [c014_radial_first_signed_raw] using
+    (c014_radial_first_positive_dominant_patch_cover y hy hy0 h1 h2)
+
+/--
+Every negative dominant first-axis patch transfers to the
+corresponding negative patch after an exact axis permutation.
+-/
+theorem c014_radial_axis_negative_dominant_patch_cover
+    (axis : Fin 3) (y : EuclideanSpace ℝ (Fin 3))
+    (hy : ‖y‖ = 1) (hy0 : y 0 < 0)
+    (h1 : |y 1| ≤ -(y 0)) (h2 : |y 2| ≤ -(y 0)) :
+    c014_cartesian_axis_permutation (Equiv.swap (0 : Fin 3) axis) y ∈
+      (fun u : EuclideanSpace ℝ (Fin 2) =>
+        c014_radial_normalize (c014_radial_axis_signed_raw axis false u)) ''
+          c014_radial_parameter_disk := by
+  apply c014_radial_axis_chart_image_of_first_signed_image
+  exact c014_radial_first_negative_dominant_patch_cover y hy hy0 h1 h2
+
 end PVE.NIK0008
