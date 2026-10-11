@@ -949,4 +949,62 @@ theorem c014_radial_axis_chart_dist_eq_first
     c014_radial_axis_chart_eq_permuted_first]
   exact LinearIsometryEquiv.dist_map _ _ _
 
+/--
+Radial normalization changes sign exactly, including the zero vector
+under the totalized norm inverse convention.
+-/
+theorem c014_radial_normalize_neg
+    (v : EuclideanSpace ℝ (Fin 3)) :
+    c014_radial_normalize (-v) = -c014_radial_normalize v := by
+  simp [c014_radial_normalize]
+
+/--
+The first negative face is the pointwise negative of the first positive
+face. Its Euclidean pairwise distances are therefore exactly equal to
+those of the positive chart, with the SAME parameter coordinates.
+-/
+theorem c014_radial_first_signed_dist_eq_positive
+    (positive : Bool) (u v : EuclideanSpace ℝ (Fin 2)) :
+    dist
+      (c014_radial_normalize (c014_radial_first_signed_raw positive u))
+      (c014_radial_normalize (c014_radial_first_signed_raw positive v)) =
+    dist
+      (c014_radial_normalize (c014_radial_first_positive_raw u))
+      (c014_radial_normalize (c014_radial_first_positive_raw v)) := by
+  cases positive <;>
+    simp [c014_radial_first_signed_raw, c014_radial_normalize_neg]
+
+/-- Distances for ALL six charts equal those of a single positive chart. -/
+theorem c014_radial_any_chart_dist_eq_first_positive
+    (axis : Fin 3) (positive : Bool)
+    (u v : EuclideanSpace ℝ (Fin 2)) :
+    dist
+      (c014_radial_normalize (c014_radial_axis_signed_raw axis positive u))
+      (c014_radial_normalize (c014_radial_axis_signed_raw axis positive v)) =
+    dist
+      (c014_radial_normalize (c014_radial_first_positive_raw u))
+      (c014_radial_normalize (c014_radial_first_positive_raw v)) := by
+  rw [c014_radial_axis_chart_dist_eq_first]
+  exact c014_radial_first_signed_dist_eq_positive positive u v
+
+/--
+A single Lipschitz bound on the explicit first positive radial chart
+suffices for all six signed Cartesian charts, with NO constant loss.
+The hypothesis is explicit: this is a transfer theorem, not a proof
+of the first chart's Lipschitz constant.
+-/
+theorem c014_six_radial_charts_lipschitz_of_first_positive
+    (K : NNReal) (s : Set (EuclideanSpace ℝ (Fin 2)))
+    (hfirst : LipschitzOnWith K
+      (fun u => c014_radial_normalize (c014_radial_first_positive_raw u)) s) :
+    ∀ (axis : Fin 3) (positive : Bool),
+      LipschitzOnWith K
+        (fun u => c014_radial_normalize (c014_radial_axis_signed_raw axis positive u))
+        s := by
+  intro axis positive
+  apply LipschitzOnWith.of_dist_le_mul
+  intro u hu v hv
+  rw [c014_radial_any_chart_dist_eq_first_positive]
+  exact hfirst.dist_le_mul u hu v hv
+
 end PVE.NIK0008
