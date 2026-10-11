@@ -1038,4 +1038,102 @@ theorem c014_radial_axis_signed_raw_dist_eq
     LinearIsometryEquiv.dist_map]
   exact c014_radial_first_signed_raw_dist_eq positive u v
 
+/--
+Pure real reciprocal identity for the radial estimate. Both
+denominators are strictly positive; no division by zero is hidden.
+-/
+private theorem c014_radial_reciprocal_difference
+    (A B : ℝ) (hA : 0 < A) (hB : 0 < B) :
+    |A⁻¹ - B⁻¹| * B = A⁻¹ * |A - B| := by
+  have hA0 : A ≠ 0 := ne_of_gt hA
+  have hB0 : B ≠ 0 := ne_of_gt hB
+  have heq : A⁻¹ - B⁻¹ = (B - A) / (A * B) := by
+    field_simp
+  rw [heq, abs_div, abs_mul, abs_of_pos hA, abs_of_pos hB, abs_sub_comm]
+  field_simp
+
+/--
+Radial normalization is globally 2-Lipschitz on the region where
+the actual Euclidean norms of both input vectors are at least one.
+No sphere area, surface integral, or coordinate chart is assumed.
+-/
+theorem c014_radial_normalize_dist_le_two_of_norm_ge_one
+    (a b : EuclideanSpace ℝ (Fin 3))
+    (ha : 1 ≤ ‖a‖) (hb : 1 ≤ ‖b‖) :
+    dist (c014_radial_normalize a) (c014_radial_normalize b) ≤
+      2 * dist a b := by
+  let A : ℝ := ‖a‖
+  let B : ℝ := ‖b‖
+  have hA : 0 < A := lt_of_lt_of_le zero_lt_one ha
+  have hB : 0 < B := lt_of_lt_of_le zero_lt_one hb
+  have hAinvNonneg : 0 ≤ A⁻¹ := le_of_lt (inv_pos.mpr hA)
+  have hAinvLe : A⁻¹ ≤ 1 := (inv_le_one₀ hA).mpr ha
+  have hreverse : |A - B| ≤ ‖a - b‖ := by
+    simpa [A, B] using (abs_norm_sub_norm_le a b)
+  have hdecomp :
+      c014_radial_normalize a - c014_radial_normalize b =
+        A⁻¹ • (a - b) + (A⁻¹ - B⁻¹) • b := by
+    dsimp [c014_radial_normalize, A, B]
+    rw [smul_sub, sub_smul]
+    abel
+  have htriangle :
+      ‖c014_radial_normalize a - c014_radial_normalize b‖ ≤
+        A⁻¹ * ‖a - b‖ + |A⁻¹ - B⁻¹| * B := by
+    rw [hdecomp]
+    calc
+      _ ≤ ‖A⁻¹ • (a - b)‖ + ‖(A⁻¹ - B⁻¹) • b‖ :=
+        norm_add_le _ _
+      _ = A⁻¹ * ‖a - b‖ + |A⁻¹ - B⁻¹| * B := by
+        rw [norm_smul, norm_smul]
+        simp only [Real.norm_eq_abs, abs_of_nonneg hAinvNonneg, B]
+  have hbound : A⁻¹ * |A - B| ≤ A⁻¹ * ‖a - b‖ :=
+    mul_le_mul_of_nonneg_left hreverse hAinvNonneg
+  have hscale : A⁻¹ * ‖a - b‖ ≤ ‖a - b‖ := by
+    simpa using mul_le_mul_of_nonneg_right hAinvLe (norm_nonneg (a - b))
+  rw [dist_eq_norm, dist_eq_norm]
+  calc
+    _ ≤ A⁻¹ * ‖a - b‖ + |A⁻¹ - B⁻¹| * B := htriangle
+    _ = A⁻¹ * ‖a - b‖ + A⁻¹ * |A - B| := by
+      rw [c014_radial_reciprocal_difference A B hA hB]
+    _ ≤ 2 * ‖a - b‖ := by nlinarith
+
+/--
+The explicit first positive radial chart is 2-Lipschitz on the chosen
+compact parameter disk. The proof uses exact Euclidean distance
+preservation of the affine face and the unconditional normalized-vector
+estimate; the disk restriction introduces no additional hypothesis.
+-/
+theorem c014_radial_first_positive_lipschitz_two :
+    LipschitzOnWith 2
+      (fun u : EuclideanSpace ℝ (Fin 2) =>
+        c014_radial_normalize (c014_radial_first_positive_raw u))
+      c014_radial_parameter_disk := by
+  apply LipschitzOnWith.of_dist_le_mul
+  intro u _ v _
+  calc
+    dist (c014_radial_normalize (c014_radial_first_positive_raw u))
+        (c014_radial_normalize (c014_radial_first_positive_raw v)) ≤
+      2 * dist (c014_radial_first_positive_raw u)
+        (c014_radial_first_positive_raw v) :=
+      c014_radial_normalize_dist_le_two_of_norm_ge_one _ _
+        (c014_radial_first_positive_raw_norm_ge_one u)
+        (c014_radial_first_positive_raw_norm_ge_one v)
+    _ = (2 : NNReal) * dist u v := by
+      rw [c014_radial_first_positive_raw_dist_eq]
+      norm_num
+
+/--
+All six concrete signed Cartesian radial charts satisfy the same
+unconditional LipschitzOnWith 2 bound on one common compact domain.
+No sphere-covering hypothesis or area normalization is used.
+-/
+theorem c014_six_radial_charts_lipschitz_two :
+    ∀ (axis : Fin 3) (positive : Bool),
+      LipschitzOnWith 2
+        (fun u : EuclideanSpace ℝ (Fin 2) =>
+          c014_radial_normalize (c014_radial_axis_signed_raw axis positive u))
+        c014_radial_parameter_disk := by
+  exact c014_six_radial_charts_lipschitz_of_first_positive
+    2 c014_radial_parameter_disk c014_radial_first_positive_lipschitz_two
+
 end PVE.NIK0008
