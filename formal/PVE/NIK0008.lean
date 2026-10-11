@@ -1049,10 +1049,8 @@ private theorem c014_radial_reciprocal_difference
   have hB0 : B ≠ 0 := ne_of_gt hB
   have heq : A⁻¹ - B⁻¹ = (B - A) / (A * B) := by
     field_simp
-    <;> ring
   rw [heq, abs_div, abs_mul, abs_of_pos hA, abs_of_pos hB, abs_sub_comm]
   field_simp
-  <;> ring
 
 /--
 Radial normalization is globally 2-Lipschitz on the region where
@@ -1087,7 +1085,7 @@ theorem c014_radial_normalize_dist_le_two_of_norm_ge_one
         norm_add_le _ _
       _ = A⁻¹ * ‖a - b‖ + |A⁻¹ - B⁻¹| * B := by
         rw [norm_smul, norm_smul]
-        simp [Real.norm_eq_abs, abs_of_nonneg hAinvNonneg, B]
+        simp only [Real.norm_eq_abs, abs_of_nonneg hAinvNonneg]
   have hbound : A⁻¹ * |A - B| ≤ A⁻¹ * ‖a - b‖ :=
     mul_le_mul_of_nonneg_left hreverse hAinvNonneg
   have hscale : A⁻¹ * ‖a - b‖ ≤ ‖a - b‖ := by
