@@ -1293,7 +1293,12 @@ theorem c014_radial_axis_chart_image_of_first_signed_image
           c014_radial_parameter_disk := by
   obtain ⟨u, hu, heq⟩ := hx
   refine ⟨u, hu, ?_⟩
-  rw [c014_radial_axis_chart_eq_permuted_first, heq]
+  change c014_radial_normalize
+      (c014_radial_axis_signed_raw axis positive u) =
+    c014_cartesian_axis_permutation (Equiv.swap (0 : Fin 3) axis) x
+  rw [c014_radial_axis_chart_eq_permuted_first]
+  exact congrArg
+    (c014_cartesian_axis_permutation (Equiv.swap (0 : Fin 3) axis)) heq
 
 /--
 Every positive dominant first-axis patch transfers to the corresponding
