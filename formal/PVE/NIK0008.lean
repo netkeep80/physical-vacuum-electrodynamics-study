@@ -1191,4 +1191,64 @@ theorem c014_radial_first_positive_inverse_on_unit_sphere
   exact c014_radial_normalize_pos_smul_unit x hx _
     (inv_pos.mpr hx0)
 
+/--
+A square [-1,1] × [-1,1] is contained in the genuine closed Euclidean
+disk of radius 2, using the l2 norm (not the function supremum norm).
+-/
+theorem c014_radial_parameter_disk_of_coordinate_bounds
+    (u : EuclideanSpace ℝ (Fin 2))
+    (h0 : |u 0| ≤ 1) (h1 : |u 1| ≤ 1) :
+    u ∈ c014_radial_parameter_disk := by
+  have h0sq : (u 0) ^ 2 ≤ 1 := by
+    nlinarith [sq_abs (u 0),
+      mul_nonneg (abs_nonneg (u 0)) (sub_nonneg.mpr h0)]
+  have h1sq : (u 1) ^ 2 ≤ 1 := by
+    nlinarith [sq_abs (u 1),
+      mul_nonneg (abs_nonneg (u 1)) (sub_nonneg.mpr h1)]
+  have hnorm :
+      ‖u‖ = Real.sqrt ((u 0) ^ 2 + (u 1) ^ 2) := by
+    rw [EuclideanSpace.norm_eq, Fin.sum_univ_two]
+    simp [Real.norm_eq_abs, sq_abs]
+  change dist u 0 ≤ (2 : ℝ)
+  rw [dist_zero_right, hnorm]
+  exact (Real.sqrt_le_iff).mpr
+    ⟨by norm_num, by nlinarith⟩
+
+/--
+The explicit inverse parameter of the positive first face lies in
+the common compact disk whenever x₀>0 dominates |x₁| and |x₂|.
+-/
+theorem c014_radial_first_positive_inverse_mem_disk
+    (x : EuclideanSpace ℝ (Fin 3))
+    (hx0 : 0 < x 0)
+    (h1 : |x 1| ≤ x 0) (h2 : |x 2| ≤ x 0) :
+    c014_radial_first_positive_inverse_parameter x ∈
+      c014_radial_parameter_disk := by
+  have hdiv1 : |x 1 / x 0| ≤ 1 := by
+    rw [abs_div, abs_of_pos hx0]
+    exact (div_le_iff₀ hx0).mpr h1
+  have hdiv2 : |x 2 / x 0| ≤ 1 := by
+    rw [abs_div, abs_of_pos hx0]
+    exact (div_le_iff₀ hx0).mpr h2
+  apply c014_radial_parameter_disk_of_coordinate_bounds
+  · simpa [c014_radial_first_positive_inverse_parameter] using hdiv1
+  · simpa [c014_radial_first_positive_inverse_parameter] using hdiv2
+
+/--
+The first radial face covers its entire dominant positive hemisphere
+patch with an actual compact-disk parameter. The other five patches
+and the global covering theorem still require separate formal proofs.
+-/
+theorem c014_radial_first_positive_dominant_patch_cover
+    (x : EuclideanSpace ℝ (Fin 3))
+    (hx : ‖x‖ = 1) (hx0 : 0 < x 0)
+    (h1 : |x 1| ≤ x 0) (h2 : |x 2| ≤ x 0) :
+    x ∈
+      (fun u : EuclideanSpace ℝ (Fin 2) =>
+        c014_radial_normalize (c014_radial_first_positive_raw u)) ''
+          c014_radial_parameter_disk := by
+  exact ⟨c014_radial_first_positive_inverse_parameter x,
+    c014_radial_first_positive_inverse_mem_disk x hx0 h1 h2,
+    c014_radial_first_positive_inverse_on_unit_sphere x hx hx0⟩
+
 end PVE.NIK0008
