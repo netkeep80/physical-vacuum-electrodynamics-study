@@ -1331,4 +1331,101 @@ theorem c014_radial_axis_negative_dominant_patch_cover
   apply c014_radial_axis_chart_image_of_first_signed_image
   exact c014_radial_first_negative_dominant_patch_cover y hy hy0 h1 h2
 
+/--
+Every genuine unit vector in three-dimensional Euclidean space has an
+index of maximal ABSOLUTE coordinate, and that coordinate is nonzero.
+The proof uses only a finite maximum and ‖x‖=1, not spherical area.
+-/
+theorem c014_unit_sphere_exists_max_abs_coordinate
+    (x : EuclideanSpace ℝ (Fin 3)) (hx : ‖x‖ = 1) :
+    ∃ axis : Fin 3, 0 < |x axis| ∧ ∀ i : Fin 3, |x i| ≤ |x axis| := by
+  classical
+  obtain ⟨axis, _, hmax⟩ :=
+    Finset.exists_max_image (Finset.univ : Finset (Fin 3))
+      (fun i : Fin 3 => |x i|) Finset.univ_nonempty
+  refine ⟨axis, ?_, fun i => hmax i (Finset.mem_univ i)⟩
+  by_contra hzero
+  have haxis : |x axis| = 0 :=
+    le_antisymm (le_of_not_gt hzero) (abs_nonneg _)
+  have hall (i : Fin 3) : x i = 0 := by
+    have hi := hmax i (Finset.mem_univ i)
+    have hz : |x i| = 0 := le_antisymm (by simpa [haxis] using hi) (abs_nonneg _)
+    exact abs_eq_zero.mp hz
+  have hxzero : x = 0 := by
+    ext i
+    exact hall i
+  simp [hxzero] at hx
+
+/--
+The inverse of the exact coordinate-swap linear isometry pulls the
+coordinate indexed by i back from the original index swap(0,axis)(i).
+Both sides have the genuine EuclideanSpace type.
+-/
+theorem c014_axis_permutation_symm_coordinate
+    (axis i : Fin 3) (x : EuclideanSpace ℝ (Fin 3)) :
+    ((c014_cartesian_axis_permutation (Equiv.swap (0 : Fin 3) axis)).symm x) i =
+      x ((Equiv.swap (0 : Fin 3) axis) i) := by
+  simp [c014_cartesian_axis_permutation, Equiv.piCongrLeft', Equiv.symm_swap]
+
+/--
+Every point of the actual unit metric sphere is covered by one of six
+concrete, signed Euclidean radial chart images of the common compact
+disk. This proves a TRUE global cover, not an assumed cover hypothesis.
+-/
+theorem c014_six_radial_charts_cover_unit_sphere
+    (x : EuclideanSpace ℝ (Fin 3))
+    (hx : x ∈ Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) 1) :
+    ∃ (axis : Fin 3) (positive : Bool),
+      x ∈ (fun u : EuclideanSpace ℝ (Fin 2) =>
+        c014_radial_normalize
+          (c014_radial_axis_signed_raw axis positive u)) ''
+        c014_radial_parameter_disk := by
+  have hxnorm : ‖x‖ = 1 := by
+    simpa only [Metric.mem_sphere, dist_zero_right] using hx
+  obtain ⟨axis, haxis, hmax⟩ :=
+    c014_unit_sphere_exists_max_abs_coordinate x hxnorm
+  let p := c014_cartesian_axis_permutation (Equiv.swap (0 : Fin 3) axis)
+  let y := p.symm x
+  have hy : ‖y‖ = 1 := by
+    simpa only [y, LinearIsometryEquiv.norm_map] using hxnorm
+  have hyback : p y = x := p.apply_symm_apply x
+  have hycoord (i : Fin 3) :
+      y i = x ((Equiv.swap (0 : Fin 3) axis) i) := by
+    exact c014_axis_permutation_symm_coordinate axis i x
+  have h0 : |y 0| = |x axis| := by
+    rw [hycoord 0]
+    simp
+  have hy0 : 0 < |y 0| := by simpa only [h0] using haxis
+  have h1 : |y 1| ≤ |y 0| := by
+    calc
+      |y 1| = |x ((Equiv.swap (0 : Fin 3) axis) 1)| := by rw [hycoord 1]
+      _ ≤ |x axis| := hmax _
+      _ = |y 0| := h0.symm
+  have h2 : |y 2| ≤ |y 0| := by
+    calc
+      |y 2| = |x ((Equiv.swap (0 : Fin 3) axis) 2)| := by rw [hycoord 2]
+      _ ≤ |x axis| := hmax _
+      _ = |y 0| := h0.symm
+  rcases lt_trichotomy (y 0) 0 with hneg | heq | hpos
+  · have h1neg : |y 1| ≤ -(y 0) := by simpa [abs_of_neg hneg] using h1
+    have h2neg : |y 2| ≤ -(y 0) := by simpa [abs_of_neg hneg] using h2
+    have hcov :=
+      c014_radial_axis_negative_dominant_patch_cover
+        axis y hy hneg h1neg h2neg
+    refine ⟨axis, false, ?_⟩
+    rw [show c014_cartesian_axis_permutation
+      (Equiv.swap (0 : Fin 3) axis) y = x from hyback] at hcov
+    exact hcov
+  · have : |y 0| = 0 := by simp [heq]
+    linarith
+  · have h1pos : |y 1| ≤ y 0 := by simpa [abs_of_pos hpos] using h1
+    have h2pos : |y 2| ≤ y 0 := by simpa [abs_of_pos hpos] using h2
+    have hcov :=
+      c014_radial_axis_positive_dominant_patch_cover
+        axis y hy hpos h1pos h2pos
+    refine ⟨axis, true, ?_⟩
+    rw [show c014_cartesian_axis_permutation
+      (Equiv.swap (0 : Fin 3) axis) y = x from hyback] at hcov
+    exact hcov
+
 end PVE.NIK0008
