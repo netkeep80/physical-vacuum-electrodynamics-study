@@ -1428,4 +1428,54 @@ theorem c014_six_radial_charts_cover_unit_sphere
       (Equiv.swap (0 : Fin 3) axis) y = x from hyback] at hcov
     exact hcov
 
+/--
+The true Euclidean unit sphere in three dimensions has UNCONDITIONALLY
+FINITE two-dimensional Euclidean Hausdorff measure.
+
+Proof architecture: use the already proved six-chart global cover,
+compactness of the explicit planar disk, and the actual LipschitzOnWith 2
+bounds; reindex six signed Cartesian charts by Fin 6 and discharge every
+hypothesis of the accepted finite-cover measure theorem.
+
+This proves only μHE[2](S²) ≠ ⊤. It DOES NOT infer the separate
+absolute normalization μHE[2](S²) = 4π or any physical surface integral.
+-/
+theorem c014_unit_sphere_finite_hausdorff_area_unconditional :
+    (μHE[2] : MeasureTheory.Measure (EuclideanSpace ℝ (Fin 3)))
+      (Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) 1) ≠
+      (⊤ : ENNReal) := by
+  classical
+  let e : Fin 6 ≃ Fin 3 × Bool :=
+    Fintype.equivOfCardEq (by decide)
+  let f : Fin 6 →
+      EuclideanSpace ℝ (Fin 2) → EuclideanSpace ℝ (Fin 3) :=
+    fun i u =>
+      c014_radial_normalize
+        (c014_radial_axis_signed_raw (e i).1 (e i).2 u)
+  let s : Fin 6 → Set (EuclideanSpace ℝ (Fin 2)) :=
+    fun _ => c014_radial_parameter_disk
+  have hs : ∀ i : Fin 6, IsCompact (s i) := by
+    intro i
+    exact c014_radial_parameter_disk_compact
+  have hf : ∀ i : Fin 6, LipschitzOnWith (2 : NNReal) (f i) (s i) := by
+    intro i
+    exact c014_six_radial_charts_lipschitz_two (e i).1 (e i).2
+  have hcover :
+      Metric.sphere (0 : EuclideanSpace ℝ (Fin 3)) 1 ⊆
+        ⋃ i : Fin 6, f i '' s i := by
+    intro x hx
+    obtain ⟨axis, positive, u, hu, heq⟩ :=
+      c014_six_radial_charts_cover_unit_sphere x hx
+    apply Set.mem_iUnion.mpr
+    refine ⟨e.symm (axis, positive), ?_⟩
+    refine ⟨u, hu, ?_⟩
+    change c014_radial_normalize
+        (c014_radial_axis_signed_raw
+          (e (e.symm (axis, positive))).1
+          (e (e.symm (axis, positive))).2 u) = x
+    rw [e.apply_symm_apply]
+    exact heq
+  exact c014_unit_sphere_finite_area_of_finite_chart_cover
+    6 (fun _ => (2 : NNReal)) f s hs hf hcover
+
 end PVE.NIK0008
