@@ -1085,7 +1085,7 @@ theorem c014_radial_normalize_dist_le_two_of_norm_ge_one
         norm_add_le _ _
       _ = A⁻¹ * ‖a - b‖ + |A⁻¹ - B⁻¹| * B := by
         rw [norm_smul, norm_smul]
-        simp only [Real.norm_eq_abs, abs_of_nonneg hAinvNonneg]
+        simp only [Real.norm_eq_abs, abs_of_nonneg hAinvNonneg, B]
   have hbound : A⁻¹ * |A - B| ≤ A⁻¹ * ‖a - b‖ :=
     mul_le_mul_of_nonneg_left hreverse hAinvNonneg
   have hscale : A⁻¹ * ‖a - b‖ ≤ ‖a - b‖ := by
