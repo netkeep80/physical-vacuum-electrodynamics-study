@@ -1226,10 +1226,10 @@ theorem c014_radial_first_positive_inverse_mem_disk
       c014_radial_parameter_disk := by
   have hdiv1 : |x 1 / x 0| ≤ 1 := by
     rw [abs_div, abs_of_pos hx0]
-    exact (div_le_iff₀ hx0).mpr h1
+    exact (div_le_iff₀ hx0).mpr (by simpa only [one_mul] using h1)
   have hdiv2 : |x 2 / x 0| ≤ 1 := by
     rw [abs_div, abs_of_pos hx0]
-    exact (div_le_iff₀ hx0).mpr h2
+    exact (div_le_iff₀ hx0).mpr (by simpa only [one_mul] using h2)
   apply c014_radial_parameter_disk_of_coordinate_bounds
   · simpa [c014_radial_first_positive_inverse_parameter] using hdiv1
   · simpa [c014_radial_first_positive_inverse_parameter] using hdiv2
