@@ -1136,4 +1136,58 @@ theorem c014_six_radial_charts_lipschitz_two :
   exact c014_six_radial_charts_lipschitz_of_first_positive
     2 c014_radial_parameter_disk c014_radial_first_positive_lipschitz_two
 
+/--
+A positive radial scaling of a unit vector normalizes back to the
+ORIGINAL unit vector. This step uses only the genuine Euclidean norm
+and never invokes a surface-area normalization.
+-/
+theorem c014_radial_normalize_pos_smul_unit
+    (x : EuclideanSpace ℝ (Fin 3)) (hx : ‖x‖ = 1)
+    (t : ℝ) (ht : 0 < t) :
+    c014_radial_normalize (t • x) = x := by
+  change NormedSpace.normalize (t • x) = x
+  rw [NormedSpace.normalize_smul_of_pos ht]
+  exact NormedSpace.normalize_eq_self_of_norm_eq_one hx
+
+/--
+The UNIQUE concrete parameter for the positive first-coordinate
+radial face, when the first coordinate of x is nonzero.
+The parameter is not yet asserted to belong to the compact disk.
+-/
+noncomputable def c014_radial_first_positive_inverse_parameter
+    (x : EuclideanSpace ℝ (Fin 3)) : EuclideanSpace ℝ (Fin 2) :=
+  !₂[x 1 / x 0, x 2 / x 0]
+
+/--
+Algebraic reconstruction of the raw first face from a positive
+first coordinate: raw(parameter(x)) = (x₀)⁻¹ • x.
+No bounds on the 2D parameter are assumed or silently inserted.
+-/
+theorem c014_radial_first_positive_raw_inverse
+    (x : EuclideanSpace ℝ (Fin 3)) (hx0 : 0 < x 0) :
+    c014_radial_first_positive_raw
+        (c014_radial_first_positive_inverse_parameter x) =
+      (x 0)⁻¹ • x := by
+  have h0 : x 0 ≠ 0 := ne_of_gt hx0
+  ext i
+  fin_cases i <;>
+    simp [c014_radial_first_positive_raw,
+      c014_radial_first_positive_inverse_parameter,
+      smul_eq_mul, div_eq_mul_inv, mul_comm, h0]
+
+/--
+An exact right inverse of the normalized first face on the open
+positive-coordinate hemisphere. The compact-domain membership is a
+separate remaining obligation for the finite-cover theorem.
+-/
+theorem c014_radial_first_positive_inverse_on_unit_sphere
+    (x : EuclideanSpace ℝ (Fin 3))
+    (hx : ‖x‖ = 1) (hx0 : 0 < x 0) :
+    c014_radial_normalize
+      (c014_radial_first_positive_raw
+        (c014_radial_first_positive_inverse_parameter x)) = x := by
+  rw [c014_radial_first_positive_raw_inverse x hx0]
+  exact c014_radial_normalize_pos_smul_unit x hx _
+    (inv_pos.mpr hx0)
+
 end PVE.NIK0008
